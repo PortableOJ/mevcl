@@ -30,6 +30,8 @@
         <InputFile v-model="inputFile" placeholder="test" multiple></InputFile>
 
         <inputImage v-model="inputImageFile"></inputImage>
+
+        <GlobalLoading style="display: none"></GlobalLoading>
     </div>
 </template>
 
@@ -43,10 +45,12 @@ import InputFile from "./components/InputFile";
 import InputImage from "./components/InputImage";
 import Button from "./components/Button";
 import BackgroundLink from "./components/BackgroundLink";
+import GlobalLoading from "./components/GlobalLoading";
 
 export default {
     name: 'App',
     components: {
+        GlobalLoading,
         BackgroundLink,
         Button,
         InputImage,
