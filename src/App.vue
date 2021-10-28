@@ -30,7 +30,7 @@
                 {{ scope.data.label + 'abc' }}
             </template>
             <template v-slot:body-name="scope">
-                <Link>
+                <Link :disabled="scope.data.name === 'a'">
                     {{ scope.data.name + 'abc' }}
                 </Link>
                 <Button @click="click">TEST</Button>
