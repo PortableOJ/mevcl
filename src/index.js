@@ -8,7 +8,7 @@ import InputDateTime from "./components/InputDateTime";
 import InputFile from "./components/InputFile";
 import InputImage from "./components/InputImage";
 import Button from "./components/Button";
-import BackgroundLink from "./components/BackgroundLink";
+import BackgroundLink from "./components/Link";
 
 export default {
     MiniLoading,

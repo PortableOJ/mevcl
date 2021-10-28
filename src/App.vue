@@ -11,17 +11,11 @@
         <Button @click="click" :process="process">TEST</Button>
         <Button @click="click">TEST</Button>
 
-        ABC
-        <BackgroundLink disabled @click="click">TEST</BackgroundLink>
-        ABC ABC
-        <BackgroundLink @click="click">TEST</BackgroundLink>
-        ABC
-
         <InputSelect v-model="select" placeholder="test" :data="selectOption" disabled></InputSelect>
         <InputSelect v-model="select" placeholder="test" :data="selectOption"></InputSelect>
 
         <InputSlider v-model="sliderValue" disabled></InputSlider>
-        <InputSlider v-model="sliderValue" :valueFormat="v => parseInt(v)" :showValue="false"></InputSlider>
+        <InputSlider v-model="sliderValue" :valueFormat="v => ''"></InputSlider>
 
         <InputDateTime v-model="dateTimeValue" placeholder="test" disabled></InputDateTime>
         <InputDateTime v-model="dateTimeValue" placeholder="test"></InputDateTime>
@@ -30,6 +24,19 @@
         <InputFile v-model="inputFile" placeholder="test" multiple></InputFile>
 
         <inputImage v-model="inputImageFile"></inputImage>
+
+        <Table :head="tableHead" :data="tableData">
+            <template v-slot:head-name="scope">
+                {{ scope.data.label + 'abc' }}
+            </template>
+            <template v-slot:body-name="scope">
+                <Link>
+                    {{ scope.data.name + 'abc' }}
+                </Link>
+                <Button @click="click">TEST</Button>
+                <Button @click="click">TEST</Button>
+            </template>
+        </Table>
 
         <GlobalLoading style="display: none"></GlobalLoading>
     </div>
@@ -44,14 +51,16 @@ import InputDateTime from "./components/InputDateTime";
 import InputFile from "./components/InputFile";
 import InputImage from "./components/InputImage";
 import Button from "./components/Button";
-import BackgroundLink from "./components/BackgroundLink";
+import Link from "./components/Link";
 import GlobalLoading from "./components/GlobalLoading";
+import Table from "./components/Table";
 
 export default {
     name: 'App',
     components: {
+        Table,
         GlobalLoading,
-        BackgroundLink,
+        Link,
         Button,
         InputImage,
         InputFile,
@@ -102,6 +111,32 @@ export default {
             inputImageFile: null,
             loading: true,
             process: 0.38,
+            tableHead: [
+                {
+                    label: 'name',
+                    value: 'name',
+                    width: '300',
+                },
+                {
+                    label: 'value',
+                    value: 'value',
+                    width: '100',
+                }
+            ],
+            tableData: [
+                {
+                    name: 'a',
+                    value: 123
+                },
+                {
+                    name: 'b',
+                    value: 456
+                },
+                {
+                    name: 'c',
+                    value: 789
+                }
+            ]
         }
     },
     methods: {

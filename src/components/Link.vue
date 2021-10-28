@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name: "BackgroundLink",
+    name: "Link",
     props: {
         disabled: {
             type: Boolean,
