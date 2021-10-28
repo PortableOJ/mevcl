@@ -120,7 +120,8 @@
         curValue -= Math.min(5, curValue - maxValue)
         process.style.clipPath = 'inset(0 ' + curValue + '% 0 0)'
         if (curValue === 0) {
-            document.getElementById('appLoading').style.top = '-100%';
+            // document.getElementById('appLoading').style.top = '-100%';
+            document.getElementById('appLoading').style.transform = 'scale(2)';
             document.getElementById('appLoading').style.opacity = '0';
             document.getElementById('appShow').style.opacity = '1';
             setTimeout(() => {
