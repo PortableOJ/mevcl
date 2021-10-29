@@ -15,7 +15,7 @@
         <InputSelect v-model="select" placeholder="test" :data="selectOption"></InputSelect>
 
         <InputSlider v-model="sliderValue" disabled></InputSlider>
-        <InputSlider v-model="sliderValue" :valueFormat="v => ''"></InputSlider>
+        <InputSlider v-model="sliderValue" :valueFormat="() => ''"></InputSlider>
 
         <InputDateTime v-model="dateTimeValue" placeholder="test" disabled></InputDateTime>
         <InputDateTime v-model="dateTimeValue" placeholder="test"></InputDateTime>
@@ -35,6 +35,7 @@
                 </Link>
                 <Button @click="click">TEST</Button>
                 <Button @click="click">TEST</Button>
+                <i class="iconfont icon-zhankai"></i>
             </template>
         </Table>
 
@@ -54,6 +55,13 @@ import Button from "./components/Button";
 import Link from "./components/Link";
 import GlobalLoading from "./components/GlobalLoading";
 import Table from "./components/Table";
+
+import './static/style.css'
+
+import Vue from "vue";
+import MEVCL from './index'
+
+Vue.use(MEVCL)
 
 export default {
     name: 'App',
@@ -141,7 +149,11 @@ export default {
     },
     methods: {
         click() {
-            console.log('clicked')
+            this.$toast({
+                title: 'abc',
+                text: '123',
+                duration: 3000
+            })
         }
     }
 }
