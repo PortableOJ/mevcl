@@ -1,6 +1,6 @@
 <template>
     <div class="toast-box" ref="box">
-        <div class="toast-button" style="left: 0" @click="destroy">
+        <div class="toast-button" style="left: 0" @click="destroy(true)">
             <i class="iconfont icon-zhankai"></i>
         </div>
         <div class="toast-show">
@@ -32,16 +32,16 @@ export default {
     created() {
         if (this.duration > 0) {
             this.timeout = setTimeout(() => {
-                this.destroy()
+                this.destroy(false)
             }, this.duration)
         }
     },
     methods: {
-        destroy() {
+        destroy(forces) {
             if (this.timeout !== null) {
                 clearTimeout(this.timeout)
             }
-            if (this.hold) {
+            if (this.hold && !forces) {
                 return
             }
             this.$refs.box.style.marginLeft = '300px'
