@@ -1,22 +1,27 @@
 <template>
-    <div class="toast-box" ref="box">
+    <div class="toast-box" ref="box" :style="getTendencyStyle()">
         <div class="toast-button" style="left: 0" @click="destroy(true)">
-            <i class="iconfont icon-zhankai"></i>
+            <i class="iconfont icon-spread"></i>
         </div>
         <div class="toast-show">
-            <div v-html="title" class="toast-title">
+            <div style="display: inline-block">
+                <i :class="'iconfont icon-' + type" style="font-size: 20px"></i>
             </div>
-            <div v-html="text" class="toast-text">
+            <div style="display: inline-block; margin-left: 10px">
+                <div v-html="title" class="toast-title">
+                </div>
+                <div v-html="text" class="toast-text">
+                </div>
             </div>
         </div>
         <div v-if="!hold && duration > 0" class="toast-button" style="right: 0" @click="hold = true">
-            <i class="iconfont icon-zhongjianjian"></i>
+            <i class="iconfont icon-focus"></i>
         </div>
     </div>
 </template>
 
 <script>
-import '../../static/style.css'
+import Common from '../../static/common'
 
 export default {
     name: "Toast",
@@ -26,10 +31,12 @@ export default {
             text: '',
             duration: 0,
             timeout: null,
+            type: null,
+
             hold: false
         }
     },
-    created() {
+    mounted() {
         if (this.duration > 0) {
             this.timeout = setTimeout(() => {
                 this.destroy(false)
@@ -49,6 +56,9 @@ export default {
             setTimeout(() => {
                 this.$refs.box.style.display = 'none';
             }, 600)
+        },
+        getTendencyStyle() {
+            return Common.getTendencyStyle(this.type)
         }
     }
 }
@@ -65,7 +75,6 @@ export default {
     margin: 15px 10px;
     border-radius: 10px;
     box-shadow: var(--focus-shadowbox);
-    background-color: var(--white-color);
     transition: 0.5s ease all;
     animation: toast-show 2s ease forwards;
 }
@@ -87,7 +96,7 @@ export default {
 }
 
 .toast-button:hover {
-    background-color: var(--border-color-level-3);
+    background-color: var(--border-color-level-1);
 }
 
 .toast-button:hover > i {
@@ -95,17 +104,24 @@ export default {
 }
 
 .toast-show {
-    display: inline-block;
+    padding: 15px 0;
+    margin: 0 35px;
+}
+
+.toast-show * {
     vertical-align: middle;
-    padding: 15px 5px;
-    margin: 0 45px;
+    display: inline-block;
 }
 
 .toast-title {
+    display: block;
     font-weight: 700;
     font-size: 16px;
-    color: #303133;
     margin: 0;
+}
+
+.toast-text {
+    display: block;
 }
 
 @keyframes toast-show {

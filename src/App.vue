@@ -35,7 +35,7 @@
                 </Link>
                 <Button @click="click">TEST</Button>
                 <Button @click="click">TEST</Button>
-                <i class="iconfont icon-zhankai"></i>
+                <i class="iconfont icon-spread"></i>
             </template>
         </Table>
 
@@ -152,7 +152,8 @@ export default {
             this.$toast({
                 title: 'abc',
                 text: '123',
-                duration: 3000
+                duration: 3000,
+                type: ''
             })
         }
     }
