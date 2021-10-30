@@ -21,7 +21,7 @@
         <InputDateTime v-model="dateTimeValue" placeholder="test"></InputDateTime>
 
         <InputFile v-model="inputFile" placeholder="test" disabled></InputFile>
-        <InputFile v-model="inputFile" placeholder="test" multiple></InputFile>
+        <InputFile v-model="inputFile" placeholder="test" multiple accept="image/*"></InputFile>
 
         <inputImage v-model="inputImageFile"></inputImage>
 

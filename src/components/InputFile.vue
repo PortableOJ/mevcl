@@ -1,7 +1,7 @@
 <template>
     <div class="input-box">
         <input class="input-control" type="file" ref="input" :multiple="multiple"
-               @change="change" required :readonly="readOnly" :disabled="disabled">
+               @change="change" required :readonly="readOnly" :disabled="disabled" :accept="accept">
         <input class="input-fake" type="text" v-model="inputValue" readonly
                :class="inputValue !== '' ? 'input-control-not-null' : ''" :disabled="disabled"/>
         <label class="input-label">{{ placeholder }}</label>
