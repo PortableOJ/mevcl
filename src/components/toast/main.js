@@ -11,7 +11,7 @@ const toast = function () {
 
     const clearToast = function () {
         toastList = toastList.filter(item => {
-            if (item.$el.style.display === 'none') {
+            if (item.$el.style.opacity === '0') {
                 toastContainer.removeChild(item.$el)
                 item.$destroy()
                 return false

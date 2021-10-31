@@ -1,21 +1,19 @@
 <template>
     <div class="toast-box" ref="box" :style="getTendencyStyle()">
-        <div class="toast-button" style="left: 0" @click="destroy(true)">
-            <i class="iconfont icon-spread"></i>
+        <div class="toast-button" style="left: 0" @click="destroy(true)" @mouseenter="hoverClose = true" @mouseleave="hoverClose = false">
+            <i v-if="hoverClose" class="iconfont icon-spread"></i>
+            <i v-else :class="'iconfont icon-' + type"></i>
         </div>
         <div class="toast-show">
-            <div style="display: inline-block">
-                <i :class="'iconfont icon-' + type" style="font-size: 20px"></i>
-            </div>
-            <div style="display: inline-block; margin-left: 10px">
+            <div>
                 <div v-html="title" class="toast-title">
                 </div>
                 <div v-html="text" class="toast-text">
                 </div>
             </div>
         </div>
-        <div v-if="!hold && duration > 0" class="toast-button" style="right: 0" @click="hold = true">
-            <i class="iconfont icon-focus"></i>
+        <div v-if="!hold && duration > 0" class="toast-button" style="right: 0" @click="hold = true" @mouseenter="hoverClose = true" @mouseleave="hoverClose = false">
+            <i v-if="hoverClose" class="iconfont icon-focus"></i>
         </div>
     </div>
 </template>
@@ -30,15 +28,19 @@ export default {
             title: '',
             text: '',
             duration: 0,
-            timeout: null,
             type: null,
 
+            timeout: null,
+            hoverClose: false,
             hold: false
         }
     },
     created() {
         setTimeout(() => {
             this.$refs.box.style.height = this.$refs.box.clientHeight + 'px'
+            if (this.duration === 'auto') {
+                this.duration = Math.max(3000, (this.title.length + this.text.length) * 200)
+            }
             if (this.duration > 0) {
                 this.timeout = setTimeout(() => {
                     this.destroy(false)
@@ -56,14 +58,12 @@ export default {
             }
             const box = this.$refs.box
             box.style.marginLeft = '300px'
-            box.style.opacity = '0'
             box.style.height = '0'
             box.style.paddingTop = '0'
             box.style.paddingBottom = '0'
-            box.style.marginTop = '0'
-            box.style.marginBottom = '0'
+            box.style.marginTop = '-15px'
             setTimeout(() => {
-                this.$refs.box.style.display = 'none';
+                this.$refs.box.style.opacity = '0';
             }, 600)
         },
         getTendencyStyle() {
@@ -100,7 +100,8 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
-    color: var(--disable-text-color);
+    font-size: 20px;
+    /*color: var(--disable-text-color);*/
     transform: translate(-50%, -50%);
 }
 

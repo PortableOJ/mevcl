@@ -1,9 +1,15 @@
+const tendency = ['success', 'warning', 'error', 'info']
+
 const getLightTypeColor = (name) => {
-    return 'var(--light-' + name + '-color)'
+    if (tendency.indexOf(name) !== -1)
+        return 'var(--light-' + name + '-color)'
+    return 'var(--white-color)'
 }
 
 const getTypeColor = (name) => {
-    return 'var(--' + name + '-color)'
+    if (tendency.indexOf(name) !== -1)
+        return 'var(--' + name + '-color)'
+    return 'var(--text-color)'
 }
 
 const getTendencyStyle = (name) => {
