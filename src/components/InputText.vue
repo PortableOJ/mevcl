@@ -69,6 +69,7 @@ export default {
     height: 100%;
     border: 1px solid var(--transparent-color);
     border-bottom: 1px solid var(--border-color-level-3);
+    border-radius: 5px;
     background-color: var(--white-color);
     padding: 0 0 0 10px;
     outline: 0;

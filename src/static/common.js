@@ -1,24 +1,21 @@
+const theme = ['brand', 'success', 'warning', 'error', 'info', 'brand']
 const tendency = ['success', 'warning', 'error', 'info']
 
-const getLightTypeColor = (name) => {
-    if (tendency.indexOf(name) !== -1)
-        return 'var(--light-' + name + '-color)'
-    return 'var(--white-color)'
+const getThemeClass = (name) => {
+    if (theme.indexOf(name) !== -1) {
+        return name + '-theme theme'
+    }
+    return 'normal-theme'
 }
 
-const getTypeColor = (name) => {
-    if (tendency.indexOf(name) !== -1)
-        return 'var(--' + name + '-color)'
-    return 'var(--text-color)'
-}
-
-const getTendencyStyle = (name) => {
-    return 'color: ' + getTypeColor(name) + ';' +
-        'background-color: ' + getLightTypeColor(name) + ';'
+const getTendencyClass = (name) => {
+    if (tendency.indexOf(name) !== -1) {
+        return name + '-tendency '
+    }
+    return 'normal-tendency '
 }
 
 export default {
-    getLightTypeColor,
-    getTypeColor,
-    getTendencyStyle
+    getThemeClass,
+    getTendencyClass,
 }

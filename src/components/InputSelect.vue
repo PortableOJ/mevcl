@@ -4,7 +4,7 @@
                :class="inputValue !== '' ? 'input-control-not-null' : ''" :disabled="disabled"/>
         <label class="input-label">{{ placeholder }}</label>
         <span class="underline"></span>
-        <div class="overlay" v-show="openSelectOption" @click="openSelectOption = false"></div>
+        <div class="global-check" v-show="openSelectOption" @click="openSelectOption = false"></div>
         <div :class="'select-option-box' + (openSelectOption ? ' select-option-box-show' : '') ">
             <ul class="select-option-list">
                 <li v-for="item in data" :key="item.value" class="select-option" @click="clickOption(item)">

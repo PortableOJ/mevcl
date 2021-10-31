@@ -35,7 +35,7 @@ body {
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
 }
 
-.overlay {
+.global-check {
     position: fixed;
     z-index: 2048;
     width: 100%;
@@ -43,6 +43,96 @@ body {
     left: 0;
     top: 0;
     transition: 0.2s ease all;
-    /*background-color: var(--overlay-color);*/
     background-color: var(--transparent-color);
+}
+
+.overlay {
+    position: fixed;
+    z-index: 4096;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: 0.2s ease all;
+    background-color: var(--overlay-color);
+}
+
+.normal-theme {
+    color: var(--text-color);
+    background-color: var(--white-color);
+}
+
+.normal-theme:disabled {
+    cursor: not-allowed;
+    background-color: var(--border-color-level-3);
+    color: var(--disable-text-color);
+}
+
+.normal-theme-down {
+    background-color: var(--border-color-level-4);
+}
+
+.theme {
+    opacity: 0.8;
+    color: var(--white-color);
+}
+
+.theme:hover {
+    opacity: 0.6;
+}
+
+.theme:disabled {
+    cursor: not-allowed;
+    background-color: var(--border-color-level-3);
+    color: var(--disable-text-color);
+}
+
+.theme-down {
+    opacity: 1;
+    color: var(--white-color);
+}
+
+.success-theme {
+    background-color: var(--success-color);
+}
+
+.warning-theme {
+    background-color: var(--warning-color);
+}
+
+.error-theme {
+    background-color: var(--error-color);
+}
+
+.info-theme {
+    background-color: var(--info-color);
+}
+
+.brand-theme {
+    background-color: var(--brand-color);
+}
+
+.normal-tendency {
+    color: var(--text-color);
+    background-color: var(--white-color);
+}
+
+.success-tendency {
+    color: var(--success-color);
+    background-color: var(--light-success-color);
+}
+
+.warning-tendency {
+    color: var(--warning-color);
+    background-color: var(--light-warning-color);
+}
+
+.error-tendency {
+    color: var(--error-color);
+    background-color: var(--light-error-color);
+}
+
+.info-tendency {
+    color: var(--info-color);
+    background-color: var(--light-info-color);
 }

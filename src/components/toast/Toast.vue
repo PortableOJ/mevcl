@@ -1,6 +1,7 @@
 <template>
-    <div class="toast-box" ref="box" :style="getTendencyStyle()">
-        <div class="toast-button" style="left: 0" @click="destroy(true)" @mouseenter="hoverClose = true" @mouseleave="hoverClose = false">
+    <div class="toast-box" ref="box" :class="getTendencyClass()">
+        <div class="toast-button" style="left: 0" @click="destroy(true)"
+             @mouseenter="hoverClose = true" @mouseleave="hoverClose = false">
             <i v-if="hoverClose" class="iconfont icon-spread"></i>
             <i v-else :class="'iconfont icon-' + type"></i>
         </div>
@@ -12,8 +13,8 @@
                 </div>
             </div>
         </div>
-        <div v-if="!hold && duration > 0" class="toast-button" style="right: 0" @click="hold = true" @mouseenter="hoverClose = true" @mouseleave="hoverClose = false">
-            <i v-if="hoverClose" class="iconfont icon-focus"></i>
+        <div v-if="!hold && duration > 0" class="toast-button" style="right: 0" @click="hold = true">
+            <i class="iconfont icon-focus"></i>
         </div>
     </div>
 </template>
@@ -66,8 +67,8 @@ export default {
                 this.$refs.box.style.opacity = '0';
             }, 600)
         },
-        getTendencyStyle() {
-            return Common.getTendencyStyle(this.type)
+        getTendencyClass() {
+            return Common.getTendencyClass(this.type)
         }
     }
 }
@@ -116,6 +117,7 @@ export default {
 .toast-show {
     padding: 15px 0;
     margin: 0 35px;
+    line-break: anywhere;
 }
 
 .toast-show * {

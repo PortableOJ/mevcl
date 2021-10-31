@@ -1,7 +1,7 @@
 <template>
     <div class="input-box">
         <button
-            :class="process !== null ? 'input-control-process' : (mouseDown ? 'input-control-down' : 'input-control')"
+            :class="'input-control ' + getThemeClass() + (mouseDown ? '-down ' : ' ') + (process !== null ? ' input-control-process' : '')"
             @mousedown="mouseDown = true" @mouseup="mouseDown = false" @click="click"
             :disabled="disabled || loading || process !== null">
             <MiniLoading v-if="loading"></MiniLoading>
@@ -20,9 +20,10 @@
 
 <script>
 import MiniLoading from "../basic/MiniLoading";
+import Common from "../static/common"
 
 export default {
-    name: "Button",
+    name: "InputButton",
     components: {
         MiniLoading
     },
@@ -38,6 +39,10 @@ export default {
         process: {
             type: Number,
             default: null
+        },
+        type: {
+            type: String,
+            default: 'brand',
         }
     },
     data() {
@@ -53,15 +58,20 @@ export default {
                 clearInterval(this.processValueEase)
             }
         })
-        this.processValueEase = setInterval(() => {
-            this.showProcessValue += (this.process * 100 - this.showProcessValue > 0 ? 1 : -1)
-                * Math.min(Math.abs(this.process * 100 - this.showProcessValue), 5);
-            this.showProcessValue = parseInt(this.showProcessValue)
-        }, 50)
+        if (process !== null) {
+            this.processValueEase = setInterval(() => {
+                this.showProcessValue += (this.process * 100 - this.showProcessValue > 0 ? 1 : -1)
+                    * Math.min(Math.abs(this.process * 100 - this.showProcessValue), 5);
+                this.showProcessValue = parseInt(this.showProcessValue)
+            }, 50)
+        }
     },
     methods: {
         click() {
             this.$emit('click');
+        },
+        getThemeClass() {
+            return Common.getThemeClass(this.type)
         }
     }
 }
@@ -84,8 +94,6 @@ export default {
     outline: 0;
     border-radius: 20px;
     transition: 0.2s ease all;
-    background-color: var(--brand-color);
-    color: var(--white-color);
     border: 1px solid var(--border-color-level-3);
     cursor: pointer;
 }
@@ -119,57 +127,14 @@ export default {
     text-align: center;
 }
 
-.input-control-down {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    margin: 1px;
-    outline: 0;
-    border-radius: 20px;
-    transition: 0.2s ease all;
-    background-color: var(--deep-brand-color);
-    color: var(--white-color);
-    border: 1px solid var(--border-color-level-3);
-    cursor: pointer;
-}
-
-/*hover*/
-.input-control:hover {
-    background-color: var(--light-brand-color);
-    border: 1px solid var(--brand-color);
-}
-
-/*focus*/
-.input-control:focus {
-    box-shadow: var(--focus-shadowbox);
-    border: 1px solid var(--brand-color);
-}
-
-/*disabled*/
-.input-control:disabled {
-    cursor: not-allowed;
-    background-color: var(--border-color-level-3);
-    color: var(--disable-text-color);
-}
-
 .input-control-process:disabled {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    margin: 1px;
-    outline: 0;
-    border-radius: 20px;
-    transition: 0.2s ease all;
-    border: 1px solid var(--border-color-level-3);
     cursor: not-allowed;
     background-color: var(--transparent-color);
     color: var(--disable-text-color);
 }
 
 .input-control-process:hover {
-    border: 1px solid var(--brand-color);
+    border: 1px solid var(--border-color-level-1);
 }
 
 </style>

@@ -43,8 +43,5 @@ const toast = function () {
 const install = toast()
 
 export default {
-    install,
-
-    Toast,
-    ToastContainer,
+    install
 }

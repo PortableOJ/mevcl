@@ -7,11 +7,12 @@ import InputSlider from "./components/InputSlider";
 import InputDateTime from "./components/InputDateTime";
 import InputFile from "./components/InputFile";
 import InputImage from "./components/InputImage";
-import Button from "./components/Button";
+import InputButton from "./components/InputButton";
 import Link from "./components/Link";
 import Table from "./components/Table";
 import GlobalLoading from "./components/GlobalLoading";
 
+import MessageBox from "./components/messageBox/main";
 import Toast from "./components/toast/main";
 
 const components = [
@@ -23,7 +24,7 @@ const components = [
     InputDateTime,
     InputFile,
     InputImage,
-    Button,
+    InputButton,
     Link,
     Table,
     GlobalLoading,
@@ -35,6 +36,7 @@ const install = function (Vue) {
     })
 
     Vue.use(Toast)
+    Vue.use(MessageBox)
 }
 
 export default {
@@ -49,7 +51,7 @@ export default {
     InputDateTime,
     InputFile,
     InputImage,
-    Button,
+    InputButton,
     Link,
     Table,
     GlobalLoading,

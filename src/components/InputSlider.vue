@@ -5,7 +5,7 @@
         <div ref="handle" class="handle" @mousedown="startDrag" @touchstart="startTouch">
             12
         </div>
-        <div class="overlay" v-if="isDrag" style="cursor: grabbing"></div>
+        <div class="global-check" v-if="isDrag" style="cursor: grabbing"></div>
     </div>
 </template>
 
