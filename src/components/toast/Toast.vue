@@ -36,12 +36,15 @@ export default {
             hold: false
         }
     },
-    mounted() {
-        if (this.duration > 0) {
-            this.timeout = setTimeout(() => {
-                this.destroy(false)
-            }, this.duration)
-        }
+    created() {
+        setTimeout(() => {
+            this.$refs.box.style.height = this.$refs.box.clientHeight + 'px'
+            if (this.duration > 0) {
+                this.timeout = setTimeout(() => {
+                    this.destroy(false)
+                }, this.duration)
+            }
+        }, 600)
     },
     methods: {
         destroy(forces) {
@@ -51,8 +54,14 @@ export default {
             if (this.hold && !forces) {
                 return
             }
-            this.$refs.box.style.marginLeft = '300px'
-            this.$refs.box.style.opacity = '0'
+            const box = this.$refs.box
+            box.style.marginLeft = '300px'
+            box.style.opacity = '0'
+            box.style.height = '0'
+            box.style.paddingTop = '0'
+            box.style.paddingBottom = '0'
+            box.style.marginTop = '0'
+            box.style.marginBottom = '0'
             setTimeout(() => {
                 this.$refs.box.style.display = 'none';
             }, 600)
