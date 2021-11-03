@@ -6,10 +6,10 @@
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
 
-        <Button disabled @click="click">TEST</Button>
-        <Button @click="click" :loading="loading">TEST</Button>
-        <Button @click="click" :process="process">TEST</Button>
-        <Button @click="click">TEST</Button>
+        <InputButton disabled @click="click">TEST</InputButton>
+        <InputButton @click="click" :loading="loading">TEST</InputButton>
+        <InputButton @click="click" :process="process">TEST</InputButton>
+        <InputButton @click="click">TEST</InputButton>
 
         <InputSelect v-model="select" placeholder="test" :data="selectOption" disabled></InputSelect>
         <InputSelect v-model="select" placeholder="test" :data="selectOption"></InputSelect>
@@ -25,6 +25,7 @@
 
         <inputImage v-model="inputImageFile"></inputImage>
 
+        <Alert>ABC</Alert>
         <Table :head="tableHead" :data="tableData">
             <template v-slot:head-name="scope">
                 {{ scope.data.label + 'abc' }}
@@ -33,8 +34,8 @@
                 <Link :disabled="scope.data.name === 'a'">
                     {{ scope.data.name + 'abc' }}
                 </Link>
-                <Button @click="click">TEST</Button>
-                <Button @click="click">TEST</Button>
+                <InputButton @click="msg">TEST</InputButton>
+                <InputButton @click="msg">TEST</InputButton>
                 <i class="iconfont icon-spread"></i>
             </template>
         </Table>
@@ -51,7 +52,7 @@ import InputSlider from "./components/InputSlider";
 import InputDateTime from "./components/InputDateTime";
 import InputFile from "./components/InputFile";
 import InputImage from "./components/InputImage";
-import Button from "./components/Button";
+import InputButton from "./components/InputButton";
 import Link from "./components/Link";
 import GlobalLoading from "./components/GlobalLoading";
 import Table from "./components/Table";
@@ -60,16 +61,18 @@ import './static/style.css'
 
 import Vue from "vue";
 import MEVCL from './index'
+import Alert from "./components/Alert";
 
 Vue.use(MEVCL)
 
 export default {
     name: 'App',
     components: {
+        Alert,
         Table,
         GlobalLoading,
         Link,
-        Button,
+        InputButton,
         InputImage,
         InputFile,
         InputDateTime,
@@ -150,10 +153,23 @@ export default {
     methods: {
         click() {
             this.$toast({
-                title: 'abc',
-                text: '123',
-                duration: 3000,
-                type: ''
+                title: 'ABC',
+                text: 'abc',
+                duration: 'auto',
+                type: 'success'
+            })
+        },
+        msg() {
+            this.$message({
+                text: 'ABC',
+                type: 'error',
+                input: true,
+                confirmOK: (v) => {
+                    console.log(v)
+                },
+                confirmCancel:  (v) => {
+                    console.log(v)
+                },
             })
         }
     }
