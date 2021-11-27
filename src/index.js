@@ -1,19 +1,19 @@
 import MiniLoading from "./basic/MiniLoading";
 
-import InputText from "./components/InputText";
-import InputCheckbox from "./components/InputCheckbox";
-import InputSelect from "./components/InputSelect";
-import InputSlider from "./components/InputSlider";
-import InputDateTime from "./components/InputDateTime";
-import InputFile from "./components/InputFile";
-import InputImage from "./components/InputImage";
-import InputButton from "./components/InputButton";
-import Link from "./components/Link";
-import Table from "./components/Table";
-import GlobalLoading from "./components/GlobalLoading";
+import InputText from "./components/v1/InputText";
+import InputCheckbox from "./components/v1/InputCheckbox";
+import InputSelect from "./components/v1/InputSelect";
+import InputSlider from "./components/v1/InputSlider";
+import InputDateTime from "./components/v1/InputDateTime";
+import InputFile from "./components/v1/InputFile";
+import InputImage from "./components/v1/InputImage";
+import InputButton from "./components/v1/InputButton";
+import Link from "./components/v1/Link";
+import Table from "./components/v1/Table";
+import GlobalLoading from "./components/v1/GlobalLoading";
 
-import MessageBox from "./components/messageBox/main";
-import Toast from "./components/toast/main";
+import MessageBox from "./components/v1/messageBox/main";
+import Toast from "./components/v1/toast/main";
 
 const components = [
     MiniLoading,

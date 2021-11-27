@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Common from '../../static/common'
+import Common from '../../../static/common'
 
 export default {
     name: "Toast",

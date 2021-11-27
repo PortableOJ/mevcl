@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Common from '../static/common'
+import Common from '../../static/common'
 
 export default {
     name: "Alert",
@@ -30,7 +30,7 @@ export default {
         },
         closeAlert() {
             let box = this.$refs.box
-            box.style.left = '100%'
+            box.style.opacity = '0'
             setTimeout(() => {
                 box.style.display = 'none'
                 this.$emit('close')
@@ -43,12 +43,12 @@ export default {
 <style scoped>
 .alert-box {
     position: relative;
-    left: 0;
     width: 100%;
     height: auto;
     padding: 5px 0;
     animation: alert-show 1s ease forwards;
     transition: 1s ease all;
+    opacity: 1;
 }
 
 .alert-text {
@@ -65,18 +65,15 @@ export default {
     display: inline-block;
     width: 20px;
     margin: 0 10px;
-}
-
-.alert-close:hover {
     cursor: pointer;
 }
 
 @keyframes alert-show {
     0% {
-        width: 0;
+        transform: scaleX(0);
     }
     100% {
-        width: 100%;
+        transform: scaleX(1);
     }
 }
 

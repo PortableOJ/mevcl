@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import MiniLoading from "../basic/MiniLoading";
-import Common from "../static/common"
+import MiniLoading from "../../basic/MiniLoading";
+import Common from "../../static/common"
 
 export default {
     name: "InputButton",

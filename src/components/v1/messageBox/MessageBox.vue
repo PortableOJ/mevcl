@@ -26,7 +26,7 @@
 
 <script>
 import InputButton from "../InputButton";
-import Common from "../../static/common"
+import Common from "../../../static/common"
 import InputText from "../InputText";
 
 export default {
@@ -66,12 +66,13 @@ export default {
     width: 400px;
     min-height: 100px;
     text-align: center;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 15px;
     box-shadow: var(--open-shadowbox);
     overflow: hidden;
-    animation: message-box-show 0.5s ease forwards;
+    animation: message-box-show 0.3s ease forwards;
 }
 
 .message-icon {
@@ -109,10 +110,10 @@ export default {
 
 @keyframes message-box-show {
     0% {
-        top: 40%;
+        transform: translate(-50%, -50%) scale(0);
     }
     100% {
-        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 </style>

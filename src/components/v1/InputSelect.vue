@@ -1,14 +1,14 @@
 <template>
     <div class="input-box">
         <input class="input-control" type="text" v-model="inputLabel" @click="openSelectOption = true" readonly
-               :class="inputValue !== '' ? 'input-control-not-null' : ''" :disabled="disabled"/>
+               :class="{'input-control-not-null' : inputValue !== ''}" :disabled="disabled"/>
         <label class="input-label">{{ placeholder }}</label>
         <span class="underline"></span>
         <div class="global-check" v-show="openSelectOption" @click="openSelectOption = false"></div>
         <div :class="'select-option-box' + (openSelectOption ? ' select-option-box-show' : '') ">
             <ul class="select-option-list">
                 <li v-for="item in data" :key="item.value" class="select-option" @click="clickOption(item)">
-                    <span :class="item.value === inputValue ? 'select-option-on': ''">
+                    <span :class="{'select-option-on': item.value === inputValue}">
                         {{ item.label }}
                     </span>
                 </li>
@@ -55,6 +55,7 @@ export default {
     },
     watch: {
         value(v) {
+            if (v === this.inputValue) return
             this.inputValue = this.data.find(d => d.value === v)
             this.inputLabel = this.inputValue === undefined ? '' : this.inputValue.label
             this.inputValue = this.inputValue === undefined ? '' : this.inputValue.value

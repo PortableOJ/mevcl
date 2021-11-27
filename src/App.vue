@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavMenu :options="selectOption" :value="select"></NavMenu>
+        <NavMenu :options="selectOption" v-model="select"></NavMenu>
 
         <InputText v-model="input" placeholder="test" type="text" disabled></InputText>
         <InputText v-model="input" placeholder="test" type="text"></InputText>
@@ -10,7 +10,7 @@
 
         <InputButton disabled @click="click">TEST</InputButton>
         <InputButton @click="click" :loading="loading">TEST</InputButton>
-        <InputButton @click="click" :process="process">TEST</InputButton>
+        <InputButton @click="click" :process="sliderValue / 100">TEST</InputButton>
         <InputButton @click="click">TEST</InputButton>
 
         <InputSelect v-model="select" placeholder="test" :data="selectOption" disabled></InputSelect>
@@ -47,24 +47,24 @@
 </template>
 
 <script>
-import InputText from "./components/InputText";
-import InputCheckbox from "./components/InputCheckbox";
-import InputSelect from "./components/InputSelect";
-import InputSlider from "./components/InputSlider";
-import InputDateTime from "./components/InputDateTime";
-import InputFile from "./components/InputFile";
-import InputImage from "./components/InputImage";
-import InputButton from "./components/InputButton";
-import Link from "./components/Link";
-import GlobalLoading from "./components/GlobalLoading";
-import Table from "./components/Table";
-import Alert from "./components/Alert";
+import InputText from "./components/v1/InputText";
+import InputCheckbox from "./components/v1/InputCheckbox";
+import InputSelect from "./components/v1/InputSelect";
+import InputSlider from "./components/v1/InputSlider";
+import InputDateTime from "./components/v1/InputDateTime";
+import InputFile from "./components/v1/InputFile";
+import InputImage from "./components/v1/InputImage";
+import InputButton from "./components/v1/InputButton";
+import Link from "./components/v1/Link";
+import GlobalLoading from "./components/v1/GlobalLoading";
+import Table from "./components/v1/Table";
+import Alert from "./components/v1/Alert";
 
 import './static/style.css'
 
 import Vue from "vue";
 import MEVCL from './index'
-import NavMenu from "./components/NavMenu";
+import NavMenu from "./components/v1/NavMenu";
 
 Vue.use(MEVCL)
 
@@ -116,7 +116,7 @@ export default {
                     value: 6
                 },
                 {
-                    label: '<img style="max-width: 50px" src="https://hukeqing.github.io/image/about/avatar.png"  alt="avatar"/>',
+                    label: '777',
                     value: 7
                 }
             ],
@@ -171,7 +171,7 @@ export default {
                 confirmOK: (v) => {
                     console.log(v)
                 },
-                confirmCancel:  (v) => {
+                confirmCancel: (v) => {
                     console.log(v)
                 },
             })
