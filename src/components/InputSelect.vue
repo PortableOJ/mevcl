@@ -48,6 +48,7 @@ export default {
     methods: {
         clickOption(option) {
             this.inputValue = option.value
+            this.inputLabel = option.label
             this.$emit('change', option.value)
             this.openSelectOption = false
         }

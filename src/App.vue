@@ -1,5 +1,7 @@
 <template>
     <div id="app">
+        <NavMenu :options="selectOption" :value="select"></NavMenu>
+
         <InputText v-model="input" placeholder="test" type="text" disabled></InputText>
         <InputText v-model="input" placeholder="test" type="text"></InputText>
 
@@ -56,18 +58,20 @@ import InputButton from "./components/InputButton";
 import Link from "./components/Link";
 import GlobalLoading from "./components/GlobalLoading";
 import Table from "./components/Table";
+import Alert from "./components/Alert";
 
 import './static/style.css'
 
 import Vue from "vue";
 import MEVCL from './index'
-import Alert from "./components/Alert";
+import NavMenu from "./components/NavMenu";
 
 Vue.use(MEVCL)
 
 export default {
     name: 'App',
     components: {
+        NavMenu,
         Alert,
         Table,
         GlobalLoading,
@@ -112,7 +116,7 @@ export default {
                     value: 6
                 },
                 {
-                    label: '<img src="https://hukeqing.github.io/image/about/avatar.png"  alt="avatar"/>',
+                    label: '<img style="max-width: 50px" src="https://hukeqing.github.io/image/about/avatar.png"  alt="avatar"/>',
                     value: 7
                 }
             ],
