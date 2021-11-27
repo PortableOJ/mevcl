@@ -111,7 +111,6 @@ export default {
 
 /*focus*/
 .input-control:focus {
-    border-radius: 5px;
     background: var(--white-color);
     border: 1px solid var(--brand-color);
     box-shadow: var(--focus-shadowbox);

@@ -2,7 +2,7 @@
     <div id="app">
         <NavMenu :options="selectOption" v-model="select"></NavMenu>
 
-        <InputText v-model="input" placeholder="test" type="text" disabled></InputText>
+        <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
         <InputText v-model="input" placeholder="test" type="text"></InputText>
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
@@ -42,6 +42,7 @@
             </template>
         </Table>
 
+        <Pagination :total="2000"></Pagination>
         <GlobalLoading style="display: none"></GlobalLoading>
     </div>
 </template>
@@ -65,12 +66,14 @@ import './static/style.css'
 import Vue from "vue";
 import MEVCL from './index'
 import NavMenu from "./components/v1/NavMenu";
+import Pagination from "./components/v1/Pagination";
 
 Vue.use(MEVCL)
 
 export default {
     name: 'App',
     components: {
+        Pagination,
         NavMenu,
         Alert,
         Table,
