@@ -2,6 +2,8 @@
     <div id="app">
         <NavMenu :options="selectOption" v-model="select"></NavMenu>
 
+        <Steps :data="stepList"></Steps>
+
         <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
         <InputText v-model="input" placeholder="test" type="text"></InputText>
 
@@ -11,7 +13,7 @@
         <InputButton disabled @click="click">TEST</InputButton>
         <InputButton @click="click" :loading="loading">TEST</InputButton>
         <InputButton @click="click" :process="sliderValue / 100">TEST</InputButton>
-        <InputButton @click="click">TEST</InputButton>
+        <InputButton type="success" @click="click">TEST</InputButton>
 
         <InputSelect v-model="select" placeholder="test" :data="selectOption" disabled></InputSelect>
         <InputSelect v-model="select" placeholder="test" :data="selectOption"></InputSelect>
@@ -71,12 +73,14 @@ import MEVCL from './index'
 import NavMenu from "./components/v1/NavMenu";
 import Pagination from "./components/v1/Pagination";
 import Tag from "./components/v1/Tag";
+import Steps from "./components/Steps";
 
 Vue.use(MEVCL)
 
 export default {
     name: 'App',
     components: {
+        Steps,
         Tag,
         Pagination,
         NavMenu,
@@ -159,6 +163,26 @@ export default {
                     name: 'c',
                     value: 789
                 }
+            ],
+            stepList: [
+                {
+                    type: 'success',
+                    title: 'step 1',
+                    value: 1,
+                    clicked: true,
+                },
+                {
+                    type: 'brand',
+                    title: 'step 2',
+                    value: 2,
+                    clicked: true,
+                },
+                {
+                    type: 'info',
+                    title: 'step 3',
+                    value: 3,
+                    clicked: false,
+                },
             ]
         }
     },
