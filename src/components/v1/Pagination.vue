@@ -6,12 +6,12 @@
              @click="clickNum(curValue - 1)">
             <i class="iconfont icon-left"></i>
         </div>
-        <div v-show="leftValue !== 1" class="page-more">···</div>
+        <div v-show="leftValue !== 1" class="page-num" @click="open(leftValue - 5, rightValue)">···</div>
         <div v-for="page in showValue" :key="page" :class="{'page-num': true, 'page-num-on': page === curValue}"
-            @click="clickNum(page)">
+             @click="clickNum(page)">
             {{ page }}
         </div>
-        <div v-show="rightValue !== totPage" class="page-more">···</div>
+        <div v-show="rightValue !== totPage" class="page-num" @click="open(leftValue, rightValue + 5)">···</div>
         <div :class="{
             'page-button': curValue !== totPage,
             'page-button-disable': curValue === totPage}"
@@ -58,13 +58,16 @@ export default {
         }
     },
     methods: {
+        build() {
+            let tmp = []
+            for (let i = this.leftValue; i <= this.rightValue; i++) tmp.push(i)
+            this.showValue = tmp
+        },
         generate() {
             this.totPage = Math.floor(this.total / this.pageSize);
             this.leftValue = Math.max(1, this.curValue - this.back)
             this.rightValue = Math.min(this.totPage, this.curValue + this.forward)
-            let tmp = []
-            for (let i = this.leftValue; i <= this.rightValue; i++) tmp.push(i)
-            this.showValue = tmp
+            this.build()
         },
         clickNum(num) {
             if (num < 1) num = 1
@@ -72,6 +75,11 @@ export default {
             if (this.curValue === num) return
             this.curValue = num
             this.generate()
+        },
+        open(nl, nr) {
+            this.leftValue = Math.max(1, nl)
+            this.rightValue = Math.min(this.totPage, nr)
+            this.build()
         }
     },
     watch: {
@@ -86,7 +94,7 @@ export default {
 <style scoped>
 .pagination-box {
     display: flex;
-    width: 800px;
+    width: 100%;
     font-weight: bold;
     justify-content: center;
     align-items: center;
@@ -105,11 +113,6 @@ export default {
     opacity: 0.6;
     color: var(--disable-text-color);
     cursor: not-allowed;
-}
-
-.page-more {
-    padding: 3px 5px;
-    margin: 0 2px;
 }
 
 .page-num {
