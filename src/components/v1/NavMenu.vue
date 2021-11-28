@@ -91,6 +91,7 @@ export default {
 .nav-menu-options {
     padding-left: 10px;
     position: relative;
+    flex-grow: 1;
 }
 
 .nav-menu-option {

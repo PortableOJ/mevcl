@@ -43,6 +43,9 @@
         </Table>
 
         <Pagination :total="2000"></Pagination>
+        <Tag>123</Tag>
+        <Tag type="success">abc</Tag>
+
         <GlobalLoading style="display: none"></GlobalLoading>
     </div>
 </template>
@@ -67,12 +70,14 @@ import Vue from "vue";
 import MEVCL from './index'
 import NavMenu from "./components/v1/NavMenu";
 import Pagination from "./components/v1/Pagination";
+import Tag from "./components/v1/Tag";
 
 Vue.use(MEVCL)
 
 export default {
     name: 'App',
     components: {
+        Tag,
         Pagination,
         NavMenu,
         Alert,
