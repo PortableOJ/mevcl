@@ -2,7 +2,7 @@
     <div id="app">
         <NavMenu :options="selectOption" v-model="select"></NavMenu>
 
-        <Steps :data="stepList"></Steps>
+        <Steps :data="stepList" :value="select"></Steps>
 
         <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
         <InputText v-model="input" placeholder="test" type="text"></InputText>
@@ -73,7 +73,7 @@ import MEVCL from './index'
 import NavMenu from "./components/v1/NavMenu";
 import Pagination from "./components/v1/Pagination";
 import Tag from "./components/v1/Tag";
-import Steps from "./components/Steps";
+import Steps from "./components/v1/Steps";
 
 Vue.use(MEVCL)
 
@@ -169,6 +169,7 @@ export default {
                     type: 'success',
                     title: 'step 1',
                     value: 1,
+                    icon: 'success',
                     clicked: true,
                 },
                 {
