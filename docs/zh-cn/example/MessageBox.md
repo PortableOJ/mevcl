@@ -5,7 +5,7 @@
 ## 局部导入
 
 ```js
-import MessageBox from "./components/v1/messageBox/main";
+import MessageBox from "mevcl";
 import 'mevcl/src/static/style.css'
 
 Vue.use(MessageBox)
