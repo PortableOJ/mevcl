@@ -5,7 +5,7 @@
         <div ref="handle" class="handle" @mousedown="startDrag" @touchstart="startTouch">
             12
         </div>
-        <div class="overlay" v-if="isDrag" style="cursor: grabbing"></div>
+        <div class="global-check" v-if="isDrag" style="cursor: grabbing"></div>
     </div>
 </template>
 
@@ -29,10 +29,6 @@ export default {
         step: {
             type: [Number, null],
             default: null
-        },
-        showValue: {
-            type: Boolean,
-            default: true
         },
         valueFormat: {
             type: Function,
@@ -71,8 +67,7 @@ export default {
             x = pre * this.$refs.scrollbar.scrollWidth
             this.$refs.fillBar.style.width = x + 'px'
             this.$refs.handle.style.left = x + 'px'
-            if (this.showValue) this.$refs.handle.innerText = this.valueFormat(res)
-            else this.$refs.handle.innerText = "";
+            this.$refs.handle.innerText = this.valueFormat(res)
             if (this.disabled) return
             this.$emit('change', res)
         },

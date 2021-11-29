@@ -1,9 +1,7 @@
 <template>
     <div class="input-box">
-        <input class="input-control" type="file" ref="input" :multiple="multiple"
-               @change="change" required :readonly="readOnly" :disabled="disabled">
-        <input class="input-fake" type="text" v-model="inputValue" readonly
-               :class="inputValue !== '' ? 'input-control-not-null' : ''" :disabled="disabled"/>
+        <input class="input-control" :type="type" v-model="inputValue"
+               @input="input" required :readonly="readOnly" :disabled="disabled"/>
         <label class="input-label">{{ placeholder }}</label>
         <span class="underline"></span>
     </div>
@@ -11,17 +9,22 @@
 
 <script>
 export default {
-    name: "InputFile",
+    name: "InputText",
     model: {
         prop: 'value',
         event: 'change'
     },
     props: {
-        value: null,
+        value: [String, Number],
         placeholder: String,
-        accept: {
+        type: {
             type: String,
-            default: '*/*'
+            validator: function (value) {
+                if (['text', 'password', 'number'].indexOf(value) !== -1) return true
+                console.error("InputText Type Error, error type: " + value)
+                return false
+            },
+            default: 'text'
         },
         readOnly: {
             type: Boolean,
@@ -30,37 +33,21 @@ export default {
         disabled: {
             type: Boolean,
             default: false
-        },
-        multiple: {
-            type: Boolean,
-            default: false
         }
     },
     data() {
         return {
-            inputValue: ''
+            inputValue: this.value,
         }
     },
     methods: {
-        change() {
-            let tmp = this.$refs.input.files
-            if (tmp.length === 0)
-                this.inputValue = ''
-            else {
-                this.inputValue = tmp[0].name
-                if (tmp.length > 1) this.inputValue += " 等" + tmp.length + "个文件"
-            }
-            this.$emit('change', tmp)
+        input() {
+            this.$emit('change', this.inputValue)
         }
     },
     watch: {
         value(v) {
-            if (v.length === 0)
-                this.inputValue = ''
-            else {
-                this.inputValue = v[0].name
-                if (v.length > 1) this.inputValue += " 等" + v.length + "个文件"
-            }
+            this.inputValue = v
         }
     }
 }
@@ -80,27 +67,14 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid;
-    padding: 0 0 0 10px;
-    outline: 0;
-    cursor: pointer;
-    opacity: 0;
-}
-
-.input-fake {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     border: 1px solid var(--transparent-color);
     border-bottom: 1px solid var(--border-color-level-3);
+    border-radius: 5px;
     background-color: var(--white-color);
     padding: 0 0 0 10px;
     outline: 0;
     transition: 0.2s ease all;
-    pointer-events: none;
-    color: var(--secondary-text-color);
+    appearance: none;
 }
 
 .input-label {
@@ -137,10 +111,15 @@ export default {
 
 /*focus*/
 .input-control:focus {
-    border-radius: 5px;
+    background: var(--white-color);
+    border: 1px solid var(--brand-color);
+    box-shadow: var(--focus-shadowbox);
 }
 
-.input-control:focus + .input-label {
+.input-control:focus ~ .input-label {
+    top: 0;
+    transform: scale(0.8) translateY(-50%);
+    background: var(--white-color);
     color: var(--brand-color);
 }
 
@@ -149,30 +128,45 @@ export default {
 }
 
 /*valid*/
-.input-control-not-null {
+.input-control:valid {
     border-radius: 5px;
     border: 1px solid var(--border-color-level-3);
+    background: var(--white-color);
 }
 
-.input-control-not-null + .input-label {
+.input-control:valid ~ .input-label {
     top: 0;
-    transform: scale(0.8) translateY(-50%);
+    transform: scale(0.8) translateY(-50%);;
     background: var(--white-color);
 }
 
 /*read-only*/
 .input-control:read-only {
     border-radius: 5px;
+    border: 1px solid var(--border-color-level-3);
+    background: var(--white-color);
+    cursor: not-allowed;
+}
+
+.input-control:read-only ~ .input-label {
+    top: 0;
+    transform: scale(0.8) translateY(-50%);
+    background: var(--white-color);
+}
+
+.input-control:read-only ~ .underline {
+    background-color: var(--border-color-level-3);
 }
 
 /*disabled*/
 .input-control:disabled {
-    cursor: not-allowed;
-    border: 1px solid var(--border-color-level-3);
     border-radius: 5px;
+    border: 1px solid var(--border-color-level-3);
+    background: var(--white-color);
+    cursor: not-allowed;
 }
 
-.input-control:disabled + .input-label {
+.input-control:disabled ~ .input-label {
     top: 0;
     transform: scale(0.8) translateY(-50%);
     background: var(--white-color);

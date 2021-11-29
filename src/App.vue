@@ -1,54 +1,94 @@
 <template>
     <div id="app">
-        <InputText v-model="input" placeholder="test" type="text" disabled></InputText>
+        <NavMenu :options="selectOption" v-model="select"></NavMenu>
+
+        <Steps :data="stepList" :value="select"></Steps>
+
+        <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
         <InputText v-model="input" placeholder="test" type="text"></InputText>
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
 
-        <Button disabled @click="click">TEST</Button>
-        <Button @click="click" :loading="loading">TEST</Button>
-        <Button @click="click" :process="process">TEST</Button>
-        <Button @click="click">TEST</Button>
-
-        ABC
-        <BackgroundLink disabled @click="click">TEST</BackgroundLink>
-        ABC ABC
-        <BackgroundLink @click="click">TEST</BackgroundLink>
-        ABC
+        <InputButton disabled @click="click">TEST</InputButton>
+        <InputButton @click="click" :loading="loading">TEST</InputButton>
+        <InputButton @click="click" :process="sliderValue / 100">TEST</InputButton>
+        <InputButton type="success" @click="click">TEST</InputButton>
 
         <InputSelect v-model="select" placeholder="test" :data="selectOption" disabled></InputSelect>
         <InputSelect v-model="select" placeholder="test" :data="selectOption"></InputSelect>
 
         <InputSlider v-model="sliderValue" disabled></InputSlider>
-        <InputSlider v-model="sliderValue" :valueFormat="v => parseInt(v)" :showValue="false"></InputSlider>
+        <InputSlider v-model="sliderValue" :valueFormat="() => ''"></InputSlider>
 
         <InputDateTime v-model="dateTimeValue" placeholder="test" disabled></InputDateTime>
         <InputDateTime v-model="dateTimeValue" placeholder="test"></InputDateTime>
 
         <InputFile v-model="inputFile" placeholder="test" disabled></InputFile>
-        <InputFile v-model="inputFile" placeholder="test" multiple></InputFile>
+        <InputFile v-model="inputFile" placeholder="test" multiple accept="image/*"></InputFile>
 
         <inputImage v-model="inputImageFile"></inputImage>
+
+        <Alert>ABC</Alert>
+        <Table :head="tableHead" :data="tableData">
+            <template v-slot:head-name="scope">
+                {{ scope.data.label + 'abc' }}
+            </template>
+            <template v-slot:body-name="scope">
+                <Link :disabled="scope.data.name === 'a'">
+                    {{ scope.data.name + 'abc' }}
+                </Link>
+                <InputButton @click="msg">TEST</InputButton>
+                <InputButton @click="msg">TEST</InputButton>
+                <i class="iconfont icon-spread"></i>
+            </template>
+        </Table>
+
+        <Pagination :total="2000"></Pagination>
+        <Tag>123</Tag>
+        <Tag type="success">abc</Tag>
+
+        <GlobalLoading style="display: none"></GlobalLoading>
     </div>
 </template>
 
 <script>
-import InputText from "./components/InputText";
-import InputCheckbox from "./components/InputCheckbox";
-import InputSelect from "./components/InputSelect";
-import InputSlider from "./components/InputSlider";
-import InputDateTime from "./components/InputDateTime";
-import InputFile from "./components/InputFile";
-import InputImage from "./components/InputImage";
-import Button from "./components/Button";
-import BackgroundLink from "./components/BackgroundLink";
+import InputText from "./components/v1/InputText";
+import InputCheckbox from "./components/v1/InputCheckbox";
+import InputSelect from "./components/v1/InputSelect";
+import InputSlider from "./components/v1/InputSlider";
+import InputDateTime from "./components/v1/InputDateTime";
+import InputFile from "./components/v1/InputFile";
+import InputImage from "./components/v1/InputImage";
+import InputButton from "./components/v1/InputButton";
+import Link from "./components/v1/Link";
+import GlobalLoading from "./components/v1/GlobalLoading";
+import Table from "./components/v1/Table";
+import Alert from "./components/v1/Alert";
+
+import './static/style.css'
+
+import Vue from "vue";
+import MEVCL from './index'
+import NavMenu from "./components/v1/NavMenu";
+import Pagination from "./components/v1/Pagination";
+import Tag from "./components/v1/Tag";
+import Steps from "./components/v1/Steps";
+
+Vue.use(MEVCL)
 
 export default {
     name: 'App',
     components: {
-        BackgroundLink,
-        Button,
+        Steps,
+        Tag,
+        Pagination,
+        NavMenu,
+        Alert,
+        Table,
+        GlobalLoading,
+        Link,
+        InputButton,
         InputImage,
         InputFile,
         InputDateTime,
@@ -88,7 +128,7 @@ export default {
                     value: 6
                 },
                 {
-                    label: '<img src="https://hukeqing.github.io/image/about/avatar.png"  alt="avatar"/>',
+                    label: '777',
                     value: 7
                 }
             ],
@@ -98,11 +138,76 @@ export default {
             inputImageFile: null,
             loading: true,
             process: 0.38,
+            tableHead: [
+                {
+                    label: 'name',
+                    value: 'name',
+                    width: '300',
+                },
+                {
+                    label: 'value',
+                    value: 'value',
+                    width: '100',
+                }
+            ],
+            tableData: [
+                {
+                    name: 'a',
+                    value: 123
+                },
+                {
+                    name: 'b',
+                    value: 456
+                },
+                {
+                    name: 'c',
+                    value: 789
+                }
+            ],
+            stepList: [
+                {
+                    type: 'success',
+                    title: 'step 1',
+                    value: 1,
+                    icon: 'success',
+                    clicked: true,
+                },
+                {
+                    type: 'brand',
+                    title: 'step 2',
+                    value: 2,
+                    clicked: true,
+                },
+                {
+                    type: 'info',
+                    title: 'step 3',
+                    value: 3,
+                    clicked: false,
+                },
+            ]
         }
     },
     methods: {
         click() {
-            console.log('clicked')
+            this.$toast({
+                title: 'ABC',
+                text: 'abc',
+                duration: 'auto',
+                type: 'success'
+            })
+        },
+        msg() {
+            this.$message({
+                text: 'ABC',
+                type: 'error',
+                input: true,
+                confirmOK: (v) => {
+                    console.log(v)
+                },
+                confirmCancel: (v) => {
+                    console.log(v)
+                },
+            })
         }
     }
 }

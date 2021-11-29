@@ -3,7 +3,7 @@
         <input class="input-control" type="file" accept="image/*" ref="input"
                @change="change" required :readonly="readOnly" :disabled="disabled">
         <div class="input-fake" :style="placeholder !== null ? 'display: none' : ''"></div>
-        <i class="iconfont icon-increase icon" :style="placeholder !== null ? 'display: none' : ''"></i>
+        <i class="iconfont icon-upload icon" :style="placeholder !== null ? 'display: none' : ''"></i>
         <img class="image" ref="img" alt="" src="">
         <img class="placeholder" ref="placeholder" :src="placeholder"
              :style="placeholder === null ? 'display: none' : ''" alt="">

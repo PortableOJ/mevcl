@@ -1,17 +1,134 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    <style>
+        .before-loading-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            justify-content: center;
+            align-items: center;
+            transition: 1s ease all;
+        }
+
+        .before-loading-logo-box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .before-loading-process-box {
+            position: relative;
+            top: 80%;
+            width: 50%;
+            height: 10px;
+            background-color: white;
+            left: 50%;
+            transform: translate(-50%, 0);
+            border-radius: 10px;
+        }
+
+        .before-loading-process {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #409EFF;
+            border-radius: 10px;
+            clip-path: inset(0 100% 0 0);
+            transition: 0.2s ease all;
+        }
+
+        .before-loading-pie {
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            border: 10px solid transparent;
+            border-top: 10px solid #409EFF;
+            border-bottom: 10px solid #409EFF;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            animation: before-anim 3s linear infinite;
+        }
+
+        @keyframes before-anim {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.
+    </strong>
+</noscript>
+<div class="before-loading-overlay" id="appLoading">
+    <div class="before-loading-logo-box">
+        <span class="before-loading-pie">
+            <span class="before-loading-pie">
+                <span class="before-loading-pie">
+                    <span class="before-loading-pie">
+                    </span>
+                </span>
+            </span>
+        </span>
+    </div>
+    <div id="before-process-box" class="before-loading-process-box">
+        <div id="before-process" class="before-loading-process">
+        </div>
+    </div>
+</div>
+<div id="appShow" style="opacity: 0; transition: 1s ease all;">
+    <div id="app">
+        <app></app>
+    </div>
+</div>
+<!-- built files will be auto injected -->
+</body>
+<script>
+    let curValue = 100
+    let maxValue = 50
+    let process = document.getElementById('before-process')
+    document.onreadystatechange = function () {
+        if (document.readyState === 'interactive') {
+            maxValue = 10;
+        } else if (document.readyState === 'complete') {
+            maxValue = 0;
+        }
+    }
+    let timer = setInterval(() => {
+        curValue -= Math.min(5, curValue - maxValue)
+        process.style.clipPath = 'inset(0 ' + curValue + '% 0 0)'
+        if (curValue === 0) {
+            // document.getElementById('appLoading').style.top = '-100%';
+            document.getElementById('appLoading').style.transform = 'scale(2)';
+            document.getElementById('appLoading').style.opacity = '0';
+            document.getElementById('appShow').style.opacity = '1';
+            setTimeout(() => {
+                document.getElementById('appLoading').style.display = 'none';
+            }, 1000)
+            clearInterval(timer);
+        }
+    }, 25)
+</script>
 </html>
