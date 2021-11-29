@@ -1,6 +1,6 @@
 {
   "name": "mevcl",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
   "main": "src/index.js",
   "scripts": {
@@ -19,8 +19,15 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "pkgfiles": "^2.3.2",
     "vue-template-compiler": "^2.6.11"
   },
+  "files": [
+    "src/basic",
+    "src/components",
+    "src/static",
+    "src/index.js"
+  ],
   "eslintConfig": {
     "root": true,
     "env": {
