@@ -1,33 +1,43 @@
 import MiniLoading from "./basic/MiniLoading";
 
-import InputText from "./components/v1/InputText";
+import Alert from "./components/v1/Alert";
+import GlobalLoading from "./components/v1/GlobalLoading";
+import InputButton from "./components/v1/InputButton";
 import InputCheckbox from "./components/v1/InputCheckbox";
-import InputSelect from "./components/v1/InputSelect";
-import InputSlider from "./components/v1/InputSlider";
 import InputDateTime from "./components/v1/InputDateTime";
 import InputFile from "./components/v1/InputFile";
 import InputImage from "./components/v1/InputImage";
-import InputButton from "./components/v1/InputButton";
+import InputSelect from "./components/v1/InputSelect";
+import InputSlider from "./components/v1/InputSlider";
+import InputText from "./components/v1/InputText";
 import Link from "./components/v1/Link";
+import NavMenu from "./components/v1/NavMenu";
+import Pagination from "./components/v1/Pagination";
+import Steps from "./components/v1/Steps";
 import Table from "./components/v1/Table";
-import GlobalLoading from "./components/v1/GlobalLoading";
+import Tag from "./components/v1/Tag";
 
 import MessageBox from "./components/v1/messageBox/main";
 import Toast from "./components/v1/toast/main";
 
 const components = [
     MiniLoading,
-    InputText,
+    Alert,
+    GlobalLoading,
+    InputButton,
     InputCheckbox,
-    InputSelect,
-    InputSlider,
     InputDateTime,
     InputFile,
     InputImage,
-    InputButton,
+    InputSelect,
+    InputSlider,
+    InputText,
     Link,
+    NavMenu,
+    Pagination,
+    Steps,
     Table,
-    GlobalLoading,
+    Tag,
 ]
 
 const install = function (Vue) {
@@ -44,15 +54,20 @@ export default {
     install,
 
     MiniLoading,
-    InputText,
+    Alert,
+    GlobalLoading,
+    InputButton,
     InputCheckbox,
-    InputSelect,
-    InputSlider,
     InputDateTime,
     InputFile,
     InputImage,
-    InputButton,
+    InputSelect,
+    InputSlider,
+    InputText,
     Link,
+    NavMenu,
+    Pagination,
+    Steps,
     Table,
-    GlobalLoading,
+    Tag,
 }
