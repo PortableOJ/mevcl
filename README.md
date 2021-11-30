@@ -53,8 +53,12 @@ Vue.component(InputText.name, InputText)
 # How to use it
 
 ## zh-CN(中文使用文档)
- - [MessageBox](docs/zh-cn/example/MessageBox.md)
- - [Toast](docs/zh-cn/example/Toast.md)
+ - 调用 API 的组件
+   - [MessageBox(通知弹窗)](docs/zh-cn/example/MessageBox.md)
+   - [Toast(消息提示)](docs/zh-cn/example/Toast.md)
+ - 普通的 Vue 组件
+   - [Alert(提示标语)](docs/zh-cn/example/Alert.md)
+   - [GlobalLoading(加载页面)](docs/zh-cn/example/GlobalLoading.md)
 
 # Links
 

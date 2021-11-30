@@ -5,7 +5,7 @@ Toast 是一种通知工具，其会固定出现在屏幕的右上角落，多�
 ## 局部导入
 
 ```js
-import Toast from "mevcl";
+import Toast from "mevcl"
 import 'mevcl/src/static/style.css'
 
 Vue.use(Toast)
