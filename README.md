@@ -54,6 +54,7 @@ Vue.component(InputText.name, InputText)
 
 ## zh-CN(中文使用文档)
  - [MessageBox](docs/zh-cn/example/MessageBox.md)
+ - [Toast](docs/zh-cn/example/Toast.md)
 
 # Links
 
