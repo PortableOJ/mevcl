@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "katex": "^0.15.1",
+    "marked": "^4.0.7",
     "vue": "^2.6.11"
   },
   "devDependencies": {

@@ -5,7 +5,9 @@
         <Steps :data="stepList" :value="select"></Steps>
 
         <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
-        <InputText v-model="input" placeholder="test" type="text"></InputText>
+        <InputText v-model="input" placeholder="test" @change="changeInputText"></InputText>
+
+        <div v-html="inputShow"></div>
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
@@ -75,7 +77,10 @@ import Pagination from "./components/v1/Pagination";
 import Tag from "./components/v1/Tag";
 import Steps from "./components/v1/Steps";
 
+import Markdown from './components/v1/markdown/main'
+
 Vue.use(MEVCL)
+Vue.use(Markdown)
 
 export default {
     name: 'App',
@@ -100,6 +105,7 @@ export default {
     data() {
         return {
             input: '',
+            inputShow: '',
             checkbox: false,
             select: null,
             selectOption: [
@@ -188,6 +194,9 @@ export default {
         }
     },
     methods: {
+        changeInputText(){
+            this.inputShow = this.$markdown(this.input)
+        },
         click() {
             this.$toast({
                 title: 'ABC',
