@@ -49,6 +49,7 @@
         <Pagination :total="2000"></Pagination>
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
+        <InputTextarea code-mode placeholder="Test Code"></InputTextarea>
 
         <GlobalLoading style="display: none"></GlobalLoading>
     </div>
@@ -78,13 +79,16 @@ import Tag from "./components/v1/Tag";
 import Steps from "./components/v1/Steps";
 
 import Markdown from './components/v1/markdown/main'
+import InputTextarea from "./components/v1/InputTextarea";
 
 Vue.use(MEVCL)
+// noinspection JSCheckFunctionSignatures
 Vue.use(Markdown)
 
 export default {
     name: 'App',
     components: {
+        InputTextarea,
         Steps,
         Tag,
         Pagination,
