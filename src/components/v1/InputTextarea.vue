@@ -1,7 +1,7 @@
 <template>
     <div class="textarea-box">
         <!--suppress HtmlUnknownAttribute -->
-        <div :contentEditable="!readOnly" :class="{'input': true, 'input-code': codeMode}"
+        <div :class="{'input': true, 'input-code': codeMode}"
              @input="change" ref="inputBox">
         </div>
         <span class="input-label">{{ placeholder }}</span>
@@ -54,6 +54,9 @@ export default {
     margin: 10px 5px;
     transition: 0.2s ease all;
     border: 1px solid var(--border-color-level-1);
+    -webkit-user-modify: read-write-plaintext-only;
+    -moz-user-modify: read-write-plaintext-only;
+    user-modify: read-write-plaintext-only;
 }
 
 .input-label {

@@ -64,7 +64,7 @@ const Markdown = function () {
         mountDist[mountId] = new markdownBlockCodeConstructor({
             data: {code: code, language: language}
         })
-        return `<div id="MOUNT-${mountId}"></div>`
+        return `<div id="markdown-${mountId}"></div>`
     }
 
     const markdownParser = function (text) {
@@ -74,7 +74,7 @@ const Markdown = function () {
 
     const markdownMount = function () {
         for (const mountDistKey in mountDist) {
-            mountDist[mountDistKey].$mount(document.getElementById(`MOUNT-${mountDistKey}`))
+            mountDist[mountDistKey].$mount(document.getElementById(`markdown-${mountDistKey}`))
         }
         mountDist = {}
     }

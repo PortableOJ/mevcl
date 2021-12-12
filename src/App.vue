@@ -1,13 +1,16 @@
 <template>
     <div id="app">
+
+        <InputTextarea code-mode placeholder="markdown" v-model="input" @change="changeInputText"></InputTextarea>
+
+        <div v-html="inputShow" style="text-align: left"></div>
+
         <NavMenu :options="selectOption" v-model="select"></NavMenu>
 
         <Steps :data="stepList" :value="select"></Steps>
 
         <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
-        <InputText v-model="input" placeholder="test" @change="changeInputText"></InputText>
-
-        <div v-html="inputShow"></div>
+        <InputText v-model="input" placeholder="test"></InputText>
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
@@ -49,7 +52,6 @@
         <Pagination :total="2000"></Pagination>
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
-        <InputTextarea code-mode placeholder="Test Code"></InputTextarea>
 
         <GlobalLoading style="display: none"></GlobalLoading>
     </div>
@@ -200,6 +202,9 @@ export default {
     methods: {
         changeInputText(){
             this.inputShow = this.$markdown(this.input)
+            this.$nextTick(() => {
+                this.$renderer()
+            })
         },
         click() {
             this.$toast({
