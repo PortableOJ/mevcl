@@ -5,7 +5,7 @@
         <span class="input-label">{{ placeholder }}</span>
         <span class="underline"></span>
         <div class="global-check" v-show="openSelectOption" @click="openSelectOption = false"></div>
-        <div :class="'select-option-box' + (openSelectOption ? ' select-option-box-show' : '') ">
+        <div :class="{'select-option-box': true, 'select-option-box-show': openSelectOption}">
             <ul class="select-option-list">
                 <li v-for="item in data" :key="item.value" class="select-option" @click="clickOption(item)">
                     <span :class="{'select-option-on': item.value === inputValue}">
@@ -123,7 +123,6 @@ export default {
     width: 100%;
     height: 0;
     top: 110%;
-    padding: 0 0 0 10px;
     background-color: white;
     border-left: 1px solid var(--border-color-level-3);
     border-right: 1px solid var(--border-color-level-3);
