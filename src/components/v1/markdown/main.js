@@ -68,7 +68,6 @@ const Markdown = function () {
     }
 
     const markdownParser = function (text) {
-        console.log(marked.lexer(text))
         return marked(text, {renderer: renderStyle})
     }
 
