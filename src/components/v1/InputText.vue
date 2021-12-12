@@ -109,6 +109,19 @@ export default {
     width: 100%;
 }
 
+/*valid*/
+.input-control:valid {
+    border-radius: 5px;
+    border: 1px solid var(--border-color-level-3);
+    background: var(--white-color);
+}
+
+.input-control:valid ~ .input-label {
+    top: 0;
+    transform: scale(0.8) translateY(-50%);
+    background: var(--white-color);
+}
+
 /*focus*/
 .input-control:focus {
     background: var(--white-color);
@@ -125,19 +138,6 @@ export default {
 
 .input-control:focus ~ .underline {
     width: 100%;
-}
-
-/*valid*/
-.input-control:valid {
-    border-radius: 5px;
-    border: 1px solid var(--border-color-level-3);
-    background: var(--white-color);
-}
-
-.input-control:valid ~ .input-label {
-    top: 0;
-    transform: scale(0.8) translateY(-50%);;
-    background: var(--white-color);
 }
 
 /*read-only*/
