@@ -1,8 +1,6 @@
 import katex from 'katex'
 import {marked} from "marked";
 
-import 'katex/dist/katex.css'
-
 const Markdown = function () {
 
     // noinspection JSUnusedGlobalSymbols
@@ -35,7 +33,37 @@ const Markdown = function () {
         }
     }
 
-    marked.use({extensions: [inlineKatex]});
+    // noinspection JSUnusedGlobalSymbols
+    const blockKatex = {
+        name: 'mathjaxBlock',
+        level: 'block',
+        start(src) {
+            return src.match(/\$\$.*\$\$/)?.index;
+        },
+        tokenizer(src) {
+            const rule = /^([^$]*)\$\$([^$]*)\$\$(.*)$/;
+            const match = rule.exec(src);
+            if (match) {
+                return {
+                    type: 'mathjaxBlock',
+                    raw: match[0],
+                    left: this.lexer.inlineTokens(match[1].trim()),
+                    text: match[2].trim(),
+                    right: this.lexer.inlineTokens(match[3].trim()),
+                };
+            }
+        },
+        renderer(token) {
+            const left = this.parser.parseInline(token.left)
+            const right = this.parser.parseInline(token.right)
+            if (token.text.length === 0) return `${left}<br>${right}`
+            // noinspection JSUnresolvedFunction
+            const html = katex.renderToString(token.text, {throwOnError: false})
+            return `${left}<br>${html}<br>${right}`
+        }
+    }
+
+    marked.use({extensions: [blockKatex, inlineKatex]});
 
     const markdownParser = function (text) {
         return marked(text)
