@@ -2,7 +2,7 @@
     <div class="input-box">
         <input class="input-control" type="text" v-model="inputLabel" @click="openSelectOption = true" readonly
                :class="{'input-control-not-null' : inputValue !== ''}" :disabled="disabled"/>
-        <label class="input-label">{{ placeholder }}</label>
+        <span class="input-label">{{ placeholder }}</span>
         <span class="underline"></span>
         <div class="global-check" v-show="openSelectOption" @click="openSelectOption = false"></div>
         <div :class="'select-option-box' + (openSelectOption ? ' select-option-box-show' : '') ">

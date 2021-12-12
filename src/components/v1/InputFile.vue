@@ -4,7 +4,7 @@
                @change="change" required :readonly="readOnly" :disabled="disabled" :accept="accept">
         <input class="input-fake" type="text" v-model="inputValue" readonly
                :class="inputValue !== '' ? 'input-control-not-null' : ''" :disabled="disabled"/>
-        <label class="input-label">{{ placeholder }}</label>
+        <span class="input-label">{{ placeholder }}</span>
         <span class="underline"></span>
     </div>
 </template>

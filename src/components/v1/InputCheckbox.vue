@@ -3,9 +3,9 @@
         <input class="input-control" type="checkbox" v-model="inputValue"
                :readonly="readOnly" :disabled="disabled" @change="input" required/>
         <span class="input-background"></span>
-        <label class="input-label">
+        <span class="input-label">
             <slot></slot>
-        </label>
+        </span>
     </div>
 </template>
 

@@ -2,7 +2,7 @@
     <div class="input-box">
         <input class="input-control" :type="type" v-model="inputValue"
                @input="input" required :readonly="readOnly" :disabled="disabled"/>
-        <label class="input-label">{{ placeholder }}</label>
+        <span class="input-label">{{ placeholder }}</span>
         <span class="underline"></span>
     </div>
 </template>
