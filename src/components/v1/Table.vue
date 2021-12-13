@@ -55,7 +55,15 @@ export default {
 .content-table th,
 .content-table td {
     padding: 12px 15px;
+    border-right: 1px solid var(--border-color-level-1);
 }
+
+.markdown-table th:last-of-type,
+.markdown-table td:last-of-type {
+    padding: 12px 15px;
+    border-right: 0;
+}
+
 
 .content-table td * {
     vertical-align: middle;
