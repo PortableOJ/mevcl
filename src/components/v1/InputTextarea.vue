@@ -57,6 +57,7 @@ export default {
     -webkit-user-modify: read-write-plaintext-only;
     -moz-user-modify: read-write-plaintext-only;
     user-modify: read-write-plaintext-only;
+    overflow: scroll;
 }
 
 .input-label {
