@@ -169,3 +169,16 @@
 }
 
 /* endregion */
+
+/* region 图片 */
+
+.markdown-image {
+    display: block;
+    margin: 0 auto;
+    pointer-events: none;
+    border-radius: 5px;
+    box-shadow: var(--focus-shadowbox);
+    border: 3px solid var(--border-color-level-3);
+}
+
+/* endregion */

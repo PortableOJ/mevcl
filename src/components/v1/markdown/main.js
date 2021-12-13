@@ -109,6 +109,10 @@ const Markdown = function () {
         return `<a href="${href}" class="markdown-link">${text}</a>`
     }
 
+    renderStyle.image = function (href, title, text) {
+        return `<img class="markdown-image" src="${href}" alt="${text}" />`
+    }
+
     /// endregion
 
     const markdownParser = function (text) {
