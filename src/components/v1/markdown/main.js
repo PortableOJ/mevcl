@@ -3,9 +3,11 @@ import {marked} from "marked";
 
 import Vue from "vue";
 import MarkdownBlockCode from "./MarkdownBlockCode";
+import MarkdownInlineCode from "./MarkdownInlineCode";
 
 // eslint-disable-next-line no-unused-vars
 const markdownBlockCodeConstructor = Vue.extend(MarkdownBlockCode)
+const markdownInlineCodeConstructor = Vue.extend(MarkdownInlineCode)
 
 const Markdown = function () {
 
@@ -17,7 +19,7 @@ const Markdown = function () {
             return src.match(/\$.*\$/)?.index;
         },
         tokenizer(src) {
-            const blockRule = /^([^$]*)\$\$([^$]*)\$\$(.*)$/
+            const blockRule = /^([^$]*)\$\$([^$]*)\$\$([\s\S]*)$/
             const blockMatch = blockRule.exec(src)
             if (blockMatch) {
                 return {
@@ -30,7 +32,7 @@ const Markdown = function () {
                 }
             }
 
-            const inlineRule = /^([^$]*)\$([^$]*)\$(.*)$/
+            const inlineRule = /^([^$]*)\$([^$]*)\$([\s\S]*)$/
             const inlineMatch = inlineRule.exec(src)
             if (inlineMatch) {
                 return {
@@ -65,6 +67,14 @@ const Markdown = function () {
             data: {code: code, language: language}
         })
         return `<div id="markdown-${mountId}"></div>`
+    }
+    // noinspection SpellCheckingInspection
+    renderStyle.codespan = function (text) {
+        mountId++
+        mountDist[mountId] = new markdownInlineCodeConstructor({
+            data: {code: text}
+        })
+        return `<span id="markdown-${mountId}"></span>`
     }
 
     const markdownParser = function (text) {

@@ -57,7 +57,9 @@ export default {
 }
 
 .code-font {
+    font-size: 13px;
     font-family: Consolas, Monaco, monospace;
+    margin: 5px 0;
 }
 
 .markdown-block-code-line {
@@ -75,15 +77,17 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
+    font-size: 13px;
     background: var(--border-color-level-1);
     color: var(--secondary-text-color);
     padding: 3px 5px 5px 5px;
     border-bottom-left-radius: 5px;
     cursor: pointer;
     transition: 0.2s ease all;
-    min-width: 50px;
-    min-height: 20px;
-    /*opacity: 0;*/
+    min-width: 40px;
+    min-height: 15px;
+    text-align: center;
+    opacity: 0;
 }
 
 .markdown-block-code-copy:hover {
