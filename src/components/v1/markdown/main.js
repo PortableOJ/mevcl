@@ -8,7 +8,6 @@ import MarkdownInlineCode from "./MarkdownInlineCode";
 import 'katex/dist/katex.css'
 import './markdownStyle.css'
 
-// eslint-disable-next-line no-unused-vars
 const markdownBlockCodeConstructor = Vue.extend(MarkdownBlockCode)
 const markdownInlineCodeConstructor = Vue.extend(MarkdownInlineCode)
 
@@ -19,10 +18,10 @@ const Markdown = function () {
         name: 'mathjax',
         level: 'inline',
         start(src) {
-            return src.match(/\$.*\$/)?.index;
+            return src.match(/(^|[^\\])\$.*[^\\]\$/)?.index;
         },
         tokenizer(src) {
-            const blockRule = /^([^$]*)\$\$([^$]*)\$\$([\s\S]*)$/
+            const blockRule = /^(^|[^$]*[^\\])\$\$((?:[\s\S]*?[^\\])??)\$\$([\s\S]*)$/
             const blockMatch = blockRule.exec(src)
             if (blockMatch) {
                 return {
@@ -35,7 +34,7 @@ const Markdown = function () {
                 }
             }
 
-            const inlineRule = /^([^$]*)\$([^$]*)\$([\s\S]*)$/
+            const inlineRule = /^(^|[^$]*[^\\])\$((?:[\s\S]*?[^\\])??)\$([\s\S]*)$/
             const inlineMatch = inlineRule.exec(src)
             if (inlineMatch) {
                 return {
@@ -53,7 +52,7 @@ const Markdown = function () {
             const right = this.parser.parseInline(token.right)
             // noinspection JSUnresolvedFunction
             const html = katex.renderToString(token.text, {throwOnError: false})
-            const math = token.level === 'block' ? `<div>${html}</div>` : html
+            const math = token.level === 'block' ? `<div style="text-align: center">${html}</div>` : html
             return `${left}${math}${right}`
         }
     }
