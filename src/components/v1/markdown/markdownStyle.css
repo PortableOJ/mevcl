@@ -140,3 +140,32 @@
 }
 
 /* endregion */
+
+/* region 链接 */
+
+.markdown-link {
+    text-decoration: none;
+    color: var(--brand-color);
+    cursor: pointer;
+    transition: 0.2s ease all;
+    display: inline-block;
+    position: relative;
+    margin: 0 3px;
+}
+
+.markdown-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: var(--brand-color);
+    bottom: 0;
+    left: 0;
+    transition: 0.2s ease all;
+}
+
+.markdown-link:hover::after {
+    width: 100%;
+}
+
+/* endregion */

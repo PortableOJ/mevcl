@@ -105,6 +105,10 @@ const Markdown = function () {
                 </table>`
     }
 
+    renderStyle.link = function (href, title, text) {
+        return `<a href="${href}" class="markdown-link">${text}</a>`
+    }
+
     /// endregion
 
     const markdownParser = function (text) {
