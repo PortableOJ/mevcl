@@ -1,9 +1,9 @@
 <template>
     <div class="textarea-box">
         <!--suppress HtmlUnknownAttribute -->
-        <div :class="{'input': true, 'input-code': codeMode}"
+        <pre :class="{'input': true, 'input-code': codeMode}"
              @input="change" ref="inputBox">
-        </div>
+        </pre>
         <span class="input-label">{{ placeholder }}</span>
     </div>
 </template>
@@ -29,6 +29,9 @@ export default {
     },
     data() {
         return {}
+    },
+    mounted() {
+        this.$refs.inputBox.innerHTML = ''
     },
     methods: {
         change() {

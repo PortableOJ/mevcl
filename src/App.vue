@@ -200,8 +200,8 @@ export default {
         }
     },
     methods: {
-        changeInputText(){
-            this.inputShow = this.$markdown(this.input)
+        changeInputText(text) {
+            this.inputShow = this.$markdown(text)
             this.$nextTick(() => {
                 this.$renderer()
             })
