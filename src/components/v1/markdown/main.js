@@ -98,6 +98,13 @@ const Markdown = function () {
         return `<input type="checkbox" ${checked ? 'checked' : ''} class="markdown-checkbox" disabled>`
     }
 
+    renderStyle.table = function (header, body) {
+        return `<table class="markdown-table">
+                    <thead>${header}</thead>
+                    <tbody>${body}</tbody>
+                </table>`
+    }
+
     /// endregion
 
     const markdownParser = function (text) {
