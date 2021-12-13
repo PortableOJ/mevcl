@@ -5,6 +5,9 @@ import Vue from "vue";
 import MarkdownBlockCode from "./MarkdownBlockCode";
 import MarkdownInlineCode from "./MarkdownInlineCode";
 
+import 'katex/dist/katex.css'
+import './markdownStyle.css'
+
 // eslint-disable-next-line no-unused-vars
 const markdownBlockCodeConstructor = Vue.extend(MarkdownBlockCode)
 const markdownInlineCodeConstructor = Vue.extend(MarkdownInlineCode)
@@ -78,41 +81,21 @@ const Markdown = function () {
     }
 
     renderStyle.blockquote = function (quote) {
-        return `
-            <div style="margin: 3px 1px;
-                padding: 0 10px;
-                border: 1px solid var(--border-color-level-1);
-                border-left: 5px solid var(--border-color-level-1);
-                border-radius: 5px;"
-            >
-                ${quote}
-            </div>`
+        return `<div class="markdown-block-quote">${quote}</div>`
     }
 
     renderStyle.hr = function () {
-        return `
-            <div style="
-                border-top: 3px solid var(--border-color-level-1);
-                border-bottom: 3px solid var(--border-color-level-1);
-                color: var(--border-color-level-1);
-                text-align: center;
-                height: 1px;
-                border-radius: 3px;
-                margin: 20px 0;
-                position: relative;
-            ">
-                <div style="
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    padding: 0 5px;
-                    background-color: white;
-                    transform: translate(-50%, -50%);
-                    color: var(--common-text-color);
-                ">
-                    §
-                </div>
-            </div>`
+        return `<div class="markdown-hr-box"><div class="markdown-hr-logo">§</div></div>`
+    }
+
+    // noinspection SpellCheckingInspection
+    renderStyle.listitem = function (text) {
+        if (text.match(/<input/)) return `<li class="markdown-checkbox-list-item">${text}</li>`
+        return `<li>${text}</li>`
+    }
+
+    renderStyle.checkbox = function (checked) {
+        return `<input type="checkbox" ${checked ? 'checked' : ''} class="markdown-checkbox" disabled>`
     }
 
     /// endregion
@@ -129,16 +112,6 @@ const Markdown = function () {
     }
 
     return function (Vue) {
-        marked.setOptions({
-            pedantic: false,
-            gfm: true,
-            breaks: true,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false,
-            xhtml: false
-        });
-
         marked.use({extensions: [katexLaxer]});
 
         Vue.prototype.$markdown = markdownParser

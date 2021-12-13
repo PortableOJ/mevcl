@@ -5,8 +5,6 @@ import App from './App.vue'
 //
 // Vue.use(MEVCL)
 
-import 'katex/dist/katex.css'
-
 Vue.config.productionTip = false
 
 new Vue({
