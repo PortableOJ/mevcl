@@ -3,7 +3,7 @@
         <pre :class="{'input': true, 'input-code': codeMode}"
              @input="change" ref="inputBox">
         </pre>
-        <span class="input-label">{{ placeholder }}</span>
+        <span class="input-label">{{ title }}</span>
     </div>
 </template>
 
@@ -11,11 +11,14 @@
 export default {
     name: "InputTextarea",
     model: {
-        prop: 'value',
+        prop: 'placeholder',
         event: 'change'
     },
     props: {
-        value: String,
+        placeholder: {
+            type: String,
+            default: ''
+        },
         codeMode: {
             type: Boolean,
             default: false
@@ -24,13 +27,10 @@ export default {
             type: Boolean,
             default: false
         },
-        placeholder: String
-    },
-    data() {
-        return {}
+        title: String
     },
     mounted() {
-        this.$refs.inputBox.innerHTML = ''
+        this.$refs.inputBox.innerHTML = this.placeholder
     },
     methods: {
         change() {

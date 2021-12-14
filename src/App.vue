@@ -1,9 +1,6 @@
 <template>
     <div id="app">
-
-        <InputTextarea code-mode placeholder="markdown" v-model="input" @change="changeInputText"></InputTextarea>
-
-        <div v-html="inputShow" style="text-align: left"></div>
+        <MarkdownEdit v-model="input"></MarkdownEdit>
 
         <NavMenu :options="selectOption" v-model="select"></NavMenu>
 
@@ -53,6 +50,10 @@
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
 
+        <InputTextarea code-mode title="markdown" v-model="input" @change="changeInputText"></InputTextarea>
+
+        <div v-html="inputShow" style="text-align: left"></div>
+
         <GlobalLoading style="display: none"></GlobalLoading>
     </div>
 </template>
@@ -82,6 +83,7 @@ import Steps from "./components/v1/Steps";
 
 import Markdown from './components/v1/markdown/main'
 import InputTextarea from "./components/v1/InputTextarea";
+import MarkdownEdit from "./components/v1/MarkdownEdit";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -90,6 +92,7 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
+        MarkdownEdit,
         InputTextarea,
         Steps,
         Tag,
