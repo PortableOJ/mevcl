@@ -1,6 +1,5 @@
 <template>
     <div class="textarea-box">
-        <!--suppress HtmlUnknownAttribute -->
         <pre :class="{'input': true, 'input-code': codeMode}"
              @input="change" ref="inputBox">
         </pre>
