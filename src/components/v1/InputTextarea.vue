@@ -44,7 +44,7 @@ export default {
 <style scoped>
 .textarea-box {
     position: relative;
-    width: 300px;
+    width: auto;
     margin: 10px 5px;
     text-align: left;
     font-size: 11px;
