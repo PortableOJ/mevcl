@@ -60,6 +60,8 @@ Vue.component(InputText.name, InputText)
  - 普通的 Vue 组件
    - [Alert(提示标语)](docs/zh-cn/example/Alert.md)
    - [GlobalLoading(加载页面)](docs/zh-cn/example/GlobalLoading.md)
+   - [InputButton(按钮)](docs/zh-cn/example/InputButton.md)
+
 
 # Links
 

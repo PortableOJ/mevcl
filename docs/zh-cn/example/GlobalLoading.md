@@ -9,7 +9,7 @@ import 'mevcl/src/static/style.css'
 
 ## 使用
 ```js
-<Alert>通知提示内容</Alert>
+<GlobalLoading></GlobalLoading>
 ```
 
 ## 参数

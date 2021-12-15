@@ -19,3 +19,9 @@ import 'mevcl/src/static/style.css'
 |:-:|:-:|:-:|:-:|
 | type | 显示的类型 | 在 `'success'`, `'warning'`, `'error'`, `'info'` 中选择 | `'warning'` |
 | canClose | 是否可以关闭 | Boolean | `true` |
+
+## 事件
+
+| 事件名 | 解释 | 参数 | 默认行为 |
+|:-:|:-:|:-:|:-:|
+| close | 当关闭动画结束后，调用此函数 | 无参数 | 无 |
