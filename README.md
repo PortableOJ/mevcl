@@ -1,9 +1,8 @@
-<div style="text-align: center">
+<div align="center">
    <img src="https://github.com/ZJGSU-TTCM/mevcl/blob/docs/v0.2.0/public/favicon.png?raw=true" alt="MEVCL"/>
    <br>
    <h1>MEVCL</h1>
    <p>the Minimal and Efficient Vue(2.0) Component Library(一个极小但高效的 Vue 组件库)</p>
-   <br>
 </div>
 
 # Install
