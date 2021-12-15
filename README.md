@@ -13,6 +13,8 @@ npm install mevcl
 
 # Example
 
+have a preview for this library
+
 ```shell
 git clone https://github.com/ZJGSU-TTCM/mevcl.git
 cd mevcl
@@ -62,6 +64,10 @@ Vue.component(InputText.name, InputText)
    - [GlobalLoading(加载页面)](docs/zh-cn/example/GlobalLoading.md)
    - [InputButton(按钮)](docs/zh-cn/example/InputButton.md)
    - [InputCheckbox(开关)](docs/zh-cn/example/InputCheckbox.md)
+   - [InputDateTime(时间)](docs/zh-cn/example/InputDateTime.md)
+   - [InputFile(文件选择器)](docs/zh-cn/example/InputFile.md)
+   - [InputImage(图片选择器)](docs/zh-cn/example/InputImage.md)
+   - [InputSelect(单项选择器)](docs/zh-cn/example/InputSelect.md)
 
 # Links
 
