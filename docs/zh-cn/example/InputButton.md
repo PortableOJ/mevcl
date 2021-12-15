@@ -11,7 +11,7 @@ Vue.component(InputButton.name, InputButton)
 ```
 
 ## 使用
-```js
+```html
 <InputButton>按钮</InputButton>
 ```
 

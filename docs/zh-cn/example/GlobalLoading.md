@@ -10,7 +10,7 @@ Vue.component(GlobalLoading.name, GlobalLoading)
 ```
 
 ## 使用
-```js
+```html
 <GlobalLoading></GlobalLoading>
 ```
 

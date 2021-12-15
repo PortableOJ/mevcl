@@ -13,8 +13,8 @@ Vue.component(InputCheckbox.name, InputCheckbox)
 ```
 
 ## 使用
-```js
-<InputCheckbox>选项</InputCheckbox>
+```html
+<InputCheckbox v-model="checkbox">选项</InputCheckbox>
 ```
 
 ## Slot

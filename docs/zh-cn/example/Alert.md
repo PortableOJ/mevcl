@@ -11,7 +11,7 @@ Vue.component(Alert.name, Alert)
 ```
 
 ## 使用
-```js
+```html
 <Alert>通知提示内容</Alert>
 ```
 
