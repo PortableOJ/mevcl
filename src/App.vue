@@ -5,7 +5,7 @@
         <Steps :data="stepList" :value="select"></Steps>
 
         <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
-        <InputText v-model="input" placeholder="test" type="text"></InputText>
+        <InputText v-model="input" placeholder="test"></InputText>
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
@@ -48,6 +48,10 @@
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
 
+        <InputTextarea code-mode title="markdown" v-model="input"></InputTextarea>
+
+        <MarkdownEdit v-model="input"></MarkdownEdit>
+
         <GlobalLoading style="display: none"></GlobalLoading>
     </div>
 </template>
@@ -75,11 +79,19 @@ import Pagination from "./components/v1/Pagination";
 import Tag from "./components/v1/Tag";
 import Steps from "./components/v1/Steps";
 
+import Markdown from './components/v1/markdown/main'
+import InputTextarea from "./components/v1/InputTextarea";
+import MarkdownEdit from "./components/v1/MarkdownEdit";
+
 Vue.use(MEVCL)
+// noinspection JSCheckFunctionSignatures
+Vue.use(Markdown)
 
 export default {
     name: 'App',
     components: {
+        MarkdownEdit,
+        InputTextarea,
         Steps,
         Tag,
         Pagination,
@@ -100,6 +112,7 @@ export default {
     data() {
         return {
             input: '',
+            inputShow: '',
             checkbox: false,
             select: null,
             selectOption: [
