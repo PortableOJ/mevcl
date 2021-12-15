@@ -6,6 +6,8 @@
 ```js
 import Alert from "mevcl"
 import 'mevcl/src/static/style.css'
+
+Vue.component(Alert.name, Alert)
 ```
 
 ## 使用

@@ -61,7 +61,7 @@ Vue.component(InputText.name, InputText)
    - [Alert(提示标语)](docs/zh-cn/example/Alert.md)
    - [GlobalLoading(加载页面)](docs/zh-cn/example/GlobalLoading.md)
    - [InputButton(按钮)](docs/zh-cn/example/InputButton.md)
-
+   - [InputCheckbox(开关)](docs/zh-cn/example/InputCheckbox.md)
 
 # Links
 

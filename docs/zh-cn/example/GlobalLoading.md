@@ -5,6 +5,8 @@
 ```js
 import GlobalLoading from "mevcl"
 import 'mevcl/src/static/style.css'
+
+Vue.component(GlobalLoading.name, GlobalLoading)
 ```
 
 ## 使用
