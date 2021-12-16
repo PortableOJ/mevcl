@@ -15,6 +15,10 @@ Vue.component(Alert.name, Alert)
 <Alert>通知提示内容</Alert>
 ```
 
+## slot
+
+显示的通知内的值
+
 ## 参数
 
 | 名称 | 解释 | 类型 | 默认值 |

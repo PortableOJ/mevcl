@@ -57,17 +57,17 @@ Vue.component(InputText.name, InputText)
 
 ## zh-CN(中文使用文档)
  - 调用 API 的组件
-   - [MessageBox(通知弹窗)](docs/zh-cn/example/MessageBox.md)
-   - [Toast(消息提示)](docs/zh-cn/example/Toast.md)
+   - [MessageBox(通知弹窗)](docs/zh-cn/example/components/MessageBox.md)
+   - [Toast(消息提示)](docs/zh-cn/example/components/Toast.md)
  - 普通的 Vue 组件
-   - [Alert(提示标语)](docs/zh-cn/example/Alert.md)
-   - [GlobalLoading(加载页面)](docs/zh-cn/example/GlobalLoading.md)
-   - [InputButton(按钮)](docs/zh-cn/example/InputButton.md)
-   - [InputCheckbox(开关)](docs/zh-cn/example/InputCheckbox.md)
-   - [InputDateTime(时间)](docs/zh-cn/example/InputDateTime.md)
-   - [InputFile(文件选择器)](docs/zh-cn/example/InputFile.md)
-   - [InputImage(图片选择器)](docs/zh-cn/example/InputImage.md)
-   - [InputSelect(单项选择器)](docs/zh-cn/example/InputSelect.md)
+   - [Alert(提示标语)](docs/zh-cn/example/components/Alert.md)
+   - [GlobalLoading(加载页面)](docs/zh-cn/example/components/GlobalLoading.md)
+   - [InputButton(按钮)](docs/zh-cn/example/components/InputButton.md)
+   - [InputCheckbox(开关)](docs/zh-cn/example/components/InputCheckbox.md)
+   - [InputDateTime(时间)](docs/zh-cn/example/components/InputDateTime.md)
+   - [InputFile(文件选择器)](docs/zh-cn/example/components/InputFile.md)
+   - [InputImage(图片选择器)](docs/zh-cn/example/components/InputImage.md)
+   - [InputSelect(单项选择器)](docs/zh-cn/example/components/InputSelect.md)
 
 # Links
 

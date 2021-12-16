@@ -5,10 +5,11 @@
         <div style="height: 40px; width: 100%"></div>
         <div class="step-items">
             <div v-for="(item, index) in data" :key="item.value" class="step-item"
-                 :style="{cursor: item.clicked ? 'pointer' : 'not-allowed'}"
-                 @click="clickStep(item.value, index)">
-                <div class="item-icon" :style="{color: 'var(--' + item.type + '-color)'}">
+                 :style="{cursor: item.disabled ? 'not-allowed' : 'pointer'}"
+                 @click="clickStep(item.value, index, item.disabled)">
+                <div class="item-icon" :style="{color: `var(--${item.type === undefined ? 'brand' : item.type}-color)`}">
                     <i v-if="item.icon !== undefined" :class="'iconfont icon-' + item.icon"></i>
+                    <i v-else-if="index < step" :class="'iconfont icon-success'"></i>
                     <div v-else class="icon-text">{{ index + 1 }}</div>
                 </div>
                 <div class="item-title">
@@ -23,6 +24,10 @@
 
 export default {
     name: "Steps",
+    model: {
+        prop: 'value',
+        event: 'change'
+    },
     props: {
         value: [String, Number],
         data: Array,
@@ -38,12 +43,16 @@ export default {
     },
     methods: {
         flush() {
+            if (this.step === -1) this.step = -0.5
             let width = 80
             width /= this.data.length
             this.$refs.done.style.width = width * (0.5 + this.step) + '%'
         },
-        clickStep(value, index) {
-            this.$emit('change', value, index)
+        clickStep(value, index, disabled) {
+            if (disabled) return
+            this.$emit('change', value)
+            this.step = index
+            this.flush()
         }
     },
     watch: {

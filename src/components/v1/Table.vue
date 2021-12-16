@@ -4,8 +4,8 @@
             <thead>
             <tr>
                 <th v-for="(item, index) in head" :key="index"
-                    :style="item.width === undefined ? '' : 'min-width: ' + item.width + 'px'">
-                    <slot :name="'head-' + item.label" v-bind:data="item">
+                    :style="item.width === undefined ? '' : `min-width: ${item.width}px`">
+                    <slot :name="'head-' + item.value" v-bind:data="item">
                         {{ item.label }}
                     </slot>
                 </th>
