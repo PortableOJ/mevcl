@@ -46,7 +46,7 @@
             </template>
         </Table>
 
-        <Pagination :total="2000"></Pagination>
+        <Pagination :total="100"></Pagination>
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
 
@@ -155,12 +155,12 @@ export default {
             process: 0.38,
             tableHead: [
                 {
-                    label: 'name',
+                    label: '名称',
                     value: 'name',
                     width: '300',
                 },
                 {
-                    label: 'value',
+                    label: '值',
                     value: 'value',
                     width: '100',
                 }
@@ -185,19 +185,19 @@ export default {
                     title: 'step 1',
                     value: 1,
                     icon: 'success',
-                    clicked: true,
+                    disabled: false,
                 },
                 {
                     type: 'brand',
                     title: 'step 2',
                     value: 2,
-                    clicked: true,
+                    disabled: false,
                 },
                 {
                     type: 'info',
                     title: 'step 3',
                     value: 3,
-                    clicked: false,
+                    disabled: true,
                 },
             ]
         }
