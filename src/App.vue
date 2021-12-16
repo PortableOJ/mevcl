@@ -5,7 +5,7 @@
         <Steps :data="stepList" :value="select"></Steps>
 
         <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
-        <InputText v-model="input" placeholder="test" type="text"></InputText>
+        <InputText v-model="input" placeholder="test"></InputText>
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
@@ -44,7 +44,7 @@
             </template>
         </Table>
 
-        <Pagination :total="2000"></Pagination>
+        <Pagination :total="100"></Pagination>
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
 
@@ -100,6 +100,7 @@ export default {
     data() {
         return {
             input: '',
+            inputShow: '',
             checkbox: false,
             select: null,
             selectOption: [
@@ -140,12 +141,12 @@ export default {
             process: 0.38,
             tableHead: [
                 {
-                    label: 'name',
+                    label: '名称',
                     value: 'name',
                     width: '300',
                 },
                 {
-                    label: 'value',
+                    label: '值',
                     value: 'value',
                     width: '100',
                 }
@@ -170,19 +171,19 @@ export default {
                     title: 'step 1',
                     value: 1,
                     icon: 'success',
-                    clicked: true,
+                    disabled: false,
                 },
                 {
                     type: 'brand',
                     title: 'step 2',
                     value: 2,
-                    clicked: true,
+                    disabled: false,
                 },
                 {
                     type: 'info',
                     title: 'step 3',
                     value: 3,
-                    clicked: false,
+                    disabled: true,
                 },
             ]
         }

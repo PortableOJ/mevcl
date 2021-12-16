@@ -24,6 +24,10 @@
 <script>
 export default {
     name: "Pagination",
+    model: {
+        prop: 'value',
+        event: 'change'
+    },
     props: {
         value: {
             type: Number,
@@ -64,7 +68,7 @@ export default {
             this.showValue = tmp
         },
         generate() {
-            this.totPage = Math.floor(this.total / this.pageSize);
+            this.totPage = Math.ceil(this.total / this.pageSize);
             this.leftValue = Math.max(1, this.curValue - this.back)
             this.rightValue = Math.min(this.totPage, this.curValue + this.forward)
             this.build()
@@ -74,6 +78,7 @@ export default {
             if (num > this.totPage) num = this.totPage
             if (this.curValue === num) return
             this.curValue = num
+            this.$emit('change', num)
             this.generate()
         },
         open(nl, nr) {
@@ -85,6 +90,18 @@ export default {
     watch: {
         value(v) {
             this.curValue = v
+            this.generate()
+        },
+        total() {
+            this.generate()
+        },
+        pageSize() {
+            this.generate()
+        },
+        forward() {
+            this.generate()
+        },
+        back() {
             this.generate()
         }
     }

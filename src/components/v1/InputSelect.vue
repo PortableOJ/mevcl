@@ -6,13 +6,13 @@
         <span class="underline"></span>
         <div class="global-check" v-show="openSelectOption" @click="openSelectOption = false"></div>
         <div :class="'select-option-box' + (openSelectOption ? ' select-option-box-show' : '') ">
-            <ul class="select-option-list">
-                <li v-for="item in data" :key="item.value" class="select-option" @click="clickOption(item)">
+            <div class="select-option-list">
+                <div v-for="item in data" :key="item.value" class="select-option" @click="clickOption(item)">
                     <span :class="{'select-option-on': item.value === inputValue}">
                         {{ item.label }}
                     </span>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
 </template>

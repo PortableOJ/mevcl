@@ -1,4 +1,4 @@
-const theme = ['brand', 'success', 'warning', 'error', 'info', 'brand']
+const theme = ['brand', 'success', 'warning', 'error', 'info']
 const tendency = ['success', 'warning', 'error', 'info']
 
 const getThemeClass = (name) => {

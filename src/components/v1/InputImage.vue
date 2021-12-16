@@ -34,10 +34,6 @@ export default {
         disabled: {
             type: Boolean,
             default: false
-        },
-        scale: {
-            type: [Number, null],
-            default: null
         }
     },
     data() {
