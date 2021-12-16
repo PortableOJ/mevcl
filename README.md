@@ -1,5 +1,5 @@
 <div align="center">
-   <img src="https://github.com/ZJGSU-TTCM/mevcl/blob/docs/v0.2.0/public/favicon.png?raw=true" alt="MEVCL"/>
+   <img src="https://github.com/ZJGSU-TTCM/mevcl/blob/master/public/favicon.png?raw=true" alt="MEVCL"/>
    <br>
    <h1>MEVCL</h1>
    <p>the Minimal and Efficient Vue(2.0) Component Library(一个极小但高效的 Vue 组件库)</p>
@@ -68,6 +68,14 @@ Vue.component(InputText.name, InputText)
    - [InputFile(文件选择器)](docs/zh-cn/example/components/InputFile.md)
    - [InputImage(图片选择器)](docs/zh-cn/example/components/InputImage.md)
    - [InputSelect(单项选择器)](docs/zh-cn/example/components/InputSelect.md)
+   - [InputSlider(滑块)](docs/zh-cn/example/components/InputSlider.md)
+   - [InputText(文本输入框)](docs/zh-cn/example/components/InputText.md)
+   - [Link(文字链接)](docs/zh-cn/example/components/Link.md)
+   - [NavMenu(导航栏)](docs/zh-cn/example/components/NavMenu.md)
+   - [Pagination(分页)](docs/zh-cn/example/components/Pagination.md)
+   - [Steps(步骤进度条)](docs/zh-cn/example/components/Steps.md)
+   - [Table(表格)](docs/zh-cn/example/components/Table.md)
+   - [Tag(标签)](docs/zh-cn/example/components/Tag.md)
 
 # Links
 
