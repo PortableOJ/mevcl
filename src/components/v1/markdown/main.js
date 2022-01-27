@@ -18,7 +18,8 @@ const Markdown = function () {
         name: 'mathjax',
         level: 'inline',
         start(src) {
-            return src.match(/(^|[^\\])\$.*[^\\]\$/)?.index;
+            let tmp = src.match(/(^|[^\\])\$.*[^\\]\$/)
+            return tmp && tmp.index;
         },
         tokenizer(src) {
             const blockRule = /^(^|[^$]*[^\\])\$\$((?:[\s\S]*?[^\\])??)\$\$([\s\S]*)$/
