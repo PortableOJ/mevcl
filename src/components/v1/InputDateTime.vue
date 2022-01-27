@@ -53,12 +53,13 @@ export default {
 }
 
 .input-control {
-    width: 100%;
+    position: absolute;
     height: 100%;
-    padding: 0 0 0 10px;
+    padding: 0 10px 0 10px;
     outline: 0;
     left: 0;
     top: 0;
+    right: 0;
     border: 1px solid var(--transparent-color);
     border-bottom: 1px solid var(--border-color-level-3);
     background-color: var(--white-color);
@@ -85,12 +86,12 @@ export default {
     position: absolute;
     margin-top: 1px;
     bottom: -4px;
-    left: 50%;
     height: 4px;
-    width: 0;
+    left: 50%;
+    right: 50%;
     background-color: var(--brand-color);
-    transform: translateX(-50%);
     margin-left: 5px;
+    margin-right: 5px;
     transition: 0.2s ease all;
     border-radius: 2px;
 }
@@ -147,6 +148,7 @@ export default {
 
 .input-control:hover ~ .underline,
 .input-control:focus ~ .underline {
-    width: 100%;
+    left: 0;
+    right: 0;
 }
 </style>

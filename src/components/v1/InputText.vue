@@ -65,13 +65,13 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    right: 0;
     height: 100%;
     border: 1px solid var(--transparent-color);
     border-bottom: 1px solid var(--border-color-level-3);
     border-radius: 5px;
     background-color: var(--white-color);
-    padding: 0 0 0 10px;
+    padding: 0 10px 0 10px;
     outline: 0;
     transition: 0.2s ease all;
     appearance: none;
@@ -94,19 +94,20 @@ export default {
     position: absolute;
     margin-top: 1px;
     bottom: -4px;
-    left: 50%;
     height: 4px;
-    width: 0;
+    left: 50%;
+    right: 50%;
     background-color: var(--brand-color);
-    transform: translateX(-50%);
     margin-left: 5px;
+    margin-right: 5px;
     transition: 0.2s ease all;
     border-radius: 2px;
 }
 
 /*hover*/
 .input-control:hover ~ .underline {
-    width: 100%;
+    left: 0;
+    right: 0;
 }
 
 /*valid*/
@@ -137,7 +138,8 @@ export default {
 }
 
 .input-control:focus ~ .underline {
-    width: 100%;
+    left: 0;
+    right: 0;
 }
 
 /*read-only*/
