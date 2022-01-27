@@ -221,6 +221,7 @@ export default {
             this.$message({
                 text: 'ABC',
                 type: 'error',
+                inputType: 'password',
                 input: true,
                 confirmOK: (v) => {
                     console.log(v)

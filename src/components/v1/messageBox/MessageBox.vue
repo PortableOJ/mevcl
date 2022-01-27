@@ -9,7 +9,7 @@
                     {{ text }}
                 </div>
                 <div v-if="input" class="message-input">
-                    <InputText v-model="inputValue"></InputText>
+                    <InputText v-model="inputValue" :type="inputType"></InputText>
                 </div>
                 <div class="message-button">
                     <InputButton @click="callback(confirmOK)" v-if="ok !== null" :type="type">
@@ -39,6 +39,7 @@ export default {
         return {
             text: '',
             type: 'warning',
+            inputType: 'text',
             ok: '确定',
             cancel: '取消',
             input: true,

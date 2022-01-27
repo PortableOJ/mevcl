@@ -14,7 +14,7 @@
             <tbody>
             <tr v-for="(item, index) in data" :key="index">
                 <td v-for="(line, col) in head" :key="col">
-                    <slot :name="'body-' + line.label" v-bind:data="item">
+                    <slot :name="'body-' + line.value" v-bind:data="item">
                         {{ item[line.value] }}
                     </slot>
                 </td>

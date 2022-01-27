@@ -10,10 +10,12 @@ const messageBox = function () {
     }
 
     const createMessageBox = function (options) {
+        console.log(options)
         const curMessageBox = new MessageBoxConstructor({
             data: {
                 text: options.text,
                 type: options.type ? options.type : 'normal',
+                inputType: options.inputType ? options.inputType : 'text',
                 ok: options.ok ? options.ok : '确定',
                 cancel: options.cancel ? options.cancel : '取消',
                 input: options.input,
