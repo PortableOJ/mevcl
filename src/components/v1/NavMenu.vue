@@ -5,15 +5,15 @@
         </div>
         <div class="nav-menu-split-line"></div>
         <div class="nav-menu-options">
-            <div :class="{
-                'nav-menu-option': true,
-                'nav-menu-option-selected': item.value === inputValue
-                }"
-                 v-for="item in options"
-                 :key="item.value"
-                 @click="clickOption(item)">
-                {{ item.label }}
-            </div>
+            <template v-for="item in options">
+                <div :class="{
+                        'nav-menu-option': true,
+                        'nav-menu-option-selected': item.value === inputValue
+                    }"
+                     v-if="!item.hidden" :key="item.value" @click="clickOption(item)">
+                    {{ item.label }}
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -28,6 +28,7 @@ export default {
     props: {
         value: [String, Number],
         options: Array,
+        notFound: Function,
     },
     data() {
         return {
@@ -37,9 +38,13 @@ export default {
         }
     },
     created() {
-        this.inputValue = this.options.find(d => d.value === this.value)
-        this.inputLabel = this.inputValue === undefined ? '' : this.inputValue.label
-        this.inputValue = this.inputValue === undefined ? '' : this.inputValue.value
+        let tmp = this.options.find(d => d.value === this.value)
+        this.inputValue = this.value
+        if (tmp && !tmp.hidden) {
+            this.inputLabel = tmp.label
+        } else {
+            this.inputLabel = this.notFound(this.value)
+        }
     },
     methods: {
         clickOption(option) {
@@ -51,9 +56,13 @@ export default {
     watch: {
         value(v) {
             if (v === this.inputValue) return
+            this.inputValue = v
             const tmp = this.options.find(d => d.value === v)
-            this.inputLabel = tmp === undefined ? '' : tmp.label
-            this.inputValue = tmp === undefined ? '' : tmp.value
+            if (!!tmp && !tmp.hidden) {
+                this.inputLabel = tmp.label
+            } else {
+                this.inputLabel = this.notFound(v)
+            }
         }
     }
 }

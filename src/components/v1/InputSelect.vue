@@ -1,11 +1,11 @@
 <template>
     <div class="input-box">
-        <input class="input-control" type="text" v-model="inputLabel" @click="openSelectOption = true" readonly
+        <input class="input-control" type="text" v-model="inputLabel" @click="open" readonly
                :class="{'input-control-not-null' : inputValue !== ''}" :disabled="disabled"/>
         <span class="input-label">{{ placeholder }}</span>
         <span class="underline"></span>
-        <div class="global-check" v-show="openSelectOption" @click="openSelectOption = false"></div>
-        <div :class="{'select-option-box': true, 'select-option-box-show': openSelectOption}">
+        <div class="global-check" v-show="openSelectOption" @click="close"></div>
+        <div :class="{'select-option-box': true, 'select-option-box-show': openSelectOption}" ref="selectBox">
             <div class="select-option-list">
                 <div v-for="item in data" :key="item.value" class="select-option" @click="clickOption(item)">
                     <span :class="{'select-option-on': item.value === inputValue}">
@@ -46,11 +46,19 @@ export default {
         this.inputValue = this.inputValue === undefined ? '' : this.inputValue.value
     },
     methods: {
+        open() {
+            this.$refs.selectBox.style.height = `${35 * this.data.length}px`
+            this.openSelectOption = true
+        },
+        close() {
+            this.$refs.selectBox.style.height = '0'
+            this.openSelectOption = false
+        },
         clickOption(option) {
             this.inputValue = option.value
             this.inputLabel = option.label
             this.$emit('change', option.value)
-            this.openSelectOption = false
+            this.close()
         }
     },
     watch: {
@@ -134,7 +142,7 @@ export default {
 }
 
 .select-option-box-show {
-    height: 500%;
+    max-height: 500%;
 }
 
 .select-option-list {
@@ -152,6 +160,7 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
+    text-align: center;
     cursor: pointer;
 }
 

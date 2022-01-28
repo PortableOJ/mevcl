@@ -2,7 +2,7 @@
     <div id="app">
         <MarkdownEdit v-model="input"></MarkdownEdit>
 
-        <NavMenu :options="selectOption" v-model="select"></NavMenu>
+        <NavMenu :options="navMenuOption" :not-found="d => `没有找到${d}`" v-model="select"></NavMenu>
 
         <Steps :data="stepList" :value="select"></Steps>
 
@@ -119,30 +119,34 @@ export default {
             select: null,
             selectOption: [
                 {
+                    label: 'abc',
+                    value: 'a',
+                }, {
                     label: '111',
                     value: 1,
                 },
+            ],
+            navMenuOption: [
                 {
+                    label: '111',
+                    value: 1
+                }, {
                     label: '222',
-                    value: 2
-                },
-                {
+                    value: 2,
+                    hidden: true
+                }, {
                     label: '333',
                     value: 3
-                },
-                {
+                }, {
                     label: '444',
                     value: 4
-                },
-                {
+                }, {
                     label: '555',
                     value: 5
-                },
-                {
+                }, {
                     label: '666',
                     value: 6
-                },
-                {
+                }, {
                     label: '777',
                     value: 7
                 }
