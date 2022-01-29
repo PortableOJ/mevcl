@@ -57,9 +57,9 @@ export default {
     height: 100%;
     padding: 0 10px 0 10px;
     outline: 0;
-    left: 0;
     top: 0;
-    right: 0;
+    left: 0;
+    width: calc(100% - 22px);
     border: 1px solid var(--transparent-color);
     border-bottom: 1px solid var(--border-color-level-3);
     background-color: var(--white-color);

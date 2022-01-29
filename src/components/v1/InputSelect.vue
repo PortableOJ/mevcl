@@ -83,8 +83,8 @@ export default {
 .input-control {
     position: absolute;
     left: 0;
+    width: calc(100% - 22px);
     top: 0;
-    right: 0;
     height: 100%;
     appearance: none;
     -moz-appearance: none;

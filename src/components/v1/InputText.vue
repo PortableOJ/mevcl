@@ -64,8 +64,8 @@ export default {
 .input-control {
     position: absolute;
     left: 0;
+    width: calc(100% - 22px);
     top: 0;
-    right: 0;
     height: 100%;
     border: 1px solid var(--transparent-color);
     border-bottom: 1px solid var(--border-color-level-3);
