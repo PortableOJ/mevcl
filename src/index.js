@@ -1,5 +1,8 @@
 import MiniLoading from "./basic/MiniLoading";
 
+import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
+import MarkdownInlineCode from "./components/v1/markdown/MarkdownInlineCode";
+
 import Alert from "./components/v1/Alert";
 import GlobalLoading from "./components/v1/GlobalLoading";
 import InputButton from "./components/v1/InputButton";
@@ -25,6 +28,8 @@ import Markdown from './components/v1/markdown/main'
 
 const components = [
     MiniLoading,
+    MarkdownBlockCode,
+    MarkdownInlineCode,
     Alert,
     GlobalLoading,
     InputButton,
@@ -60,6 +65,8 @@ export default {
     install,
 
     MiniLoading,
+    MarkdownBlockCode,
+    MarkdownInlineCode,
     Alert,
     GlobalLoading,
     InputButton,

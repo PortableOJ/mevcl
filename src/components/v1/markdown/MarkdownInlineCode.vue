@@ -7,9 +7,17 @@
 <script>
 export default {
     name: "MarkdownInlineCode",
+    props: {
+        value: String
+    },
     data() {
         return {
             code: ''
+        }
+    },
+    created() {
+        if (this.value) {
+            this.code = this.value
         }
     }
 }

@@ -18,6 +18,9 @@
 <script>
 export default {
     name: "MarkdownBlockCode",
+    props: {
+        value: String,
+    },
     data() {
         return {
             code: '',
@@ -26,6 +29,9 @@ export default {
         }
     },
     created() {
+        if (this.value) {
+            this.code = this.value
+        }
         this.copied = false
         this.lines = Object.keys(
             Array.apply(null, {length: Math.max(1, this.code.split('\n').length)})

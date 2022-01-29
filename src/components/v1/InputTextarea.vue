@@ -1,7 +1,6 @@
 <template>
     <div class="textarea-box">
-        <pre :class="{'input': true, 'input-code': codeMode}"
-             @input="change" ref="inputBox">
+        <pre :class="{'input': true, 'input-code': codeMode}" @input="change" ref="inputBox" :style="{'min-height': `${minHeight}px`}">
         </pre>
         <span class="input-label">{{ title }}</span>
     </div>
@@ -27,7 +26,11 @@ export default {
             type: Boolean,
             default: false
         },
-        title: String
+        title: String,
+        minHeight: {
+            type: Number,
+            default: 0
+        }
     },
     mounted() {
         this.$refs.inputBox.innerHTML = this.placeholder

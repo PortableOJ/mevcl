@@ -2,6 +2,7 @@
     <div id="app">
         <MarkdownEdit v-model="input"></MarkdownEdit>
 
+        <!--suppress JSValidateTypes -->
         <NavMenu :options="navMenuOption" :not-found="d => `没有找到${d}`" v-model="select"></NavMenu>
 
         <Steps :data="stepList" :value="select"></Steps>
@@ -50,11 +51,13 @@
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
 
-        <InputTextarea code-mode title="markdown" v-model="input" @change="changeInputText"></InputTextarea>
+        <InputTextarea code-mode title="markdown" v-model="input" @change="changeInputText" :min-height="50"></InputTextarea>
 
         <div v-html="inputShow" style="text-align: left"></div>
 
         <GlobalLoading style="display: none"></GlobalLoading>
+
+        <MarkdownBlockCode :value="'123\nabc'"></MarkdownBlockCode>
     </div>
 </template>
 
@@ -84,6 +87,7 @@ import Steps from "./components/v1/Steps";
 import Markdown from './components/v1/markdown/main'
 import InputTextarea from "./components/v1/InputTextarea";
 import MarkdownEdit from "./components/v1/MarkdownEdit";
+import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -92,6 +96,7 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
+        MarkdownBlockCode,
         MarkdownEdit,
         InputTextarea,
         Steps,
