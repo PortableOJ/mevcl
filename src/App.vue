@@ -12,6 +12,7 @@
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
+        <InputCheckbox v-model="checkbox">ABC<br/>ABCABCABC</InputCheckbox>
 
         <InputButton disabled @click="click">TEST</InputButton>
         <InputButton @click="click" :loading="loading">TEST</InputButton>

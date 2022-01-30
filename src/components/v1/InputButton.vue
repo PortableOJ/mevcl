@@ -3,7 +3,7 @@
         <button
             :class="'input-control ' + getThemeClass() + (mouseDown ? '-down ' : ' ') + (process !== null ? ' input-control-process' : '')"
             @mousedown="mouseDown = true" @mouseup="mouseDown = false" @click="click"
-            :disabled="disabled || loading || process !== null">
+            :disabled="disabled || loading || !!process">
             <MiniLoading v-if="loading"></MiniLoading>
             <span v-else-if="process !== null">{{ showProcessValue + '%' }}</span>
             <slot v-else></slot>
