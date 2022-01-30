@@ -6,11 +6,9 @@
         <div class="markdown-block-code-code">
             <pre class="code-font">{{ code }}</pre>
         </div>
-        <div :class="{
-            'markdown-block-code-copy': true,
-            'markdown-block-code-copy-copied': copied,
-        }" @click="copyCode">
-            <span v-if="!copied">Copy!</span>
+        <div class="markdown-block-code-copy" @click="copyCode">
+            <i v-if="!copied" class="iconfont icon-save"></i>
+            <i v-else class="iconfont icon-success"></i>
         </div>
     </div>
 </template>
@@ -77,6 +75,7 @@ export default {
 .markdown-block-code-code {
     padding: 0 3px;
     text-align: left;
+    overflow: auto;
 }
 
 .markdown-block-code-copy {
@@ -99,29 +98,4 @@ export default {
 .markdown-block-code-copy:hover {
     opacity: 1;
 }
-
-.markdown-block-code-copy-copied::before {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 8px;
-    left: 40%;
-    top: 50%;
-    border-radius: 2px;
-    background: var(--secondary-text-color);
-    transform: rotate(45deg);
-}
-
-.markdown-block-code-copy-copied::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 16px;
-    top: 40%;
-    left: 46%;
-    border-radius: 2px;
-    background: var(--secondary-text-color);
-    transform: rotate(-45deg);
-}
-
 </style>
