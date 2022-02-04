@@ -33,7 +33,7 @@ export default {
         }
     },
     mounted() {
-        this.$refs.inputBox.innerHTML = this.placeholder
+        this.$refs.inputBox.innerText = this.placeholder
     },
     methods: {
         change() {
