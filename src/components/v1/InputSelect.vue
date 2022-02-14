@@ -7,11 +7,13 @@
         <div class="global-check" v-show="openSelectOption" @click="close"></div>
         <div class="select-option-box" ref="selectBox">
             <div class="select-option-list">
-                <div v-for="item in data" :key="item.value" class="select-option" @click="clickOption(item)">
-                    <span :class="{'select-option-on': item.value === inputValue}">
-                        {{ item.label }}
-                    </span>
-                </div>
+                <template v-for="item in data">
+                    <div v-if="!item.hidden" :key="item.value" class="select-option" @click="clickOption(item)">
+                        <span :class="{'select-option-on': item.value === inputValue}">
+                            {{ item.label }}
+                        </span>
+                    </div>
+                </template>
             </div>
         </div>
     </div>
@@ -47,7 +49,16 @@ export default {
     },
     methods: {
         open() {
-            this.$refs.selectBox.style.height = `${35 * this.data.length}px`
+            let cnt = 0
+            for (let i = 0; i < this.data.length; ++i) {
+                if (!this.data[i].hidden) {
+                    cnt++;
+                    if (cnt >= 5) {
+                        break
+                    }
+                }
+            }
+            this.$refs.selectBox.style.height = `${35 * cnt}px`
             this.openSelectOption = true
         },
         close() {
