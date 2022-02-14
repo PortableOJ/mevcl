@@ -5,9 +5,7 @@
                 <div class="message-icon">
                     <i :class="'iconfont icon-' + type"></i>
                 </div>
-                <div class="message-text">
-                    {{ text }}
-                </div>
+                <div class="message-text" v-html="text"></div>
                 <div v-if="input" class="message-input">
                     <InputText v-model="inputValue" :type="inputType"></InputText>
                 </div>
