@@ -58,7 +58,7 @@ export default {
             if (v === this.inputValue) return
             this.inputValue = v
             const tmp = this.options.find(d => d.value === v)
-            if (!!tmp && !tmp.hidden) {
+            if (tmp && !tmp.hidden) {
                 this.inputLabel = tmp.label
             } else {
                 this.inputLabel = this.notFound(v)

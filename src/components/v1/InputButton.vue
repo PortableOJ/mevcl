@@ -3,16 +3,16 @@
         <button
             :class="'input-control ' + getThemeClass() + (mouseDown ? '-down ' : ' ') + (process !== null ? ' input-control-process' : '')"
             @mousedown="mouseDown = true" @mouseup="mouseDown = false" @click="click"
-            :disabled="disabled || loading || !!process">
+            :disabled="disabled || loading || process !== null">
             <MiniLoading v-if="loading"></MiniLoading>
             <span v-else-if="process !== null">{{ showProcessValue + '%' }}</span>
             <slot v-else></slot>
         </button>
         <div class="process" v-if="process !== null"
-             :style="'clip-path: inset(0 ' + (100 - showProcessValue) + '% 0 0)'">
+             :style="`clip-path: inset(0 ${100 - showProcessValue}% 0 0)`">
         </div>
         <button class="process-value" v-if="process !== null"
-                :style="'clip-path: inset(0 ' + (100 - showProcessValue) + '% 0 0)'">
+                :style="`clip-path: inset(0 ${100 - showProcessValue}% 0 0)`">
             {{ showProcessValue + '%' }}
         </button>
     </div>
@@ -73,7 +73,7 @@ export default {
         getThemeClass() {
             return Common.getThemeClass(this.type)
         }
-    }
+    },
 }
 </script>
 
