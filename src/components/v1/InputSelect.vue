@@ -1,17 +1,15 @@
 <template>
     <div class="input-box">
-        <input class="input-control" type="text" v-model="inputLabel" @click="open" readonly
+        <input class="input-control" type="text" v-model="inputLabel" @click="open" @input="search"
                :class="{'input-control-not-null' : inputValue !== ''}" :disabled="disabled"/>
         <span class="input-label">{{ placeholder }}</span>
         <span class="underline"></span>
-        <div class="global-check" v-show="openSelectOption" @click="close"></div>
+        <div class="global-check" v-show="openSelectOption" @click="restoreValue"></div>
         <div class="select-option-box" ref="selectBox">
             <div class="select-option-list">
                 <template v-for="item in data">
-                    <div v-if="!item.hidden" :key="item.value" class="select-option" @click="clickOption(item)">
-                        <span :class="{'select-option-on': item.value === inputValue}">
-                            {{ item.label }}
-                        </span>
+                    <div v-if="!item.hidden && item.label.indexOf(inputLabel) !== -1" :key="item.value" class="select-option" @click="clickOption(item)">
+                        <span :class="{'select-option-on': item.value === inputValue}" v-html="item.label.replace(inputLabel, `<span style='color: red;'>${inputLabel}</span>`)"></span>
                     </div>
                 </template>
             </div>
@@ -43,19 +41,19 @@ export default {
         }
     },
     created() {
-        this.inputValue = this.data.find(d => d.value === this.value)
-        this.inputLabel = this.inputValue === undefined ? '' : this.inputValue.label
-        this.inputValue = this.inputValue === undefined ? '' : this.inputValue.value
+        this.getValue()
     },
     methods: {
         open() {
+            this.inputLabel = ''
             let cnt = 0
             for (let i = 0; i < this.data.length; ++i) {
-                if (!this.data[i].hidden) {
-                    cnt++;
-                    if (cnt >= 5) {
-                        break
-                    }
+                if (this.data[i].hidden) {
+                    continue;
+                }
+                cnt++;
+                if (cnt >= 5) {
+                    break
                 }
             }
             this.$refs.selectBox.style.height = `${35 * cnt}px`
@@ -65,19 +63,29 @@ export default {
             this.$refs.selectBox.style.height = '0'
             this.openSelectOption = false
         },
+        getValue() {
+            this.inputValue = this.data.find(d => d.value === this.value)
+            this.inputLabel = this.inputValue === undefined ? '' : this.inputValue.label
+            this.inputValue = this.inputValue === undefined ? '' : this.inputValue.value
+        },
+        restoreValue() {
+            this.getValue()
+            this.close()
+        },
         clickOption(option) {
             this.inputValue = option.value
             this.inputLabel = option.label
             this.$emit('change', option.value)
             this.close()
+        },
+        search() {
+            this.$emit('search', this.inputLabel)
         }
     },
     watch: {
         value(v) {
             if (v === this.inputValue) return
-            this.inputValue = this.data.find(d => d.value === v)
-            this.inputLabel = this.inputValue === undefined ? '' : this.inputValue.label
-            this.inputValue = this.inputValue === undefined ? '' : this.inputValue.value
+            this.getValue()
         }
     }
 }
