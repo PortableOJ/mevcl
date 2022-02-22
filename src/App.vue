@@ -226,6 +226,16 @@ export default {
                 duration: 'auto',
                 type: 'success'
             })
+            this.selectOption = [
+                {
+                    label: 'abc',
+                    value: 'a',
+                    hidden: true,
+                }, {
+                    label: '111',
+                    value: 1,
+                },
+            ]
         },
         msg() {
             this.$message({

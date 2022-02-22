@@ -38,7 +38,17 @@ export default {
     methods: {
         copyCode() {
             const clipboard = navigator.clipboard;
-            clipboard.writeText(this.code)
+            if (clipboard) {
+                clipboard.writeText(this.code)
+            } else {
+                let tag = document.createElement('textarea');
+                tag.setAttribute('id', 'input_for_cp');
+                tag.value = this.code;
+                document.body.appendChild(tag);
+                document.getElementById('input_for_cp').select();
+                document.execCommand('copy');
+                document.getElementById('input_for_cp').remove();
+            }
             if (!this.copied) {
                 this.copied = true
                 setTimeout(() => {
