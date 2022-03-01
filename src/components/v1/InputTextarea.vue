@@ -1,6 +1,6 @@
 <template>
     <div class="textarea-box">
-        <pre :class="{'input': true, 'input-code': codeMode}" @input="change" ref="inputBox" :style="{'min-height': `${minHeight}px`}">
+        <pre :class="{'input': true, 'input-not-readOnly': !readOnly, 'input-code': codeMode}" @input="change" ref="inputBox" :style="{'min-height': `${minHeight}px`}">
         </pre>
         <span class="input-label">{{ title }}</span>
     </div>
@@ -59,10 +59,13 @@ export default {
     margin: 10px 5px;
     transition: 0.2s ease all;
     border: 1px solid var(--border-color-level-1);
+    overflow: auto;
+}
+
+.input-not-readOnly {
     -webkit-user-modify: read-write-plaintext-only;
     -moz-user-modify: read-write-plaintext-only;
     user-modify: read-write-plaintext-only;
-    overflow: auto;
 }
 
 .input-label {

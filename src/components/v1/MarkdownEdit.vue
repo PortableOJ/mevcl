@@ -1,7 +1,7 @@
 <template>
     <div class="markdown-edit-box" ref="box">
         <div class="markdown-edit-input" :style="{'opacity': leftPercent > 1 ? 1 : 0}">
-            <pre class="markdown-edit-input-pre"
+            <pre :class="{'markdown-edit-input-pre': true, 'markdown-edit-input-pre-not-readOnly': !readOnly}"
                  @input="changeMarkdown" ref="inputBox"></pre>
         </div>
         <div v-html="inputShow" :class="{'markdown-edit-show': true, 'markdown-edit-show-drag': onDrag}"
@@ -120,12 +120,15 @@ export default {
     width: calc(100% - 24px);
     position: absolute;
     transition: 0.2s ease all;
-    -webkit-user-modify: read-write-plaintext-only;
-    -moz-user-modify: read-write-plaintext-only;
-    user-modify: read-write-plaintext-only;
     font-family: Consolas, Monaco, monospace;
     font-size: 11px;
     text-align: left;
+}
+
+.markdown-edit-input-pre-not-readOnly {
+    -webkit-user-modify: read-write-plaintext-only;
+    -moz-user-modify: read-write-plaintext-only;
+    user-modify: read-write-plaintext-only;
 }
 
 .markdown-edit-show {

@@ -91,7 +91,7 @@ export default {
             if (v === this.inputValue) return
             this.getValue()
         },
-        data(v) {
+        data() {
             if (this.openSelectOption) {
                 this.countLen()
             }
