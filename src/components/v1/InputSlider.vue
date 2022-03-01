@@ -2,7 +2,7 @@
     <div class="input-box">
         <div ref="scrollbar" class="scrollbar" @click="clickBar"></div>
         <div ref="fillBar" class="fill-bar"></div>
-        <div ref="handle" class="handle" @mousedown="startDrag" @touchstart="startTouch">
+        <div ref="handle" class="handle" @mousedown="startDrag" @touchstart="startTouch" v-show="showHandle">
             12
         </div>
         <div class="global-check" v-if="isDrag" style="cursor: grabbing"></div>
@@ -34,9 +34,17 @@ export default {
             type: Function,
             default: d => d.toFixed(2).toString()
         },
+        readOnly: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false
+        },
+        showHandle: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -56,6 +64,7 @@ export default {
     methods: {
         changeValue(x, flag = false) {
             if (this.disabled && !flag) return
+            if (this.readOnly && !flag) return
             let pre = x / this.$refs.scrollbar.scrollWidth
             pre = Math.min(Math.max(pre, 0), 1)
             this.inputValue = pre * this.$refs.scrollbar.scrollWidth
@@ -69,6 +78,7 @@ export default {
             this.$refs.handle.style.left = x + 'px'
             this.$refs.handle.innerText = this.valueFormat(res)
             if (this.disabled) return
+            if (this.readOnly) return
             this.$emit('change', res)
         },
         clickBar(e) {
