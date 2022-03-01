@@ -46,6 +46,10 @@ export default {
     methods: {
         open() {
             this.inputLabel = ''
+            this.countLen()
+            this.openSelectOption = true
+        },
+        countLen() {
             let cnt = 0
             for (let i = 0; i < this.data.length; ++i) {
                 if (this.data[i].hidden) {
@@ -57,7 +61,6 @@ export default {
                 }
             }
             this.$refs.selectBox.style.height = `${35 * cnt}px`
-            this.openSelectOption = true
         },
         close() {
             this.$refs.selectBox.style.height = '0'
@@ -80,12 +83,18 @@ export default {
         },
         search() {
             this.$emit('search', this.inputLabel)
+            this.countLen()
         }
     },
     watch: {
         value(v) {
             if (v === this.inputValue) return
             this.getValue()
+        },
+        data(v) {
+            if (this.openSelectOption) {
+                this.countLen()
+            }
         }
     }
 }
