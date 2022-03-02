@@ -14,6 +14,7 @@
 <script>
 import Vue from 'vue'
 import Markdown from './markdown/main'
+import Common from "../../static/common";
 
 // noinspection JSCheckFunctionSignatures
 Vue.use(Markdown)
@@ -48,6 +49,7 @@ export default {
     },
     mounted() {
         this.$refs.inputBox.innerHTML = this.placeholder
+        this.$refs.inputBox.addEventListener('keydown', e => Common.tabInput(e, this))
         this.changeMarkdown()
     },
     methods: {
