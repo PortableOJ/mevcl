@@ -71,7 +71,7 @@ export default {
 <style scoped>
 .nav-menu-box {
     position: relative;
-    box-shadow: var(--open-shadowbox);
+    border: 1px solid var(--brand-color);
     padding: 10px 10px;
     border-radius: 10px;
     display: flex;
