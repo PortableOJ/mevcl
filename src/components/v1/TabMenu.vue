@@ -28,7 +28,7 @@ export default {
     },
     data() {
         return {
-            inputValue: this.options.find(d => d.value === this.value),
+            inputValue: this.value
         }
     },
     methods: {

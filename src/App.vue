@@ -126,7 +126,7 @@ export default {
             input: '',
             inputShow: '',
             checkbox: false,
-            select: null,
+            select: 1,
             selectOption: [
                 {
                     label: 'abc',

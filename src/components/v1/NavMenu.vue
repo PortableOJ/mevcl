@@ -23,11 +23,10 @@ export default {
     props: {
         value: [String, Number],
         options: Array,
-        notFound: Function,
     },
     data() {
         return {
-            inputValue: this.options.find(d => d.value === this.value),
+            inputValue: this.value,
         }
     },
     methods: {
