@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 .nav-menu-box {
-    background: var(--very-light-brand-color);
+    background: var(--background-brand-color);
     position: relative;
     border: 1px solid var(--brand-color);
     padding: 10px 10px;

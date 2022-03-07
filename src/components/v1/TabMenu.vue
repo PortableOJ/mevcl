@@ -68,12 +68,12 @@ export default {
 }
 
 .nav-menu-option:hover {
-    background-color: var(--very-light-brand-color);
+    background-color: var(--background-brand-color);
 }
 
 .nav-menu-option-selected {
     color: var(--brand-color);
-    background-color: var(--very-light-brand-color);
+    background-color: var(--background-brand-color);
     padding-bottom: 13px;
     border-bottom: 3px solid var(--brand-color);
 }

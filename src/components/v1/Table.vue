@@ -46,7 +46,7 @@ export default {
 }
 
 .content-table thead tr {
-    background-color: var(--light-brand-color);
+    background-color: var(--very-light-brand-color);
     color: var(--common-text-color);
     text-align: center;
     font-weight: bold;
@@ -79,7 +79,7 @@ export default {
 }
 
 .content-table tbody tr:last-of-type {
-    border-bottom: 2px solid var(--light-brand-color);
+    border-bottom: 2px solid var(--very-light-brand-color);
 }
 
 .content-table tbody tr:hover {
