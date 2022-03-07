@@ -5,7 +5,7 @@
         <!--suppress JSValidateTypes -->
         <NavMenu :options="navMenuOption" v-model="select"></NavMenu>
         <!--suppress JSValidateTypes -->
-        <HorizontalMenu :options="navMenuOption" v-model="select"></HorizontalMenu>
+        <TabMenu :options="navMenuOption" v-model="select"></TabMenu>
 
         <Steps :data="stepList" :value="select"></Steps>
 
@@ -91,7 +91,7 @@ import Markdown from './components/v1/markdown/main'
 import InputTextarea from "./components/v1/InputTextarea";
 import MarkdownEdit from "./components/v1/MarkdownEdit";
 import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
-import HorizontalMenu from "./components/v1/HorizontalMenu";
+import TabMenu from "./components/v1/TabMenu";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -100,7 +100,7 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
-        HorizontalMenu,
+        TabMenu,
         MarkdownBlockCode,
         MarkdownEdit,
         InputTextarea,

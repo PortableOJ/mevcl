@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: "HorizontalMenu",
+    name: "TabMenu",
     model: {
         prop: 'value',
         event: 'change'
@@ -48,22 +48,20 @@ export default {
 
 <style scoped>
 .nav-menu-box {
-    display: inline-block;
     position: relative;
     padding: 0;
-    /*border-bottom: 1px solid var(--border-color-level-1);*/
-    justify-content: center;
-    align-items: center;
 }
 
 .nav-menu-options {
     position: relative;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 .nav-menu-option {
-    position: relative;
-    display: inline-block;
+    flex-grow: 1;
     padding: 15px 10px;
     cursor: pointer;
     border-bottom: 1px solid var(--border-color-level-1);
@@ -76,7 +74,7 @@ export default {
 .nav-menu-option-selected {
     color: var(--brand-color);
     background-color: var(--very-light-brand-color);
-    border-bottom: 1px solid var(--brand-color);
+    padding-bottom: 13px;
+    border-bottom: 3px solid var(--brand-color);
 }
 </style>
-e>

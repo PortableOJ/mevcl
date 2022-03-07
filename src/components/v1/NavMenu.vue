@@ -47,25 +47,27 @@ export default {
 
 <style scoped>
 .nav-menu-box {
+    background: var(--very-light-brand-color);
     position: relative;
     border: 1px solid var(--brand-color);
     padding: 10px 10px;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .nav-menu-options {
     padding-left: 10px;
     position: relative;
-    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-menu-option {
+    flex-grow: 0;
     position: relative;
     display: inline-block;
-    padding: 5px 5px;
+    margin: 0 5px;
+    padding: 10px 10px;
     border-radius: 5px;
     cursor: pointer;
     border: 1px solid var(--transparent-color);

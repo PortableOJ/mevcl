@@ -20,6 +20,7 @@ import NavMenu from "./components/v1/NavMenu";
 import Pagination from "./components/v1/Pagination";
 import Steps from "./components/v1/Steps";
 import Table from "./components/v1/Table";
+import TabMenu from "./components/v1/TabMenu";
 import Tag from "./components/v1/Tag";
 
 import MessageBox from "./components/v1/messageBox/main";
@@ -47,6 +48,7 @@ const components = [
     Pagination,
     Steps,
     Table,
+    TabMenu,
     Tag,
 ]
 
@@ -84,5 +86,6 @@ export default {
     Pagination,
     Steps,
     Table,
+    TabMenu,
     Tag,
 }
