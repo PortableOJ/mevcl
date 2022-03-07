@@ -3,7 +3,9 @@
         <MarkdownEdit v-model="input"></MarkdownEdit>
 
         <!--suppress JSValidateTypes -->
-        <NavMenu :options="navMenuOption" :not-found="d => `没有找到${d}`" v-model="select"></NavMenu>
+        <NavMenu :options="navMenuOption" v-model="select"></NavMenu>
+        <!--suppress JSValidateTypes -->
+        <HorizontalMenu :options="navMenuOption" v-model="select"></HorizontalMenu>
 
         <Steps :data="stepList" :value="select"></Steps>
 
@@ -89,6 +91,7 @@ import Markdown from './components/v1/markdown/main'
 import InputTextarea from "./components/v1/InputTextarea";
 import MarkdownEdit from "./components/v1/MarkdownEdit";
 import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
+import HorizontalMenu from "./components/v1/HorizontalMenu";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -97,6 +100,7 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
+        HorizontalMenu,
         MarkdownBlockCode,
         MarkdownEdit,
         InputTextarea,

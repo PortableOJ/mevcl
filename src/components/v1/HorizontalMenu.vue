@@ -6,7 +6,8 @@
                         'nav-menu-option': true,
                         'nav-menu-option-selected': item.value === inputValue
                     }"
-                     v-if="!item.hidden" :key="item.value" @click="clickOption(item)" v-html="item.label">
+                     v-if="!item.hidden" :key="item.value" @click="clickOption(item)">
+                    {{ item.label }}
                 </div>
             </template>
         </div>
@@ -15,7 +16,7 @@
 
 <script>
 export default {
-    name: "NavMenu",
+    name: "HorizontalMenu",
     model: {
         prop: 'value',
         event: 'change'
@@ -47,17 +48,15 @@ export default {
 
 <style scoped>
 .nav-menu-box {
+    display: inline-block;
     position: relative;
-    border: 1px solid var(--brand-color);
-    padding: 10px 10px;
-    border-radius: 10px;
-    display: flex;
+    padding: 0;
+    /*border-bottom: 1px solid var(--border-color-level-1);*/
     justify-content: center;
     align-items: center;
 }
 
 .nav-menu-options {
-    padding-left: 10px;
     position: relative;
     flex-grow: 1;
 }
@@ -65,18 +64,19 @@ export default {
 .nav-menu-option {
     position: relative;
     display: inline-block;
-    padding: 5px 5px;
-    border-radius: 5px;
+    padding: 15px 10px;
     cursor: pointer;
-    border: 1px solid var(--transparent-color);
+    border-bottom: 1px solid var(--border-color-level-1);
 }
 
 .nav-menu-option:hover {
-    background-color: var(--border-color-level-1);
+    background-color: var(--very-light-brand-color);
 }
 
 .nav-menu-option-selected {
     color: var(--brand-color);
-    border: 1px solid var(--brand-color);
+    background-color: var(--very-light-brand-color);
+    border-bottom: 1px solid var(--brand-color);
 }
 </style>
+e>
