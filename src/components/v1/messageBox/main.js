@@ -10,7 +10,6 @@ const messageBox = function () {
     }
 
     const createMessageBox = function (options) {
-        console.log(options)
         const curMessageBox = new MessageBoxConstructor({
             data: {
                 text: options.text,

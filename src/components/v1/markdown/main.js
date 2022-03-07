@@ -110,7 +110,6 @@ const Markdown = function () {
     }
 
     renderStyle.image = function (href, title, text) {
-        console.log(title)
         return `<img class="markdown-image" src="${href}" alt="${title}" title="${text}" />
                 <div class="markdown-image-title">${text}</div>`
     }
