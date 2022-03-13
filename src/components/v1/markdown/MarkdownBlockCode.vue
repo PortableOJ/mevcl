@@ -105,7 +105,7 @@ export default {
     opacity: 0;
 }
 
-.markdown-block-code-copy:hover {
+.markdown-block-code:hover > .markdown-block-code-copy {
     opacity: 1;
 }
 </style>
