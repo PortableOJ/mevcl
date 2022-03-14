@@ -5,7 +5,8 @@
             <slot>Change</slot>
         </div>
         <input @change="showCut" ref="file" type="file" class="avatar-input">
-        <div ref="clip" class="overlay center" v-show="onCut">
+        <div class="overlay center" v-show="onCut">
+            <img ref="background" src="" alt="background" class="background"/>
             <div class="overlay-inline center"
                  @mousemove="mouseMove"
                  @mouseup="mouseUp"
@@ -36,8 +37,12 @@
                     <div class="image-overlay-scale" ref="scale" @mousedown="scaleMouseDown"></div>
                 </div>
                 <div style="position: absolute; bottom: 10px; display: grid; grid-template-columns: 1fr 1fr;">
-                    <InputButton @click="ok" ><slot name="ok">Ok</slot></InputButton>
-                    <InputButton @click="onCut = false"><slot name="cancel">cancel</slot></InputButton>
+                    <InputButton @click="ok">
+                        <slot name="ok">Ok</slot>
+                    </InputButton>
+                    <InputButton @click="onCut = false">
+                        <slot name="cancel">cancel</slot>
+                    </InputButton>
                 </div>
             </div>
         </div>
@@ -111,6 +116,7 @@ export default {
             reader.readAsDataURL(this.cutSize.file)
             reader.onload = () => {
                 this.$refs.img.src = reader.result.toString();
+                this.$refs.background.src = reader.result.toString()
             }
         },
         // 准备裁剪系统
@@ -205,6 +211,12 @@ export default {
             this.onScale = true
         },
         ok() {
+            const realWidth = this.$refs.background.width
+            const realHeight = this.$refs.background.height
+            this.cutSize.left = Math.round((this.cutSize.left / this.imageSize.width) * realWidth)
+            this.cutSize.width = Math.round((this.cutSize.width / this.imageSize.width) * realWidth)
+            this.cutSize.top = Math.round((this.cutSize.top / this.imageSize.height) * realHeight)
+            this.cutSize.height = Math.round((this.cutSize.height / this.imageSize.height) * realHeight)
             this.$emit('change', this.cutSize)
             this.onCut = false
         }
@@ -274,6 +286,12 @@ export default {
     display: grid;
     place-items: center;
     grid-gap: 5px;
+}
+
+.background {
+    position: absolute;
+    opacity: 0.5;
+    filter: blur(10px);
 }
 
 .overlay-inline {
