@@ -1,7 +1,5 @@
 <template>
     <div id="app">
-        <MarkdownEdit v-model="input"></MarkdownEdit>
-
         <!--suppress JSValidateTypes -->
         <NavMenu :options="navMenuOption" v-model="select"></NavMenu>
         <!--suppress JSValidateTypes -->
@@ -35,6 +33,8 @@
 
         <inputImage v-model="inputImageFile"></inputImage>
 
+        <InputAvatar src="https://hukeqing.github.io/image/about/avatar.png"></InputAvatar>
+
         <Alert>ABC</Alert>
         <Table :head="tableHead" :data="tableData">
             <template v-slot:head-name="scope">
@@ -58,9 +58,11 @@
 
         <div v-html="inputShow" style="text-align: left"></div>
 
+        <MarkdownEdit :min-height="100" v-model="input"></MarkdownEdit>
+
         <GlobalLoading style="display: none"></GlobalLoading>
 
-        <MarkdownBlockCode :value="'123\nabc'"></MarkdownBlockCode>
+        <MarkdownBlockCode :show-line="false" :value="'123\nabc'"></MarkdownBlockCode>
     </div>
 </template>
 
@@ -92,6 +94,7 @@ import InputTextarea from "./components/v1/InputTextarea";
 import MarkdownEdit from "./components/v1/MarkdownEdit";
 import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 import TabMenu from "./components/v1/TabMenu";
+import InputAvatar from "./components/v1/InputAvatar";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -100,6 +103,7 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
+        InputAvatar,
         TabMenu,
         MarkdownBlockCode,
         MarkdownEdit,

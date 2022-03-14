@@ -1,6 +1,6 @@
 <template>
     <div class="markdown-block-code">
-        <div class="markdown-block-code-line">
+        <div class="markdown-block-code-line" :style="{'display': showLine ? 'block' : 'none'}">
             <pre class="code-font">{{ lines }}</pre>
         </div>
         <div class="markdown-block-code-code">
@@ -18,6 +18,10 @@ export default {
     name: "MarkdownBlockCode",
     props: {
         value: String,
+        showLine: {
+            type: Boolean,
+            default: true
+        }
     },
     data() {
         return {

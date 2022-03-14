@@ -1,9 +1,11 @@
 <template>
-    <div class="markdown-edit-box" ref="box">
+    <div class="markdown-edit-box" ref="box" :style="{'min-height': `${minHeight}px`}">
+        <!--suppress JSUnresolvedVariable -->
         <div class="markdown-edit-input" :style="{'opacity': leftPercent > 1 ? 1 : 0}">
             <pre :class="{'markdown-edit-input-pre': true, 'markdown-edit-input-pre-not-readOnly': !readOnly}"
                  @input="changeMarkdown" ref="inputBox"></pre>
         </div>
+        <!--suppress JSUnresolvedVariable -->
         <div v-html="inputShow" :class="{'markdown-edit-show': true, 'markdown-edit-show-drag': onDrag}"
              :style="{'opacity': leftPercent < 99 ? 1 : 0}"
              ref="showBox"></div>
@@ -38,6 +40,10 @@ export default {
             type: Boolean,
             default: false
         },
+        minHeight: {
+            type: Number,
+            default: 0
+        }
     },
     data() {
         return {
