@@ -26,6 +26,7 @@ import Tag from "./components/v1/Tag";
 import MessageBox from "./components/v1/messageBox/main";
 import Toast from "./components/v1/toast/main";
 import Markdown from './components/v1/markdown/main'
+import InputAvatar from "./components/v1/InputAvatar";
 
 const components = [
     MiniLoading,
@@ -33,6 +34,7 @@ const components = [
     MarkdownInlineCode,
     Alert,
     GlobalLoading,
+    InputAvatar,
     InputButton,
     InputCheckbox,
     InputDateTime,
@@ -71,6 +73,7 @@ export default {
     MarkdownInlineCode,
     Alert,
     GlobalLoading,
+    InputAvatar,
     InputButton,
     InputCheckbox,
     InputDateTime,
