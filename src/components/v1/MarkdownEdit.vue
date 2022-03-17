@@ -52,7 +52,7 @@ export default {
         }
     },
     mounted() {
-        this.changeMarkdown()
+        this.changeMarkdown('')
     },
     methods: {
         changeMarkdown(text) {
