@@ -1,7 +1,7 @@
 <template>
     <div class="markdown-edit-box" ref="box" :style="{'min-height': `${minHeight}px`}">
         <div class="markdown-edit-input" :style="{'opacity': leftPercent > 1 ? 1 : 0}">
-            <InputCode mode="gfm" :value="value" :placeholder="placeholder"
+            <InputCode style="height: 100%" mode="gfm" :value="value" :placeholder="placeholder"
                        @change="changeMarkdown" ref="inputBox"></InputCode>
         </div>
         <div v-html="inputShow" :class="{'markdown-edit-show': true, 'markdown-edit-show-drag': onDrag}"

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="input-code-box">
         <textarea :placeholder="placeholder" ref="code" style="display: none"></textarea>
     </div>
 </template>
@@ -77,5 +77,7 @@ export default {
 </script>
 
 <style scoped>
-
+.input-code-box {
+    height: 300px;
+}
 </style>

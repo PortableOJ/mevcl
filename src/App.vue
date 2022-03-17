@@ -59,7 +59,7 @@
 
         <div v-html="inputShow" style="text-align: left"></div>
 
-        <MarkdownEdit :min-height="100" v-model="input" :placeholder="'placeholder'"></MarkdownEdit>
+        <MarkdownEdit style="height: 500px" v-model="input" :placeholder="'placeholder'"></MarkdownEdit>
 
         <GlobalLoading style="display: none"></GlobalLoading>
 
@@ -274,9 +274,5 @@ export default {
     /*text-align: center;*/
     color: #2c3e50;
     margin-top: 60px;
-}
-
-.CodeMirror-placeholder {
-    color: var(--info-color) !important;
 }
 </style>

@@ -144,3 +144,11 @@ body {
     radial-gradient(circle at 93.3% 75%, rgba(0, 255, 0, .5), rgba(0, 255, 0, 0) 70.71%) beige;
     border-radius: 50%;
 }
+
+.CodeMirror-placeholder {
+    color: var(--info-color) !important;
+}
+
+.CodeMirror {
+    height: 100% !important;
+}
