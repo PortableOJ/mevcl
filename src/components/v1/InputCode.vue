@@ -1,6 +1,6 @@
 <template>
     <div>
-        <textarea ref="code"></textarea>
+        <textarea :placeholder="placeholder" ref="code" style="display: none"></textarea>
     </div>
 </template>
 
@@ -21,9 +21,11 @@ import 'codemirror/mode/markdown/markdown'
 import 'codemirror/mode/gfm/gfm'
 
 //Code completion prompt
-import 'codemirror/addon/hint/anyword-hint.js';
+import 'codemirror/addon/hint/anyword-hint';
 import 'codemirror/addon/hint/show-hint.css';
-import 'codemirror/addon/hint/show-hint.js';
+import 'codemirror/addon/hint/show-hint';
+
+import 'codemirror/addon/display/placeholder'
 
 export default {
     name: "InputCode",
@@ -37,6 +39,8 @@ export default {
          * gfm: gfm
          */
         mode: String,
+        placeholder: String,
+        value: String,
     },
     mounted() {
         // noinspection JSUnresolvedFunction
@@ -65,6 +69,7 @@ export default {
                 this.coder.showHint();
             }
         })
+        this.coder.setValue(this.value)
     },
 }
 </script>

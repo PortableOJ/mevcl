@@ -64,7 +64,7 @@
         <GlobalLoading style="display: none"></GlobalLoading>
 
         <MarkdownBlockCode :show-line="false" :value="'123\nabc'"></MarkdownBlockCode>
-        <InputCode mode="text/x-csrc"></InputCode>
+        <InputCode placeholder="test" mode="text/x-csrc"></InputCode>
     </div>
 </template>
 
@@ -274,5 +274,9 @@ export default {
     /*text-align: center;*/
     color: #2c3e50;
     margin-top: 60px;
+}
+
+.CodeMirror-placeholder {
+    color: var(--info-color) !important;
 }
 </style>
