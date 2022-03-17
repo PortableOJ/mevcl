@@ -40,7 +40,10 @@ export default {
          */
         mode: String,
         placeholder: String,
-        value: String,
+        value: {
+            type: String,
+            default: ''
+        },
     },
     mounted() {
         // noinspection JSUnresolvedFunction
@@ -60,7 +63,6 @@ export default {
             highlightFormatting: true,
             extraKeys: {"Ctrl": "autocomplete"},
         });
-
         this.coder.on("cursorActivity", () => {
             this.$emit('change', this.coder.getValue())
         });

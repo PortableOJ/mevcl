@@ -23,7 +23,7 @@ export default {
     name: "MarkdownEdit",
     components: {InputCode},
     model: {
-        prop: 'placeholder',
+        prop: 'value',
         event: 'change'
     },
     props: {

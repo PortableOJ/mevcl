@@ -59,7 +59,7 @@
 
         <div v-html="inputShow" style="text-align: left"></div>
 
-        <MarkdownEdit :min-height="100" :value="'# 123\nabc'" :placeholder="'placeholder'"></MarkdownEdit>
+        <MarkdownEdit :min-height="100" v-model="input" :placeholder="'placeholder'"></MarkdownEdit>
 
         <GlobalLoading style="display: none"></GlobalLoading>
 
