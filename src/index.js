@@ -7,6 +7,7 @@ import Alert from "./components/v1/Alert";
 import GlobalLoading from "./components/v1/GlobalLoading";
 import InputButton from "./components/v1/InputButton";
 import InputCheckbox from "./components/v1/InputCheckbox";
+import InputCode from "./components/v1/InputCode";
 import InputDateTime from "./components/v1/InputDateTime";
 import InputFile from "./components/v1/InputFile";
 import InputImage from "./components/v1/InputImage";
@@ -37,6 +38,7 @@ const components = [
     InputAvatar,
     InputButton,
     InputCheckbox,
+    InputCode,
     InputDateTime,
     InputFile,
     InputImage,
@@ -76,6 +78,7 @@ export default {
     InputAvatar,
     InputButton,
     InputCheckbox,
+    InputCode,
     InputDateTime,
     InputFile,
     InputImage,

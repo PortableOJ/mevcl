@@ -54,7 +54,8 @@
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
 
-        <InputTextarea code-mode title="markdown" v-model="input" @change="changeInputText" :min-height="50"></InputTextarea>
+        <InputTextarea code-mode title="markdown" v-model="input" @change="changeInputText"
+                       :min-height="50"></InputTextarea>
 
         <div v-html="inputShow" style="text-align: left"></div>
 
@@ -63,10 +64,16 @@
         <GlobalLoading style="display: none"></GlobalLoading>
 
         <MarkdownBlockCode :show-line="false" :value="'123\nabc'"></MarkdownBlockCode>
+        <InputCode mode="text/x-csrc"></InputCode>
     </div>
 </template>
 
 <script>
+import './static/style.css'
+
+import Vue from "vue";
+import MEVCL from './index'
+
 import InputText from "./components/v1/InputText";
 import InputCheckbox from "./components/v1/InputCheckbox";
 import InputSelect from "./components/v1/InputSelect";
@@ -79,22 +86,17 @@ import Link from "./components/v1/Link";
 import GlobalLoading from "./components/v1/GlobalLoading";
 import Table from "./components/v1/Table";
 import Alert from "./components/v1/Alert";
-
-import './static/style.css'
-
-import Vue from "vue";
-import MEVCL from './index'
 import NavMenu from "./components/v1/NavMenu";
 import Pagination from "./components/v1/Pagination";
 import Tag from "./components/v1/Tag";
 import Steps from "./components/v1/Steps";
-
 import Markdown from './components/v1/markdown/main'
 import InputTextarea from "./components/v1/InputTextarea";
 import MarkdownEdit from "./components/v1/MarkdownEdit";
 import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 import TabMenu from "./components/v1/TabMenu";
 import InputAvatar from "./components/v1/InputAvatar";
+import InputCode from "./components/v1/InputCode";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -103,6 +105,7 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
+        InputCode,
         InputAvatar,
         TabMenu,
         MarkdownBlockCode,
@@ -268,7 +271,7 @@ export default {
     /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    /*text-align: center;*/
     color: #2c3e50;
     margin-top: 60px;
 }

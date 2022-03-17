@@ -1,13 +1,11 @@
 <template>
     <div class="textarea-box">
-        <pre :class="{'input': true, 'input-not-readOnly': !readOnly, 'input-code': codeMode}" @input="change" ref="inputBox" :style="{'min-height': `${minHeight}px`}"></pre>
+        <pre :class="{'input': true, 'input-not-readOnly': !readOnly}" @input="change" ref="inputBox" :style="{'min-height': `${minHeight}px`}"></pre>
         <span class="input-label">{{ title }}</span>
     </div>
 </template>
 
 <script>
-import Common from "../../static/common";
-
 export default {
     name: "InputTextarea",
     model: {
@@ -18,10 +16,6 @@ export default {
         placeholder: {
             type: String,
             default: ''
-        },
-        codeMode: {
-            type: Boolean,
-            default: false
         },
         readOnly: {
             type: Boolean,
@@ -35,7 +29,6 @@ export default {
     },
     mounted() {
         this.$refs.inputBox.innerText = this.placeholder
-        this.$refs.inputBox.addEventListener('keydown', e => Common.tabInput(e, this))
     },
     methods: {
         change() {
@@ -81,10 +74,6 @@ export default {
     transition: 0.2s ease all;
     pointer-events: none;
     padding: 0 4px;
-}
-
-.input-code {
-    font-family: Consolas, Monaco, monospace;
 }
 
 .input:focus {

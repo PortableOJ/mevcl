@@ -1,11 +1,8 @@
 <template>
     <div class="markdown-edit-box" ref="box" :style="{'min-height': `${minHeight}px`}">
-        <!--suppress JSUnresolvedVariable -->
         <div class="markdown-edit-input" :style="{'opacity': leftPercent > 1 ? 1 : 0}">
-            <pre :class="{'markdown-edit-input-pre': true, 'markdown-edit-input-pre-not-readOnly': !readOnly}"
-                 @input="changeMarkdown" ref="inputBox"></pre>
+            <InputCode mode="gfm" @change="changeMarkdown" ref="inputBox"></InputCode>
         </div>
-        <!--suppress JSUnresolvedVariable -->
         <div v-html="inputShow" :class="{'markdown-edit-show': true, 'markdown-edit-show-drag': onDrag}"
              :style="{'opacity': leftPercent < 99 ? 1 : 0}"
              ref="showBox"></div>
@@ -16,13 +13,14 @@
 <script>
 import Vue from 'vue'
 import Markdown from './markdown/main'
-import Common from "../../static/common";
+import InputCode from "./InputCode";
 
 // noinspection JSCheckFunctionSignatures
 Vue.use(Markdown)
 
 export default {
     name: "MarkdownEdit",
+    components: {InputCode},
     model: {
         prop: 'placeholder',
         event: 'change'
@@ -54,13 +52,10 @@ export default {
         }
     },
     mounted() {
-        this.$refs.inputBox.innerHTML = this.placeholder
-        this.$refs.inputBox.addEventListener('keydown', e => Common.tabInput(e, this))
         this.changeMarkdown()
     },
     methods: {
-        changeMarkdown() {
-            const text = this.$refs.inputBox.innerText
+        changeMarkdown(text) {
             this.$emit('change', text)
             this.inputShow = this.$markdown(text)
             this.$nextTick(() => {
@@ -117,26 +112,6 @@ export default {
     border-right: 1px solid var(--border-color-level-1);
     background: var(--border-color-level-4);
     overflow: auto;
-}
-
-.markdown-edit-input-pre {
-    outline: none;
-    border-radius: 5px;
-    margin: 0 0;
-    padding: 10px 12px;
-    height: calc(100% - 20px);
-    width: calc(100% - 24px);
-    position: absolute;
-    transition: 0.2s ease all;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 11px;
-    text-align: left;
-}
-
-.markdown-edit-input-pre-not-readOnly {
-    -webkit-user-modify: read-write-plaintext-only;
-    -moz-user-modify: read-write-plaintext-only;
-    user-modify: read-write-plaintext-only;
 }
 
 .markdown-edit-show {
