@@ -1,7 +1,8 @@
 <template>
     <div class="markdown-edit-box" ref="box" :style="{'min-height': `${minHeight}px`}">
         <div class="markdown-edit-input" :style="{'opacity': leftPercent > 1 ? 1 : 0}">
-            <InputCode mode="gfm" @change="changeMarkdown" ref="inputBox"></InputCode>
+            <InputCode mode="gfm" :value="value" :placeholder="placeholder"
+                       @change="changeMarkdown" ref="inputBox"></InputCode>
         </div>
         <div v-html="inputShow" :class="{'markdown-edit-show': true, 'markdown-edit-show-drag': onDrag}"
              :style="{'opacity': leftPercent < 99 ? 1 : 0}"
@@ -30,6 +31,10 @@ export default {
             type: String,
             default: ''
         },
+        value: {
+            type: String,
+            default: ''
+        },
         codeMode: {
             type: Boolean,
             default: false
@@ -52,7 +57,7 @@ export default {
         }
     },
     mounted() {
-        this.changeMarkdown('')
+        this.changeMarkdown(this.value)
     },
     methods: {
         changeMarkdown(text) {
