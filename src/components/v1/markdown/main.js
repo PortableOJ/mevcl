@@ -110,7 +110,25 @@ const Markdown = function () {
     }
 
     renderStyle.image = function (href, title, text) {
-        return `<img class="markdown-image" src="${href}" alt="${title}" title="${text}" />
+        let style = ''
+        if (href) {
+            const queryRegex = /\?(.+?)$/;
+            let query = href.match(queryRegex);
+            if (query && query.length > 1) {
+                query = query[1]
+                const mwRe = /mw=(\d+)/
+                const mhRe = /mh=(\d+)/
+                const mw = query.match(mwRe)
+                const mh = query.match(mhRe)
+                if (mw && mw.length > 1) {
+                    style += `max-width: ${mw[1]}px;`
+                }
+                if (mh && mh.length > 1) {
+                    style += `max-height: ${mh[1]}px;`
+                }
+            }
+        }
+        return `<img class="markdown-image" style="${style}" src="${href}" alt="${title}" title="${text}" />
                 <div class="markdown-image-title">${text}</div>`
     }
 
