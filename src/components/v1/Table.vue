@@ -37,7 +37,6 @@ export default {
 <style scoped>
 .content-table {
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 0.9em;
     width: 100%;
     border-radius: 5px 5px 0 0;

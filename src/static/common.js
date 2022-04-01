@@ -15,7 +15,22 @@ const getTendencyClass = (name) => {
     return 'normal-tendency '
 }
 
+//判断系统类型
+const isMac = () => {
+    const agent = navigator.userAgent.toLowerCase();
+    const isMac = /macintosh|mac os x/i.test(navigator.userAgent);
+    if (agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0) {
+        return false
+    }
+    if (agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0) {
+        return false
+    }
+    return isMac;
+}
+
+
 export default {
     getThemeClass,
     getTendencyClass,
+    isMac,
 }

@@ -1,22 +1,20 @@
 <template>
-    <div>
-        <div class="overlay">
-            <div :class="'message-box ' + getTendencyClass()">
-                <div class="message-icon">
-                    <i :class="'iconfont icon-' + type"></i>
-                </div>
-                <div class="message-text" v-html="text"></div>
-                <div v-if="input" class="message-input">
-                    <InputText v-model="inputValue" :type="inputType"></InputText>
-                </div>
-                <div class="message-button">
-                    <InputButton @click="callback(confirmOK)" v-if="ok !== null" :type="type">
-                        {{ ok }}
-                    </InputButton>
-                    <InputButton @click="callback(confirmCancel)" v-if="cancel !== null" type="normal">
-                        {{ cancel }}
-                    </InputButton>
-                </div>
+    <div class="overlay message-center">
+        <div :class="'message-box ' + getTendencyClass()">
+            <div class="message-icon">
+                <i :class="'iconfont icon-' + type"></i>
+            </div>
+            <div class="message-text" v-html="text"></div>
+            <div v-if="input" class="message-input">
+                <InputText v-model="inputValue" :type="inputType"></InputText>
+            </div>
+            <div class="message-button">
+                <InputButton @click="callback(confirmOK)" v-if="ok !== null" :type="type">
+                    {{ ok }}
+                </InputButton>
+                <InputButton @click="callback(confirmCancel)" v-if="cancel !== null" type="normal">
+                    {{ cancel }}
+                </InputButton>
             </div>
         </div>
     </div>
@@ -60,14 +58,15 @@ export default {
 </script>
 
 <style scoped>
+.message-center {
+    display: grid;
+    place-items: center;
+}
+
 .message-box {
-    position: fixed;
     width: 400px;
     min-height: 100px;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 15px;
     box-shadow: var(--open-shadowbox);
     overflow: hidden;
@@ -88,6 +87,7 @@ export default {
     line-break: anywhere;
     margin-bottom: 20px;
     margin-top: 20px;
+    padding: 0 20px;
 }
 
 .message-input * {
@@ -109,10 +109,10 @@ export default {
 
 @keyframes message-box-show {
     0% {
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(0, -100%) scale(0);
     }
     100% {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(0, 0) scale(1);
     }
 }
 </style>

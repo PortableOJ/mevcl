@@ -4,7 +4,9 @@ import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 import MarkdownInlineCode from "./components/v1/markdown/MarkdownInlineCode";
 
 import Alert from "./components/v1/Alert";
+import Dialog from "./components/v1/Dialog";
 import GlobalLoading from "./components/v1/GlobalLoading";
+import InputAvatar from "./components/v1/InputAvatar";
 import InputButton from "./components/v1/InputButton";
 import InputCheckbox from "./components/v1/InputCheckbox";
 import InputCode from "./components/v1/InputCode";
@@ -27,13 +29,13 @@ import Tag from "./components/v1/Tag";
 import MessageBox from "./components/v1/messageBox/main";
 import Toast from "./components/v1/toast/main";
 import Markdown from './components/v1/markdown/main'
-import InputAvatar from "./components/v1/InputAvatar";
 
 const components = [
     MiniLoading,
     MarkdownBlockCode,
     MarkdownInlineCode,
     Alert,
+    Dialog,
     GlobalLoading,
     InputAvatar,
     InputButton,
@@ -74,6 +76,7 @@ export default {
     MarkdownBlockCode,
     MarkdownInlineCode,
     Alert,
+    Dialog,
     GlobalLoading,
     InputAvatar,
     InputButton,

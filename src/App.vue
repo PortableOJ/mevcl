@@ -68,6 +68,22 @@
             <div></div>
             <InputCode placeholder="test" mode="text/x-csrc"></InputCode>
         </div>
+        <Dialog v-model="checkbox" title="测试">
+            <Table :head="tableHead" :data="tableData">
+                <template v-slot:head-name="scope">
+                    {{ scope.data.label + 'abc' }}
+                </template>
+                <template v-slot:body-name="scope">
+                    <Link :disabled="scope.data.name === 'a'">
+                        {{ scope.data.name + 'abc' }}
+                    </Link>
+                    <InputButton @click="msg">TEST</InputButton>
+                    <InputButton @click="msg">TEST</InputButton>
+                    <i class="iconfont icon-spread"></i>
+                </template>
+            </Table>
+            <InputButton disabled @click="click">TEST</InputButton>
+        </Dialog>
     </div>
 </template>
 
@@ -100,6 +116,7 @@ import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 import TabMenu from "./components/v1/TabMenu";
 import InputAvatar from "./components/v1/InputAvatar";
 import InputCode from "./components/v1/InputCode";
+import Dialog from "./components/v1/Dialog";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -108,6 +125,7 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
+        Dialog,
         InputCode,
         InputAvatar,
         TabMenu,
@@ -253,7 +271,7 @@ export default {
         },
         msg() {
             this.$message({
-                text: 'ABC',
+                text: 'ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC',
                 type: 'error',
                 inputType: 'password',
                 input: true,
