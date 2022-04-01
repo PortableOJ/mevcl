@@ -64,7 +64,10 @@
         <GlobalLoading style="display: none"></GlobalLoading>
 
         <MarkdownBlockCode :show-line="false" :value="'123\nabc'"></MarkdownBlockCode>
-        <InputCode placeholder="test" mode="text/x-csrc"></InputCode>
+        <div style="display: grid; grid-template-columns: 100px 1fr">
+            <div></div>
+            <InputCode placeholder="test" mode="text/x-csrc"></InputCode>
+        </div>
     </div>
 </template>
 

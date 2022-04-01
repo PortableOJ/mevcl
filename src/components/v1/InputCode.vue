@@ -29,6 +29,10 @@ import 'codemirror/addon/display/placeholder'
 
 export default {
     name: "InputCode",
+    model:{
+        prop: 'value',
+        event: 'change'
+    },
     props: {
         /**
          * c: text/x-csrc
@@ -79,5 +83,8 @@ export default {
 <style scoped>
 .input-code-box {
     height: 300px;
+    width: 100%;
+    overflow: auto;
+    border: 1px solid var(--border-color-level-1);
 }
 </style>
