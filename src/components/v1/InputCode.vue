@@ -79,8 +79,12 @@ export default {
             }
         })
         this.coder.setValue(this.value)
-        // this.coder.refresh()
     },
+    methods: {
+        fresh() {
+            this.coder.refresh()
+        }
+    }
 }
 </script>
 
