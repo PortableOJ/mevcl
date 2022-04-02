@@ -82,6 +82,7 @@
                     <i class="iconfont icon-spread"></i>
                 </template>
             </Table>
+            <InputCode v-model="input" ref="dialogCode"></InputCode>
             <InputButton disabled @click="click">TEST</InputButton>
         </Dialog>
     </div>

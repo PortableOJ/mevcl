@@ -26,6 +26,7 @@ import 'codemirror/addon/hint/show-hint.css';
 import 'codemirror/addon/hint/show-hint';
 
 import 'codemirror/addon/display/placeholder'
+import 'codemirror/addon/display/autorefresh'
 
 export default {
     name: "InputCode",
@@ -66,6 +67,8 @@ export default {
             line: true,
             highlightFormatting: true,
             extraKeys: {"Ctrl": "autocomplete"},
+            autoRefresh: true,
+            fixedGutter: false
         });
         this.coder.on("cursorActivity", () => {
             this.$emit('change', this.coder.getValue())
@@ -76,15 +79,20 @@ export default {
             }
         })
         this.coder.setValue(this.value)
+        // this.coder.refresh()
     },
 }
 </script>
 
-<style scoped>
+<style>
 .input-code-box {
     height: 300px;
     width: 100%;
     overflow: auto;
     border: 1px solid var(--border-color-level-1);
+}
+
+.CodeMirror-hints {
+    z-index: 9999;
 }
 </style>
