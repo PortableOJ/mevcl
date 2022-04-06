@@ -77,7 +77,7 @@
                     <Link :disabled="scope.data.name === 'a'">
                         {{ scope.data.name + 'abc' }}
                     </Link>
-                    <InputButton @click="msg">TEST</InputButton>
+                    <InputButton @click="click">TEST</InputButton>
                     <InputButton @click="msg">TEST</InputButton>
                     <i class="iconfont icon-spread"></i>
                 </template>

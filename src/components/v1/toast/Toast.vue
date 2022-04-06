@@ -77,7 +77,7 @@ export default {
 <style scoped>
 .toast-box {
     position: relative;
-    z-index: 9999;
+    z-index: 8192;
     top: 0;
     left: 0;
     overflow: hidden;
