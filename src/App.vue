@@ -8,7 +8,7 @@
         <Steps :data="stepList" :value="select"></Steps>
 
         <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
-        <InputText v-model="input" placeholder="test"></InputText>
+        <InputText ref="input" v-model="input" placeholder="test"></InputText>
 
         <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
         <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
@@ -259,6 +259,7 @@ export default {
                 duration: 'auto',
                 type: 'success'
             })
+            this.$refs.input.shake()
             this.selectOption = [
                 {
                     label: 'abc',

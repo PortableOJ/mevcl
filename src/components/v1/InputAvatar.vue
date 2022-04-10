@@ -290,8 +290,7 @@ export default {
 
 .background {
     position: absolute;
-    opacity: 0.5;
-    filter: blur(10px);
+    visibility: hidden;
 }
 
 .overlay-inline {

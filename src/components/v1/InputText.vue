@@ -1,5 +1,8 @@
 <template>
-    <div class="input-box">
+    <div :class="{
+        'input-box': true,
+        'shake': isShake
+    }">
         <input class="input-control" :type="type" v-model="inputValue"
                @input="input" required :readonly="readOnly" :disabled="disabled"/>
         <span class="input-label">{{ placeholder }}</span>
@@ -38,11 +41,16 @@ export default {
     data() {
         return {
             inputValue: this.value,
+            isShake: false
         }
     },
     methods: {
         input() {
             this.$emit('change', this.inputValue)
+        },
+        shake() {
+            this.isShake = true
+            setTimeout(() => this.isShake = false, 1000)
         }
     },
     watch: {
@@ -183,7 +191,31 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
+
+.shake {
+    animation: shake 0.8s ease-in-out;
+}
+
+@keyframes shake { /* 水平抖动，核心代码 */
+    10%, 90% {
+        transform: translate(-2px, 0);
+    }
+    20%, 80% {
+        transform: translate(+4px, 0);
+    }
+    30%, 70% {
+        transform: translate(-8px, 0);
+    }
+    40%, 60% {
+        transform: translate(+8px, 0);
+    }
+    50% {
+        transform: translate(-8px, 0);
+    }
+}
+
 </style>
