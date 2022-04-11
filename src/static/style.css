@@ -1,4 +1,4 @@
-@import "//at.alicdn.com/t/font_2902812_sd137mpw10g.css";
+@import "iconfont.css";
 
 :root {
     --transparent-color: #00000000;
@@ -24,7 +24,7 @@
     --common-text-color: #606266;
     --secondary-text-color: #909399;
     --disable-text-color: #C0C4CC;
-    --overlay-color: rgba(0, 0, 0, 0.25);
+    --overlay-color: rgba(0, 0, 0, 0.1);
 
     --focus-shadowbox: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     --focus-hightlight-shadowbox: 0 6px 12px rgba(64, 158, 255, 0.6), 0 0 18px rgba(64, 158, 255, 0.2);
