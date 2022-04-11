@@ -4,7 +4,7 @@
         <div class="avatar-overlay colorful-box">
             <slot>Change</slot>
         </div>
-        <input @change="showCut" ref="file" type="file" class="avatar-input">
+        <input @change="showCut" ref="file" type="file" accept="image/*" class="avatar-input">
         <div class="overlay center" v-show="onCut">
             <img ref="background" src="" alt="background" class="background"/>
             <div class="overlay-inline center"
