@@ -4,12 +4,12 @@ import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 import MarkdownInlineCode from "./components/v1/markdown/MarkdownInlineCode";
 
 import Alert from "./components/v1/Alert";
+import CodeEditor from "./components/v1/CodeEditor";
 import Dialog from "./components/v1/Dialog";
 import GlobalLoading from "./components/v1/GlobalLoading";
 import InputAvatar from "./components/v1/InputAvatar";
 import InputButton from "./components/v1/InputButton";
 import InputCheckbox from "./components/v1/InputCheckbox";
-import InputCode from "./components/v1/InputCode";
 import InputDateTime from "./components/v1/InputDateTime";
 import InputFile from "./components/v1/InputFile";
 import InputImage from "./components/v1/InputImage";
@@ -35,12 +35,12 @@ const components = [
     MarkdownBlockCode,
     MarkdownInlineCode,
     Alert,
+    CodeEditor,
     Dialog,
     GlobalLoading,
     InputAvatar,
     InputButton,
     InputCheckbox,
-    InputCode,
     InputDateTime,
     InputFile,
     InputImage,
@@ -76,12 +76,12 @@ export default {
     MarkdownBlockCode,
     MarkdownInlineCode,
     Alert,
+    CodeEditor,
     Dialog,
     GlobalLoading,
     InputAvatar,
     InputButton,
     InputCheckbox,
-    InputCode,
     InputDateTime,
     InputFile,
     InputImage,

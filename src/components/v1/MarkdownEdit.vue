@@ -1,8 +1,8 @@
 <template>
     <div class="markdown-edit-box" ref="box" :style="{'min-height': `${minHeight}px`}">
         <div class="markdown-edit-input" :style="{'opacity': leftPercent > 1 ? 1 : 0}">
-            <InputCode style="height: 100%; border: none" mode="gfm" :value="value" :placeholder="placeholder"
-                       @change="changeMarkdown" ref="inputBox"></InputCode>
+            <CodeEditor style="height: 100%; border: none" language="markdown" @change="changeMarkdown" ref="inputBox"
+                        v-model="value"></CodeEditor>
         </div>
         <div v-html="inputShow" :class="{'markdown-edit-show': true, 'markdown-edit-show-drag': onDrag}"
              :style="{'opacity': leftPercent < 99 ? 1 : 0}"
@@ -14,14 +14,16 @@
 <script>
 import Vue from 'vue'
 import Markdown from './markdown/main'
-import InputCode from "./InputCode";
+import CodeEditor from "./CodeEditor";
 
 // noinspection JSCheckFunctionSignatures
 Vue.use(Markdown)
 
 export default {
     name: "MarkdownEdit",
-    components: {InputCode},
+    components: {
+        CodeEditor
+    },
     model: {
         prop: 'value',
         event: 'change'

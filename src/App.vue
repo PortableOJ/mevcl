@@ -36,6 +36,13 @@
         <InputAvatar src="https://hukeqing.github.io/image/about/avatar.png"></InputAvatar>
 
         <Alert>ABC</Alert>
+        <div style="display: grid; grid-template-columns: auto 1fr">
+            <Table :head="tableHead" :data="tableData"></Table>
+            <div style="overflow: auto">
+                <Table style="width: 10000px" :head="tableHead" :data="tableData"></Table>
+            </div>
+        </div>
+
         <Table :head="tableHead" :data="tableData">
             <template v-slot:head-name="scope">
                 {{ scope.data.label + 'abc' }}
@@ -49,7 +56,6 @@
                 <i class="iconfont icon-spread"></i>
             </template>
         </Table>
-
         <Pagination :total="100"></Pagination>
         <Tag>123</Tag>
         <Tag type="success">abc</Tag>
@@ -66,7 +72,7 @@
         <MarkdownBlockCode :show-line="false" :value="'123\nabc'"></MarkdownBlockCode>
         <div style="display: grid; grid-template-columns: 100px 1fr">
             <div></div>
-            <InputCode placeholder="test" mode="text/x-csrc"></InputCode>
+            <MonacoEditor style="height: 100px" v-model="input" language="cpp" theme="vs-dark" />
         </div>
         <Dialog v-model="checkbox" title="测试">
             <Table :head="tableHead" :data="tableData">
@@ -82,7 +88,6 @@
                     <i class="iconfont icon-spread"></i>
                 </template>
             </Table>
-            <InputCode v-model="input" ref="dialogCode"></InputCode>
             <InputButton disabled @click="click">TEST</InputButton>
         </Dialog>
     </div>
@@ -116,8 +121,8 @@ import MarkdownEdit from "./components/v1/MarkdownEdit";
 import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 import TabMenu from "./components/v1/TabMenu";
 import InputAvatar from "./components/v1/InputAvatar";
-import InputCode from "./components/v1/InputCode";
 import Dialog from "./components/v1/Dialog";
+import MonacoEditor from 'vue-monaco'
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
@@ -126,8 +131,8 @@ Vue.use(Markdown)
 export default {
     name: 'App',
     components: {
+        MonacoEditor,
         Dialog,
-        InputCode,
         InputAvatar,
         TabMenu,
         MarkdownBlockCode,
