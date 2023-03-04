@@ -5,9 +5,9 @@
    <p>the Minimal and Efficient Vue(2.0) Component Library(一个极小但高效的 Vue 组件库)</p>
 </div>
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+   [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+   <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Install
 
