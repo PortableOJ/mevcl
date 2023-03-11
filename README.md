@@ -4,7 +4,7 @@
    <h1>MEVCL</h1>
    <p>the Minimal and Efficient Vue(2.0) Component Library(一个极小但高效的 Vue 组件库)</p>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="https://github.com/PortableOJ/mevcl/blob/master/README.md"><img src="https://img.shields.io/badge/all_contributors-2-orange.svg" alt="Contributors"></a>
+<a href='https://github.com/PortableOJ/mevcl/blob/master/README.md'><img src='https://img.shields.io/badge/all_contributors-2-orange.svg' alt='Contributors'></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
    <a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT LICENSE"></a>
 </div>
@@ -99,8 +99,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://hukeqing.github.io"><img src="https://avatars.githubusercontent.com/u/47495915?v=4?s=100" width="100px;" alt="Lavender"/><br /><sub><b>Lavender</b></sub></a><br /><a href="https://github.com/PortableOJ/mevcl/commits?author=Hukeqing" title="Tests">⚠️</a> <a href="https://github.com/PortableOJ/mevcl/commits?author=Hukeqing" title="Code">💻</a> <a href="#ideas-Hukeqing" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Hukeqing" title="Maintenance">🚧</a> <a href="https://github.com/PortableOJ/mevcl/pulls?q=is%3Apr+reviewed-by%3AHukeqing" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://rei.ac"><img src="https://avatars.githubusercontent.com/u/17238215?v=4?s=100" width="100px;" alt="ReiAC"/><br /><sub><b>ReiAC</b></sub></a><br /><a href="https://github.com/PortableOJ/mevcl/commits?author=ACRei" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://hukeqing.github.io"><img src="https://avatars.githubusercontent.com/u/47495915?v=4?s=100" width="100px;" alt="Lavender"/><br /><sub><b>Lavender</b></sub></a><br /><a href="https://github.com/PortableOJ/mevcl/commits?author=Hukeqing" title="Tests">⚠️</a> <a href="https://github.com/PortableOJ/mevcl/commits?author=Hukeqing" title="Code">💻</a> <a href="#ideas-Hukeqing" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Hukeqing" title="Maintenance">🚧</a> <a href="https://github.com/PortableOJ/mevcl/pulls?q=is%3Apr+reviewed-by%3AHukeqing" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/PortableOJ/mevcl/commits?author=Hukeqing" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
