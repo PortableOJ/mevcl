@@ -1,6 +1,6 @@
 {
   "name": "mevcl",
-  "version": "0.3.27",
+  "version": "0.3.28",
   "private": false,
   "main": "src/index.js",
   "scripts": {
@@ -11,10 +11,9 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "katex": "^0.15.1",
-    "marked": "^4.0.7",
-    "monaco-editor": "^0.34.0",
+    "marked": "^4.2.12",
     "vue": "^2.6.11",
-    "vue-monaco": "^1.2.2"
+    "monaco-editor": "^0.24.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -23,15 +22,14 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "monaco-editor-webpack-plugin": "^7.0.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "monaco-editor-webpack-plugin": "^3.1.0"
   },
   "files": [
     "src/basic",
     "src/components",
     "src/static",
-    "src/index.js",
-    "webpack.config.js"
+    "src/index.js"
   ],
   "eslintConfig": {
     "root": true,

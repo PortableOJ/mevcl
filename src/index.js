@@ -31,70 +31,70 @@ import Toast from "./components/v1/toast/main";
 import Markdown from './components/v1/markdown/main'
 
 const components = [
-    MiniLoading,
-    MarkdownBlockCode,
-    MarkdownInlineCode,
-    Alert,
-    CodeEditor,
-    Dialog,
-    GlobalLoading,
-    InputAvatar,
-    InputButton,
-    InputCheckbox,
-    InputDateTime,
-    InputFile,
-    InputImage,
-    InputSelect,
-    InputSlider,
-    InputText,
-    InputTextarea,
-    Link,
-    MarkdownEdit,
-    NavMenu,
-    Pagination,
-    Steps,
-    Table,
-    TabMenu,
-    Tag,
+  MiniLoading,
+  MarkdownBlockCode,
+  MarkdownInlineCode,
+  Alert,
+  CodeEditor,
+  Dialog,
+  GlobalLoading,
+  InputAvatar,
+  InputButton,
+  InputCheckbox,
+  InputDateTime,
+  InputFile,
+  InputImage,
+  InputSelect,
+  InputSlider,
+  InputText,
+  InputTextarea,
+  Link,
+  MarkdownEdit,
+  NavMenu,
+  Pagination,
+  Steps,
+  Table,
+  TabMenu,
+  Tag,
 ]
 
 const install = function (Vue) {
-    components.forEach(component => {
-        Vue.component(component.name, component)
-    })
+  components.forEach(component => {
+    Vue.component(component.name, component)
+  })
 
-    Vue.use(Toast)
-    Vue.use(MessageBox)
-    Vue.use(Markdown)
+  Vue.use(Toast)
+  Vue.use(MessageBox)
+  Vue.use(Markdown)
 }
 
 export default {
-    version: '0.3.0',
-    install,
+  version: '0.3.0',
+  install,
 
-    MiniLoading,
-    MarkdownBlockCode,
-    MarkdownInlineCode,
-    Alert,
-    CodeEditor,
-    Dialog,
-    GlobalLoading,
-    InputAvatar,
-    InputButton,
-    InputCheckbox,
-    InputDateTime,
-    InputFile,
-    InputImage,
-    InputSelect,
-    InputSlider,
-    InputText,
-    InputTextarea,
-    Link,
-    MarkdownEdit,
-    NavMenu,
-    Pagination,
-    Steps,
-    Table,
-    TabMenu,
-    Tag,
+  MiniLoading,
+  MarkdownBlockCode,
+  MarkdownInlineCode,
+  Alert,
+  CodeEditor,
+  Dialog,
+  GlobalLoading,
+  InputAvatar,
+  InputButton,
+  InputCheckbox,
+  InputDateTime,
+  InputFile,
+  InputImage,
+  InputSelect,
+  InputSlider,
+  InputText,
+  InputTextarea,
+  Link,
+  MarkdownEdit,
+  NavMenu,
+  Pagination,
+  Steps,
+  Table,
+  TabMenu,
+  Tag,
 }

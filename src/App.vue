@@ -1,96 +1,93 @@
 <template>
-    <div id="app">
-        <!--suppress JSValidateTypes -->
-        <NavMenu :options="navMenuOption" v-model="select"></NavMenu>
-        <!--suppress JSValidateTypes -->
-        <TabMenu :options="navMenuOption" v-model="select"></TabMenu>
+  <div id="app">
+    <!--suppress JSValidateTypes -->
+    <NavMenu :options="navMenuOption" v-model="select"></NavMenu>
+    <!--suppress JSValidateTypes -->
+    <TabMenu :options="navMenuOption" v-model="select"></TabMenu>
 
-        <Steps :data="stepList" :value="select"></Steps>
+    <Steps :data="stepList" :value="select"></Steps>
 
-        <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
-        <InputText ref="input" v-model="input" placeholder="test"></InputText>
+    <InputText v-model="input" placeholder="test" type="number" disabled></InputText>
+    <InputText ref="input" v-model="input" placeholder="test"></InputText>
 
-        <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
-        <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
-        <InputCheckbox v-model="checkbox">ABC<br/>ABCABCABC</InputCheckbox>
+    <InputCheckbox v-model="checkbox" disabled>TEST</InputCheckbox>
+    <InputCheckbox v-model="checkbox">TEST</InputCheckbox>
+    <InputCheckbox v-model="checkbox">ABC<br/>ABCABCABC</InputCheckbox>
 
-        <InputButton disabled @click="click">TEST</InputButton>
-        <InputButton @click="click" :loading="loading">TEST</InputButton>
-        <InputButton @click="click" :process="sliderValue / 100">TEST</InputButton>
-        <InputButton type="success" @click="click">TEST</InputButton>
+    <InputButton disabled @click="click">TEST</InputButton>
+    <InputButton @click="click" :loading="loading">TEST</InputButton>
+    <InputButton @click="click" :process="sliderValue / 100">TEST</InputButton>
+    <InputButton type="success" @click="click">TEST</InputButton>
 
-        <InputSelect v-model="select" placeholder="test" :data="selectOption" disabled></InputSelect>
-        <InputSelect v-model="select" placeholder="test" :data="selectOption"></InputSelect>
+    <InputSelect v-model="select" placeholder="test" :data="selectOption" disabled></InputSelect>
+    <InputSelect v-model="select" placeholder="test" :data="selectOption"></InputSelect>
 
-        <InputSlider v-model="sliderValue" disabled></InputSlider>
-        <InputSlider v-model="sliderValue" :valueFormat="() => ''"></InputSlider>
+    <InputSlider v-model="sliderValue" disabled></InputSlider>
+    <InputSlider v-model="sliderValue" :valueFormat="() => ''"></InputSlider>
 
-        <InputDateTime v-model="dateTimeValue" placeholder="test" disabled></InputDateTime>
-        <InputDateTime v-model="dateTimeValue" placeholder="test"></InputDateTime>
+    <InputDateTime v-model="dateTimeValue" placeholder="test" disabled></InputDateTime>
+    <InputDateTime v-model="dateTimeValue" placeholder="test"></InputDateTime>
 
-        <InputFile v-model="inputFile" placeholder="test" disabled></InputFile>
-        <InputFile v-model="inputFile" placeholder="test" multiple accept="image/*"></InputFile>
+    <InputFile v-model="inputFile" placeholder="test" disabled></InputFile>
+    <InputFile v-model="inputFile" placeholder="test" multiple accept="image/*"></InputFile>
 
-        <inputImage v-model="inputImageFile"></inputImage>
+    <inputImage v-model="inputImageFile"></inputImage>
 
-        <InputAvatar src="https://hukeqing.github.io/image/about/avatar.png"></InputAvatar>
+    <InputAvatar src="https://hukeqing.github.io/image/about/avatar.png"></InputAvatar>
 
-        <Alert>ABC</Alert>
-        <div style="display: grid; grid-template-columns: auto 1fr">
-            <Table :head="tableHead" :data="tableData"></Table>
-            <div style="overflow: auto">
-                <Table style="width: 10000px" :head="tableHead" :data="tableData"></Table>
-            </div>
-        </div>
-
-        <Table :head="tableHead" :data="tableData">
-            <template v-slot:head-name="scope">
-                {{ scope.data.label + 'abc' }}
-            </template>
-            <template v-slot:body-name="scope">
-                <Link :disabled="scope.data.name === 'a'">
-                    {{ scope.data.name + 'abc' }}
-                </Link>
-                <InputButton @click="msg">TEST</InputButton>
-                <InputButton @click="msg">TEST</InputButton>
-                <i class="iconfont icon-spread"></i>
-            </template>
-        </Table>
-        <Pagination :total="100"></Pagination>
-        <Tag>123</Tag>
-        <Tag type="success">abc</Tag>
-
-        <InputTextarea code-mode title="markdown" v-model="input" @change="changeInputText"
-                       :min-height="50"></InputTextarea>
-
-        <div v-html="inputShow" style="text-align: left"></div>
-
-        <MarkdownEdit style="height: 500px" v-model="input" :placeholder="'placeholder'"></MarkdownEdit>
-
-        <GlobalLoading style="display: none"></GlobalLoading>
-
-        <MarkdownBlockCode :show-line="false" :value="'123\nabc'"></MarkdownBlockCode>
-        <div style="display: grid; grid-template-columns: 100px 1fr">
-            <div></div>
-            <MonacoEditor style="height: 100px" v-model="input" language="cpp" theme="vs-dark" />
-        </div>
-        <Dialog v-model="checkbox" title="测试">
-            <Table :head="tableHead" :data="tableData">
-                <template v-slot:head-name="scope">
-                    {{ scope.data.label + 'abc' }}
-                </template>
-                <template v-slot:body-name="scope">
-                    <Link :disabled="scope.data.name === 'a'">
-                        {{ scope.data.name + 'abc' }}
-                    </Link>
-                    <InputButton @click="click">TEST</InputButton>
-                    <InputButton @click="msg">TEST</InputButton>
-                    <i class="iconfont icon-spread"></i>
-                </template>
-            </Table>
-            <InputButton disabled @click="click">TEST</InputButton>
-        </Dialog>
+    <Alert>ABC</Alert>
+    <div style="display: grid; grid-template-columns: auto 1fr">
+      <Table :head="tableHead" :data="tableData"></Table>
+      <div style="overflow: auto">
+        <Table style="width: 10000px" :head="tableHead" :data="tableData"></Table>
+      </div>
     </div>
+
+    <Table :head="tableHead" :data="tableData">
+      <template v-slot:head-name="scope">
+        {{ scope.data.label + 'abc' }}
+      </template>
+      <template v-slot:body-name="scope">
+        <Link :disabled="scope.data.name === 'a'">
+          {{ scope.data.name + 'abc' }}
+        </Link>
+        <InputButton @click="msg">TEST</InputButton>
+        <InputButton @click="msg">TEST</InputButton>
+        <i class="iconfont icon-spread"></i>
+      </template>
+    </Table>
+    <Pagination :total="100"></Pagination>
+    <Tag>123</Tag>
+    <Tag type="success">abc</Tag>
+
+    <InputTextarea code-mode title="markdown" v-model="input" @change="changeInputText"
+                   :min-height="50"></InputTextarea>
+
+    <div v-html="inputShow" style="text-align: left"></div>
+
+    <CodeEditor v-model="input" language="cpp" style="height: 100px"></CodeEditor>
+    <MarkdownEdit style="height: 500px" v-model="input" :placeholder="'placeholder'"></MarkdownEdit>
+
+    <GlobalLoading style="display: none"></GlobalLoading>
+
+    <MarkdownBlockCode :show-line="false" :value="'123\nabc'"></MarkdownBlockCode>
+    <Dialog v-model="checkbox" title="测试">
+      <Table :head="tableHead" :data="tableData">
+        <template v-slot:head-name="scope">
+          {{ scope.data.label + 'abc' }}
+        </template>
+        <template v-slot:body-name="scope">
+          <Link :disabled="scope.data.name === 'a'">
+            {{ scope.data.name + 'abc' }}
+          </Link>
+          <InputButton @click="click">TEST</InputButton>
+          <InputButton @click="msg">TEST</InputButton>
+          <i class="iconfont icon-spread"></i>
+        </template>
+      </Table>
+      <InputButton disabled @click="click">TEST</InputButton>
+    </Dialog>
+  </div>
 </template>
 
 <script>
@@ -122,185 +119,185 @@ import MarkdownBlockCode from "./components/v1/markdown/MarkdownBlockCode";
 import TabMenu from "./components/v1/TabMenu";
 import InputAvatar from "./components/v1/InputAvatar";
 import Dialog from "./components/v1/Dialog";
-import MonacoEditor from 'vue-monaco'
+import CodeEditor from "./components/v1/CodeEditor.vue";
 
 Vue.use(MEVCL)
 // noinspection JSCheckFunctionSignatures
 Vue.use(Markdown)
 
 export default {
-    name: 'App',
-    components: {
-        MonacoEditor,
-        Dialog,
-        InputAvatar,
-        TabMenu,
-        MarkdownBlockCode,
-        MarkdownEdit,
-        InputTextarea,
-        Steps,
-        Tag,
-        Pagination,
-        NavMenu,
-        Alert,
-        Table,
-        GlobalLoading,
-        Link,
-        InputButton,
-        InputImage,
-        InputFile,
-        InputDateTime,
-        InputSlider,
-        InputSelect,
-        InputCheckbox,
-        InputText
-    },
-    data() {
-        return {
-            input: '',
-            inputShow: '',
-            checkbox: false,
-            select: 1,
-            selectOption: [
-                {
-                    label: 'abc',
-                    value: 'a',
-                }, {
-                    label: '111',
-                    value: 1,
-                },
-            ],
-            navMenuOption: [
-                {
-                    label: '111',
-                    value: 1
-                }, {
-                    label: '222',
-                    value: 2,
-                    hidden: true
-                }, {
-                    label: '333',
-                    value: 3
-                }, {
-                    label: '444',
-                    value: 4
-                }, {
-                    label: '555',
-                    value: 5
-                }, {
-                    label: '666',
-                    value: 6
-                }, {
-                    label: '777',
-                    value: 7
-                }
-            ],
-            sliderValue: 10,
-            dateTimeValue: '',
-            inputFile: null,
-            inputImageFile: null,
-            loading: true,
-            process: 0.38,
-            tableHead: [
-                {
-                    label: '名称',
-                    value: 'name',
-                    width: '300',
-                },
-                {
-                    label: '值',
-                    value: 'value',
-                    width: '100',
-                }
-            ],
-            tableData: [
-                {
-                    name: 'a',
-                    value: 123
-                },
-                {
-                    name: 'b',
-                    value: 456
-                },
-                {
-                    name: 'c',
-                    value: 789
-                }
-            ],
-            stepList: [
-                {
-                    type: 'success',
-                    title: 'step 1',
-                    value: 1,
-                    icon: 'success',
-                    disabled: false,
-                },
-                {
-                    type: 'brand',
-                    title: 'step 2',
-                    value: 2,
-                    disabled: false,
-                },
-                {
-                    type: 'info',
-                    title: 'step 3',
-                    value: 3,
-                    disabled: true,
-                },
-            ]
-        }
-    },
-    methods: {
-        changeInputText(text) {
-            this.inputShow = this.$markdown(text)
-            this.$nextTick(() => {
-                this.$renderer()
-            })
+  name: 'App',
+  components: {
+    CodeEditor,
+    Dialog,
+    InputAvatar,
+    TabMenu,
+    MarkdownBlockCode,
+    MarkdownEdit,
+    InputTextarea,
+    Steps,
+    Tag,
+    Pagination,
+    NavMenu,
+    Alert,
+    Table,
+    GlobalLoading,
+    Link,
+    InputButton,
+    InputImage,
+    InputFile,
+    InputDateTime,
+    InputSlider,
+    InputSelect,
+    InputCheckbox,
+    InputText
+  },
+  data() {
+    return {
+      input: '',
+      inputShow: '',
+      checkbox: false,
+      select: 1,
+      selectOption: [
+        {
+          label: 'abc',
+          value: 'a',
+        }, {
+          label: '111',
+          value: 1,
         },
-        click() {
-            this.$toast({
-                title: 'ABC',
-                text: 'abc',
-                duration: 'auto',
-                type: 'success'
-            })
-            this.$refs.input.shake()
-            this.selectOption = [
-                {
-                    label: 'abc',
-                    value: 'a',
-                    hidden: true,
-                }, {
-                    label: '111',
-                    value: 1,
-                },
-            ]
-        },
-        msg() {
-            this.$message({
-                text: 'ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC',
-                type: 'error',
-                inputType: 'password',
-                input: true,
-                confirmOK: (v) => {
-                    console.log(v)
-                },
-                confirmCancel: (v) => {
-                    console.log(v)
-                },
-            })
+      ],
+      navMenuOption: [
+        {
+          label: '111',
+          value: 1
+        }, {
+          label: '222',
+          value: 2,
+          hidden: true
+        }, {
+          label: '333',
+          value: 3
+        }, {
+          label: '444',
+          value: 4
+        }, {
+          label: '555',
+          value: 5
+        }, {
+          label: '666',
+          value: 6
+        }, {
+          label: '777',
+          value: 7
         }
+      ],
+      sliderValue: 10,
+      dateTimeValue: '',
+      inputFile: null,
+      inputImageFile: null,
+      loading: true,
+      process: 0.38,
+      tableHead: [
+        {
+          label: '名称',
+          value: 'name',
+          width: '300',
+        },
+        {
+          label: '值',
+          value: 'value',
+          width: '100',
+        }
+      ],
+      tableData: [
+        {
+          name: 'a',
+          value: 123
+        },
+        {
+          name: 'b',
+          value: 456
+        },
+        {
+          name: 'c',
+          value: 789
+        }
+      ],
+      stepList: [
+        {
+          type: 'success',
+          title: 'step 1',
+          value: 1,
+          icon: 'success',
+          disabled: false,
+        },
+        {
+          type: 'brand',
+          title: 'step 2',
+          value: 2,
+          disabled: false,
+        },
+        {
+          type: 'info',
+          title: 'step 3',
+          value: 3,
+          disabled: true,
+        },
+      ]
     }
+  },
+  methods: {
+    changeInputText(text) {
+      this.inputShow = this.$markdown(text)
+      this.$nextTick(() => {
+        this.$renderer()
+      })
+    },
+    click() {
+      this.$toast({
+        title: 'ABC',
+        text: 'abc',
+        duration: 'auto',
+        type: 'success'
+      })
+      this.$refs.input.shake()
+      this.selectOption = [
+        {
+          label: 'abc',
+          value: 'a',
+          hidden: true,
+        }, {
+          label: '111',
+          value: 1,
+        },
+      ]
+    },
+    msg() {
+      this.$message({
+        text: 'ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC',
+        type: 'error',
+        inputType: 'password',
+        input: true,
+        confirmOK: (v) => {
+          console.log(v)
+        },
+        confirmCancel: (v) => {
+          console.log(v)
+        },
+      })
+    }
+  }
 }
 </script>
 
 <style>
 #app {
-    /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /*text-align: center;*/
-    color: #2c3e50;
-    margin-top: 60px;
+  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*text-align: center;*/
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>

@@ -1,15 +1,15 @@
 /* region 引用*/
 
 .markdown-block-quote {
-    margin: 3px 1px;
-    padding: 0 10px;
-    border: 1px solid var(--border-color-level-1);
-    border-left: 5px solid var(--border-color-level-1);
-    border-radius: 5px;
+  margin: 3px 1px;
+  padding: 0 10px;
+  border: 1px solid var(--border-color-level-1);
+  border-left: 5px solid var(--border-color-level-1);
+  border-radius: 5px;
 }
 
 .markdown-block-quote p {
-    margin: 5px 5px;
+  margin: 5px 5px;
 }
 
 /* endregion */
@@ -17,24 +17,24 @@
 /* region 分隔行 */
 
 .markdown-hr-box {
-    border-top: 3px solid var(--border-color-level-1);
-    border-bottom: 3px solid var(--border-color-level-1);
-    color: var(--border-color-level-1);
-    text-align: center;
-    height: 1px;
-    border-radius: 3px;
-    margin: 20px 0;
-    position: relative;
+  border-top: 3px solid var(--border-color-level-1);
+  border-bottom: 3px solid var(--border-color-level-1);
+  color: var(--border-color-level-1);
+  text-align: center;
+  height: 1px;
+  border-radius: 3px;
+  margin: 20px 0;
+  position: relative;
 }
 
 .markdown-hr-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 0 5px;
-    background-color: white;
-    transform: translate(-50%, -50%);
-    color: var(--common-text-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0 5px;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  color: var(--common-text-color);
 }
 
 /* endregion */
@@ -42,47 +42,47 @@
 /* region 勾选框 */
 
 .markdown-checkbox-list-item {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .markdown-checkbox {
-    position: relative;
-    display: inline-block;
-    appearance: none;
-    outline: none;
-    margin: 0 5px 0 0;
-    width: 12px;
-    height: 12px;
-    box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  appearance: none;
+  outline: none;
+  margin: 0 5px 0 0;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
 }
 
 .markdown-checkbox::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    border: 1px solid var(--border-color-level-1);
-    box-sizing: border-box;
-    transition: 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border: 1px solid var(--border-color-level-1);
+  box-sizing: border-box;
+  transition: 0.5s;
 }
 
 .markdown-checkbox:checked::after {
-    border: 2px solid var(--border-color-level-1);
-    border-left: none;
-    border-top: none;
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 12px;
-    content: "";
-    border-color: var(--brand-color);
-    transform: rotate(45deg) translate(0px, -6px);
-    background-color: var(--transparent-color);
-    border-radius: 0;
+  border: 2px solid var(--border-color-level-1);
+  border-left: none;
+  border-top: none;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 12px;
+  content: "";
+  border-color: var(--brand-color);
+  transform: rotate(45deg) translate(0px, -6px);
+  background-color: var(--transparent-color);
+  border-radius: 0;
 }
 
 /* endregion */
@@ -90,53 +90,53 @@
 /* region 表格 */
 
 .markdown-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: var(--focus-shadowbox);
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: var(--focus-shadowbox);
 }
 
 .markdown-table thead tr {
-    background-color: var(--light-brand-color);
-    color: var(--common-text-color);
-    text-align: center;
-    font-weight: bold;
+  background-color: var(--light-brand-color);
+  color: var(--common-text-color);
+  text-align: center;
+  font-weight: bold;
 }
 
 .markdown-table th,
 .markdown-table td {
-    padding: 12px 15px;
-    border-right: 1px solid var(--border-color-level-1);
+  padding: 12px 15px;
+  border-right: 1px solid var(--border-color-level-1);
 }
 
 .markdown-table th:last-of-type,
 .markdown-table td:last-of-type {
-    padding: 12px 15px;
-    border-right: 0;
+  padding: 12px 15px;
+  border-right: 0;
 }
 
 .markdown-table td * {
-    vertical-align: middle;
-    display: inline-block;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .markdown-table tbody tr {
-    border-bottom: 1px solid var(--border-color-level-1);
+  border-bottom: 1px solid var(--border-color-level-1);
 }
 
 .markdown-table tbody tr:nth-of-type(even) {
-    background-color: var(--border-color-level-3);
+  background-color: var(--border-color-level-3);
 }
 
 .markdown-table tbody tr:last-of-type {
-    border-bottom: 2px solid var(--light-brand-color);
+  border-bottom: 2px solid var(--light-brand-color);
 }
 
 .markdown-table tbody tr:hover {
-    background-color: var(--border-color-level-2);
+  background-color: var(--border-color-level-2);
 }
 
 /* endregion */
@@ -144,28 +144,28 @@
 /* region 链接 */
 
 .markdown-link {
-    text-decoration: none;
-    color: var(--brand-color);
-    cursor: pointer;
-    transition: 0.2s ease all;
-    display: inline-block;
-    position: relative;
-    margin: 0 3px;
+  text-decoration: none;
+  color: var(--brand-color);
+  cursor: pointer;
+  transition: 0.2s ease all;
+  display: inline-block;
+  position: relative;
+  margin: 0 3px;
 }
 
 .markdown-link::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px;
-    background-color: var(--brand-color);
-    bottom: 0;
-    left: 0;
-    transition: 0.2s ease all;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background-color: var(--brand-color);
+  bottom: 0;
+  left: 0;
+  transition: 0.2s ease all;
 }
 
 .markdown-link:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 /* endregion */
@@ -173,18 +173,18 @@
 /* region 图片 */
 
 .markdown-image {
-    display: block;
-    margin: 0 auto;
-    pointer-events: none;
-    border-radius: 5px;
-    box-shadow: var(--focus-shadowbox);
-    border: 3px solid var(--border-color-level-3);
+  display: block;
+  margin: 0 auto;
+  pointer-events: none;
+  border-radius: 5px;
+  box-shadow: var(--focus-shadowbox);
+  border: 3px solid var(--border-color-level-3);
 }
 
 .markdown-image-title {
-    display: block;
-    text-align: center;
-    color: var(--border-color-level-1);
+  display: block;
+  text-align: center;
+  color: var(--border-color-level-1);
 }
 
 /* endregion */
