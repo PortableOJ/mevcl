@@ -3,6 +3,7 @@
 		"README.md"
 	],
 	"imageSize": 100,
+    "badgeTemplate": "<a href='https://github.com/PortableOJ/mevcl/blob/master/README.md'><img src='https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg' alt='Contributors'></a>",
 	"commit": false,
 	"commitConvention": "angular",
 	"contributors": [{

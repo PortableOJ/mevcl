@@ -3,12 +3,11 @@
    <br>
    <h1>MEVCL</h1>
    <p>the Minimal and Efficient Vue(2.0) Component Library(一个极小但高效的 Vue 组件库)</p>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<a href="https://github.com/PortableOJ/mevcl/blob/master/README.md"><img src="https://img.shields.io/badge/all_contributors-2-orange.svg" alt="Contributors"></a>
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+   <a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT LICENSE"></a>
 </div>
-
-   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-   [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-   <!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 # Install
 
 ```shell
