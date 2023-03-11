@@ -5,6 +5,10 @@
    <p>the Minimal and Efficient Vue(2.0) Component Library(一个极小但高效的 Vue 组件库)</p>
 </div>
 
+   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+   [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+   <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 # Install
 
 ```shell
@@ -16,7 +20,7 @@ npm install mevcl
 have a preview for this library
 
 ```shell
-git clone https://github.com/ZJGSU-TTCM/mevcl.git
+git clone https://github.com/PortableOJ/mevcl.git
 cd mevcl
 npm i
 npm run serve
@@ -84,3 +88,26 @@ Vue.component(InputText.name, InputText)
 # LICENSE
 
 [MIT](https://github.com/ZJGSU-TTCM/mevcl/blob/master/LICENSE)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://hukeqing.github.io"><img src="https://avatars.githubusercontent.com/u/47495915?v=4?s=100" width="100px;" alt="Lavender"/><br /><sub><b>Lavender</b></sub></a><br /><a href="https://github.com/PortableOJ/mevcl/commits?author=Hukeqing" title="Tests">⚠️</a> <a href="https://github.com/PortableOJ/mevcl/commits?author=Hukeqing" title="Code">💻</a> <a href="#ideas-Hukeqing" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Hukeqing" title="Maintenance">🚧</a> <a href="https://github.com/PortableOJ/mevcl/pulls?q=is%3Apr+reviewed-by%3AHukeqing" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://rei.ac"><img src="https://avatars.githubusercontent.com/u/17238215?v=4?s=100" width="100px;" alt="ReiAC"/><br /><sub><b>ReiAC</b></sub></a><br /><a href="https://github.com/PortableOJ/mevcl/commits?author=ACRei" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

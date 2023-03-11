@@ -1,0 +1,35 @@
+{
+	"files": [
+		"README.md"
+	],
+	"imageSize": 100,
+	"commit": false,
+	"commitConvention": "angular",
+	"contributors": [{
+		"login": "ACRei",
+		"name": "ReiAC",
+		"avatar_url": "https://avatars.githubusercontent.com/u/17238215?v=4",
+		"profile": "https://rei.ac",
+		"contributions": [
+			"doc"
+		]
+	}, {
+		"login": "Hukeqing",
+		"name": "Lavender",
+		"avatar_url": "https://avatars.githubusercontent.com/u/47495915?v=4",
+		"profile": "http://hukeqing.github.io",
+		"contributions": [
+			"test",
+			"code",
+			"ideas",
+			"maintenance",
+			"review"
+		]
+	}],
+	"contributorsPerLine": 7,
+	"skipCi": true,
+	"repoType": "github",
+	"repoHost": "https://github.com",
+	"projectName": "mevcl",
+	"projectOwner": "PortableOJ"
+}
