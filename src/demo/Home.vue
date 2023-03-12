@@ -17,7 +17,10 @@
       </div>
       <div></div>
     </div>
-    <div style="width: 800px; margin-top: 120px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr">
+    <div style="margin-top: 60px">
+      <InputSelect v-model="lang" :data="langList" @change="langChange"></InputSelect>
+    </div>
+    <div style="width: 800px; margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr">
       <div class="feature">
         <h1>{{ $t('home.feature[0].title') }}</h1>
         <div>{{ $t('home.feature[0].desc') }}</div>
@@ -40,8 +43,37 @@
 
 <script>
 
+import InputSelect from "../components/v1/InputSelect.vue";
+
 export default {
-  name: "Home"
+  name: "Home",
+  components: {
+    InputSelect
+  },
+  data() {
+    return {
+      lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
+      langList: [
+        {
+          label: 'English',
+          value: 'en'
+        },
+        {
+          label: '中文(简体)',
+          value: 'zh-cn'
+        }
+      ]
+    }
+  },
+  created() {
+    this.$i18n.locale = this.lang
+  },
+  methods: {
+    langChange(value) {
+      localStorage.setItem('lang', value)
+      window.location.reload()
+    }
+  }
 }
 </script>
 

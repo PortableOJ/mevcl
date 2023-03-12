@@ -1,7 +1,15 @@
 const messages = {
   en: {
+    language: {
+      label: 'English',
+      value: 'en'
+    },
     app: {
-      home: "Home"
+      home: 'Home',
+      input: {
+        name: 'Input',
+        inputText: 'Input Text'
+      }
     },
     home: {
       desc: 'the Minimal and Efficient Vue(2.0) Component Library',
@@ -26,8 +34,16 @@ const messages = {
     }
   },
   'zh-cn': {
+    language: {
+      label: '中文（简体）',
+      value: 'zh-cn'
+    },
     app: {
-      home: "主页"
+      home: '主页',
+      input: {
+        name: '输入',
+        inputText: '输入框'
+      }
     },
     home: {
       desc: '一个极小但高效的 Vue(2.0) 组件库',

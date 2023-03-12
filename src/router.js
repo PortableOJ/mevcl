@@ -11,6 +11,10 @@ const routes = [
     path: '/home',
     name: 'home',
     component: () => import("./demo/Home.vue"),
+  }, {
+    path: '/inputText',
+    name: 'inputText',
+    component: () => import('./demo/InputTextDemo')
   },
 
   {

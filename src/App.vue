@@ -2,8 +2,9 @@
 <template>
   <div id="app">
     <!--suppress JSValidateTypes -->
-    <NavMenu :options="navMenuOption" v-model="select"></NavMenu>
-    <router-view></router-view>
+    <NavMenu :options="navMenuOption" v-model="navSelect" @change="onChangeNav"></NavMenu>
+    <TabMenu :options="tabMenuOption" v-model="tabSelect" @change="onChangeTab"></TabMenu>
+    <router-view style="width: 800px; margin: 30px auto"></router-view>
 <!--    &lt;!&ndash;suppress JSValidateTypes &ndash;&gt;-->
 <!--    <TabMenu :options="navMenuOption" v-model="select"></TabMenu>-->
 
@@ -94,66 +95,51 @@
 
 <script>
 import './static/style.css'
+import TabMenu from "./components/v1/TabMenu.vue";
 
 export default {
   name: 'App',
-  components: {},
+  components: {TabMenu},
   data() {
     return {
-      input: '',
-      inputShow: '',
-      checkbox: false,
-      select: 1,
+      navSelect: 'home',
+      tabSelect: '',
       navMenuOption: [
         {
           label: this.$t('app.home'),
-          value: 1
+          value: 'home'
+        },
+        {
+          label: this.$t('app.input.name'),
+          value: 'input'
         }
       ],
+      tabMenuOptionSet: {
+        input: [
+          {
+            label: this.$t('app.input.inputText'),
+            value: 'inputText'
+          }
+        ]
+      },
+      tabMenuOption: []
     }
   },
   mounted() {
-    this.$router.push({name: 'home'})
+    // this.$router.push({name: 'home', query: {lang: 'test'}})
+    this.$i18n.locale = this.$route.query.lang ? this.$route.query.lang : 'en'
+    this.onChangeNav('home')
   },
   methods: {
-    changeInputText(text) {
-      this.inputShow = this.$markdown(text)
-      this.$nextTick(() => {
-        this.$renderer()
-      })
+    onChangeNav(value) {
+      this.tabSelect = ''
+      if (value === 'home') {
+        this.onChangeTab(value)
+      }
+      this.tabMenuOption = this.tabMenuOptionSet[value]
     },
-    click() {
-      this.$toast({
-        title: 'ABC',
-        text: 'abc',
-        duration: 'auto',
-        type: 'success'
-      })
-      this.$refs.input.shake()
-      this.selectOption = [
-        {
-          label: 'abc',
-          value: 'a',
-          hidden: true,
-        }, {
-          label: '111',
-          value: 1,
-        },
-      ]
-    },
-    msg() {
-      this.$message({
-        text: 'ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC',
-        type: 'error',
-        inputType: 'password',
-        input: true,
-        confirmOK: (v) => {
-          console.log(v)
-        },
-        confirmCancel: (v) => {
-          console.log(v)
-        },
-      })
+    onChangeTab(value) {
+      this.$router.push({name: value})
     }
   }
 }
@@ -167,5 +153,25 @@ export default {
   /*text-align: center;*/
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.main-title {
+  padding: 20px;
+  background-color: var(--border-color-level-4);
+  border-radius: 30px;
+}
+
+.main-desc {
+  margin-left: 20px;
+}
+
+.main-exam {
+  margin: 10px 10px;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--white-color);
 }
 </style>
