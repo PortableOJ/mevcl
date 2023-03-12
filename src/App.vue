@@ -112,6 +112,9 @@ export default {
       ],
     }
   },
+  mounted() {
+    this.$router.push({name: 'home'})
+  },
   methods: {
     changeInputText(text) {
       this.inputShow = this.$markdown(text)
