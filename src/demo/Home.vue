@@ -3,7 +3,7 @@
     <div style="display: grid; grid-template-columns: 1fr auto auto 1fr; grid-column-gap: 20px; place-items: center">
       <div></div>
       <div>
-        <img src="./favicon.png" alt="favicon">
+        <img src="https://github.com/ZJGSU-TTCM/mevcl/blob/master/public/favicon.png?raw=true" alt="favicon">
       </div>
       <div style="text-align: left">
         <div style="font-size: 50px; font-weight: bolder; display: flex" class="text-shadow">
